@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
         if (spawnTimer > 0)
         {
             spawnTimer = 0f;
-            SpawnWave();
+            //SpawnWave();
         }
     }
     /*private void SpawnWave()
@@ -25,7 +25,6 @@ public class MonsterSpawner : MonoBehaviour
     {
         yield return new WaitForseconds(interval);
         GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(-6f, 6f), 0), Quaternion.identity);
-    }
+    }*/
 }
 
-    */

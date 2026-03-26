@@ -7,7 +7,7 @@ public class gameState : MonoBehaviour
 {
     bool night = false;
     string startingText;
-    int dayCounter = 0;
+    int dayCounter = 1;
     float currentTime;
     public float startingTime = 10f; //180f for 3min
 
@@ -33,7 +33,7 @@ public class gameState : MonoBehaviour
         void Timer()
         {
             currentTime = startingTime;
-            
+
         }
 
         void DayCounter()
@@ -47,7 +47,14 @@ public class gameState : MonoBehaviour
         do
         {
             NightEvents();
-            
+
+            if (currentTime == 0)
+            {
+                night = false;
+                Debug.Log("Night ends");
+                ShiftEnds();
+                continue;
+            }
         }
         while (night == true);
     }
@@ -69,6 +76,16 @@ public class gameState : MonoBehaviour
     {
         void EndingUI()
         {
+            void DayCounter()
+            {
+                dayCounter++;
+            }
+
+            void StartNewShift()
+            {
+
+            }
+
             void Statistics()
             {
                 //kills counter (animals & monsters)
