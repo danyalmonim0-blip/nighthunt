@@ -1,30 +1,43 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSpawner : MonoBehaviour
+public class monsterSpawner : MonoBehaviour
 {
-    private float spawnTimer;
+    [SerializeField]
+    private GameObject MonsterPrefab;
 
-    private void Update()
-    {
-        spawnTimer = Time.time;
-        if (spawnTimer > 0)
-        {
-            spawnTimer = 0f;
-            //SpawnWave();
-        }
-    }
-    /*private void SpawnWave()
-    {
-        if (enemyPrefab == null)
-        {
+    [SerializeField]
+    private float MonsterInterval = 3.5f;
+    private object enemy;
 
-        }
-    }
-    private IEnumerator spawnEnemy(float interval, GameObject enemy)
+    private void Start()
     {
-        yield return new WaitForseconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(-6f, 6f), 0), Quaternion.identity);
-    }*/
+        StartCoroutine(MonsterSpawner(MonsterInterval, MonsterPrefab));
+    }
+
+    private IEnumerator MonsterSpawner(float interval, GameObject monster)
+    {
+        yield return new WaitForEndOfSeconds(interval);
+        GameObject newMonster = Instantiate(monster, new Vector3(UnityEngine.Random.Range(-5f, 5), UnityEngine.Random.Range(-6f, 6f), 0), Quaternion.identity);
+        StartCoroutine(spawnMonster(interval, enemy));
+    }
+
+    private string spawnMonster(float interval, object enemy)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void registerKill()
+    {
+        throw new NotImplementedException();
+    }
+
+    /*  internal void registerKill()
+      {
+          throw new NotImplementedException();
+      }
+    */
 }
 
