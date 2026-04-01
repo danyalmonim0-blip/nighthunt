@@ -1,43 +1,72 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class monsterSpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject MonsterPrefab;
+    //[Header ""] 
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private int maxEnemiesOnScreem = 3;
+    [SerializeField] private int activeEnemies = 0;
+    [SerializeField] private int totalKills = 0;
 
-    [SerializeField]
-    private float MonsterInterval = 3.5f;
-    private object enemy;
+    private float timer = 0f;
+    private int maxEnemiesOnScreen;
 
-    private void Start()
+    private void Update()
     {
-        StartCoroutine(MonsterSpawner(MonsterInterval, MonsterPrefab));
+        timer += Time.deltaTime;
+        if (timer >= spawnInterval && activeEnemies < maxEnemiesOnScreen)
+        {
+            timer = 0f;
+            SpawnEnemy();
+        }
     }
 
-    private IEnumerator MonsterSpawner(float interval, GameObject monster)
+    private void SpawnEnemy()
     {
-        yield return new WaitForEndOfSeconds(interval);
-        GameObject newMonster = Instantiate(monster, new Vector3(UnityEngine.Random.Range(-5f, 5), UnityEngine.Random.Range(-6f, 6f), 0), Quaternion.identity);
-        StartCoroutine(spawnMonster(interval, enemy));
+        if (enemyPrefab == null)
+        {
+            Debug.LogWarning("MonsterSpawner: Enemy prefab is missing.");
+            return;
+        }
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogWarning("MonsterSpawner: No spawn points assigned.");
+            return;
+        }
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        Transform chosenSpawnPoint = spawnPoints[randomIndex];
+        if (chosenSpawnPoint != null)
+        {
+            Debug.LogWarning("MonsterSpawner: One of the spawnpoints is null.");
+        }
+        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity);
+
+        ClickableEnemy clickableEnemy = newEnemy.GetComponent<ClickableEnemy>();
+        if (clickableEnemy != null)
+        {
+            clickableEnemy.SetSpawner(this);
+        }
+        else
+        {
+            Debug.LogWarning("MonsterSpawner: Spawned enemy does not have Clickable script.");
+        }
+
+        activeEnemies++;
+        Debug.Log("Enemy spawned. Active enemies: " + activeEnemies);
     }
 
-    private string spawnMonster(float interval, object enemy)
+    public void RegisterEnemyKilled()
     {
-        throw new NotImplementedException();
-    }
+        activeEnemies--;
+        if (activeEnemies < 0)
+        {
+            activeEnemies = 0;
+        }
 
-    internal void registerKill()
-    {
-        throw new NotImplementedException();
+        totalKills++;
+        Debug.Log("Enemy killed. Total kills: " + totalKills);
     }
-
-    /*  internal void registerKill()
-      {
-          throw new NotImplementedException();
-      }
-    */
 }
 

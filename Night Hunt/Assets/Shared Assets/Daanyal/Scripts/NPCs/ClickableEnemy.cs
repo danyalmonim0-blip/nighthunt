@@ -1,21 +1,27 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ClickableEnemy : MonoBehaviour
 {
     private monsterSpawner spawner;
+    private bool isDead = false;
 
-    public void SetSpawner()
+    public void SetSpawner(monsterSpawner newSpawner)
     {
-        monsterSpawner monsterSpawner = null;
-        spawner = monsterSpawner;
+        spawner = newSpawner;
     }
-    
-   
-private void OnMouseDown()
+
+    private void OnMouseDown()
     {
+        if (isDead)
+        {
+            return;
+        }
+        (isDead) = true;
+
         if (spawner != null)
         {
-            spawner.registerKill();
+            spawner.RegisterEnemyKilled();
         }
         Destroy(gameObject);
     }
