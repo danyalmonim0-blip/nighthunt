@@ -350,6 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1984331473}
   - component: {fileID: 1984331472}
+  - component: {fileID: 1984331474}
   m_Layer: 0
   m_Name: Game1
   m_TagString: Untagged
@@ -370,6 +371,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingTime: 5
+  playerHealth: {fileID: 0}
+  currentHealth: {fileID: 0}
+  playerIsDead: {fileID: 0}
 --- !u!4 &1984331473
 Transform:
   m_ObjectHideFlags: 0
@@ -385,6 +389,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1984331474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984331471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdd3e547d7b72144816858f0ffb1d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 0
+  currentHealth: 0
+  playerIsDead: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
+
 public class gameState : MonoBehaviour
 {
     bool night = true;
@@ -11,56 +12,68 @@ public class gameState : MonoBehaviour
     int dayCounter = 1;
     float currentTime;
     public float startingTime = 5f; //180f for 3min
+    float surviveTime;
+
+    public Player playerHealth;
+    public Player currentHealth;
+    public Player playerIsDead;
 
 
     void Start()
     {
+        Debug.Log("Shift starts");
+        currentTime = startingTime;
         //player hits start shift
-
-        NightEvents();
+        //NightEvents();
     }
 
     private void Update()
-    {
-        Timer(); //shift time ends
-        //player hits pause
-        //player dies
-    }
-
-    public void Timer()
     {
         currentTime -= 1 * Time.deltaTime; //shift timer : shift ends when 0
         if (currentTime <= 0)
         {
             currentTime = 0;
-            ShiftEnds();
-            NightEvents(); //add button to enable it
+            night = false;
+            Debug.Log("Shift ends");
+            DayCounterDisplay();
+            SceneManager.LoadScene("MainMenu"); //after shift menu
         }
-    }
-    public void NightEvents()
-    {
-        Debug.Log("Shift starts");
-        currentTime = startingTime;
-    }
-
-    public void ShiftEnds()
-    {
-        Debug.Log("Shift ends");
-
-        currentTime = startingTime; //-> loop
-        night = false;
-        DayCounter();
+        else if (Player.Instance.playerIsDead == true)
+        {
+            Debug.Log("Player is dead");
+            SurviveTime();
+            night = false;
+            Debug.Log("Player lost");
+            SceneManager.LoadScene("MainMenu");
+        }
+        //player hits pause
+        //player dies
     }
 
-    void DayCounter()
+    //public void NightEvents()
+    //{
+        
+        
+        
+    //}
+
+    void DayCounterDisplay()
     {
         Debug.Log(dayCounter);
         dayCounter++;
     }
 
+    void SurviveTime()
+    {
+        surviveTime = currentTime;
+        Debug.Log("You had " + currentTime + " hours left!");
+    }
+
+
+
     void EndingUI()
     {
-
+        
     }
 
     void StartNewShift()
