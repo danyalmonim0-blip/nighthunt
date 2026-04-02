@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SOPlayer", menuName = "Scriptable Objects/SOPlayer")]
-public class SOPlayer : ScriptableObject
+[CreateAssetMenu(fileName = "PlayerHUD", menuName = "Scriptable Objects/PlayerHUD")]
+public class PlayerHUD : ScriptableObject
 {
     public int playerHealth;
     public int currentHealth;
