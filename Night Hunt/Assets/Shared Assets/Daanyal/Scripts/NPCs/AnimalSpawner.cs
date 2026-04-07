@@ -1,21 +1,21 @@
-/*using UnityEngine;
+using UnityEngine;
 
 public class AnimalSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject animalPrefab;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private int maxAnimalOnScreem = 3;
-    [SerializeField] private int activeAnimal = 0;
-    [SerializeField] private int totalKills = 0;
+    [SerializeField] private float spawnInterval = 3f;
+    [SerializeField] private int maxAnimalsOnScreen = 2;
+    [SerializeField] private int activeAnimals = 0;
+    [SerializeField] private int totalAnimalKills = 0;
 
     private float timer = 0f;
-    private int maxAnimalOnScreen;
 
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= spawnInterval && activeAnimal < maxAnimalOnScreen)
+
+        if (timer >= spawnInterval && activeAnimals < maxAnimalsOnScreen)
         {
             timer = 0f;
             SpawnAnimal();
@@ -29,31 +29,51 @@ public class AnimalSpawner : MonoBehaviour
             Debug.LogWarning("AnimalSpawner: Animal prefab is missing.");
             return;
         }
+
         if (spawnPoints == null || spawnPoints.Length == 0)
         {
             Debug.LogWarning("AnimalSpawner: No spawn points assigned.");
             return;
         }
+
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform chosenSpawnPoint = spawnPoints[randomIndex];
-        if (chosenSpawnPoint != null)
+
+        if (chosenSpawnPoint == null)
         {
-            Debug.LogWarning("AnimalSpawner: One of the spawnpoints is null.");
+            Debug.LogWarning("AnimalSpawner: One of the spawn points is null.");
+            return;
         }
+
         GameObject newAnimal = Instantiate(animalPrefab, chosenSpawnPoint.position, Quaternion.identity);
 
-        ClickableEnemy clickableEnemy = newAnimal.GetComponent<ClickableEnemy>();
-        if (clickableEnemy != null)
+        ClickableTarget clickableTarget = newAnimal.GetComponent<ClickableTarget>();
+
+        if (clickableTarget != null)
         {
-            clickableEnemy.SetSpawner(this);
+            clickableTarget.SetAnimalSpawner(this);
         }
         else
         {
-            Debug.LogWarning("MonsterSpawner: Spawned enemy does not have Clickable script.");
+            Debug.LogWarning("AnimalSpawner: Spawned animal does not have ClickableTarget script.");
         }
 
-        activeAnimal++;
-        Debug.Log("Animal spawned. Active animal: " + activeAnimal);
+        activeAnimals++;
+        Debug.Log("Animal spawned. Active animals: " + activeAnimals);
+    }
+
+    public void RegisterAnimalKilled()
+    {
+        activeAnimals--;
+
+        if (activeAnimals < 0)
+        {
+            activeAnimals = 0;
+        }
+
+        totalAnimalKills++;
+        Debug.Log("Animal killed. Total animal kills: " + totalAnimalKills);
+
+        
     }
 }
-*/

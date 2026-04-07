@@ -1,18 +1,13 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ClickableEnemy : MonoBehaviour
 {
-    private monsterSpawner spawner;
-    //private AnimalSpawner animalSpawner;
+    private MonsterSpawner spawner;
     private bool isDead = false;
 
-    public void SetSpawner(monsterSpawner newSpawner)
+    public void SetSpawner(MonsterSpawner newSpawner)
     {
-
         spawner = newSpawner;
-
     }
 
     private void OnMouseDown()
@@ -21,12 +16,14 @@ public class ClickableEnemy : MonoBehaviour
         {
             return;
         }
-        (isDead) = true;
+
+        isDead = true;
 
         if (spawner != null)
         {
             spawner.RegisterEnemyKilled();
         }
+
         Destroy(gameObject);
     }
 }

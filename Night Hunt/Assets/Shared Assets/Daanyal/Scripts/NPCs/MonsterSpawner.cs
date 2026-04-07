@@ -1,21 +1,20 @@
 using UnityEngine;
 
-public class monsterSpawner : MonoBehaviour
+public class MonsterSpawner : MonoBehaviour
 {
-    //[Header ""] 
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private int maxEnemiesOnScreem = 3;
+    [SerializeField] private int maxEnemiesOnScreen = 3;
     [SerializeField] private int activeEnemies = 0;
     [SerializeField] private int totalKills = 0;
 
     private float timer = 0f;
-    private int maxEnemiesOnScreen;
 
     private void Update()
     {
         timer += Time.deltaTime;
+
         if (timer >= spawnInterval && activeEnemies < maxEnemiesOnScreen)
         {
             timer = 0f;
@@ -30,27 +29,33 @@ public class monsterSpawner : MonoBehaviour
             Debug.LogWarning("MonsterSpawner: Enemy prefab is missing.");
             return;
         }
+
         if (spawnPoints == null || spawnPoints.Length == 0)
         {
             Debug.LogWarning("MonsterSpawner: No spawn points assigned.");
             return;
         }
+
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform chosenSpawnPoint = spawnPoints[randomIndex];
-        if (chosenSpawnPoint != null)
+
+        if (chosenSpawnPoint == null)
         {
-            Debug.LogWarning("MonsterSpawner: One of the spawnpoints is null.");
+            Debug.LogWarning("MonsterSpawner: One of the spawn points is null.");
+            return;
         }
+
         GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity);
 
-        ClickableEnemy clickableEnemy = newEnemy.GetComponent<ClickableEnemy>();
-        if (clickableEnemy != null)
+        ClickableTarget clickableTarget = newEnemy.GetComponent<ClickableTarget>();
+
+        if (clickableTarget != null)
         {
-            clickableEnemy.SetSpawner(this);
+            clickableTarget.SetMonsterSpawner(this);
         }
         else
         {
-            Debug.LogWarning("MonsterSpawner: Spawned enemy does not have Clickable script.");
+            Debug.LogWarning("MonsterSpawner: Spawned enemy does not have ClickableTarget script.");
         }
 
         activeEnemies++;
@@ -60,6 +65,7 @@ public class monsterSpawner : MonoBehaviour
     public void RegisterEnemyKilled()
     {
         activeEnemies--;
+
         if (activeEnemies < 0)
         {
             activeEnemies = 0;
@@ -69,4 +75,3 @@ public class monsterSpawner : MonoBehaviour
         Debug.Log("Enemy killed. Total kills: " + totalKills);
     }
 }
-
