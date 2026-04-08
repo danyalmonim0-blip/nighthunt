@@ -11,9 +11,9 @@ public class gameState : MonoBehaviour
 {
     //bool isPlayerAlive;
     string startingText;
-    int dayCounter = 0;
+    public int dayCounter = 0;
     public float currentTime;
-    public float startingTime = 7f; //180f for 3min
+    public float startingTime = 12f; //180f for 3min
     public float gameOverScrnLength = 2f;
     public float currentGameOverScrnLength;
     public float currentStartScrnLength;
@@ -37,6 +37,18 @@ public class gameState : MonoBehaviour
     public Player currentHealth;
     public Player playerIsDead;
 
+    public static gameState Instance;
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         InPanel.SetActive(true);
@@ -54,6 +66,13 @@ public class gameState : MonoBehaviour
         {
             StartPanel.SetActive(false);
         }
+
+        currentGameOverScrnLength -= 1 * Time.deltaTime;
+        if (gameOverScrnLength <= 0)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
 
         currentTime -= 1 * Time.deltaTime;
         if (currentTime <= 0)
@@ -90,12 +109,7 @@ public class gameState : MonoBehaviour
 
         EndPanel.SetActive(true);
         currentGameOverScrnLength = gameOverScrnLength;
-        currentGameOverScrnLength -= 1 * Time.deltaTime;
-
-        if (gameOverScrnLength <= 0)
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
+        
     }
 
     void DayCounter()
