@@ -9,15 +9,15 @@ using Unity.VisualScripting;
 
 public class gameState : MonoBehaviour
 {
-    bool night = true;
+    //bool isPlayerAlive;
     string startingText;
-    int dayCounter = 1;
-    float currentTime;
-    public float startingTime = 5f; //180f for 3min
-    public float endPanelLength = 5f;
-    public float currentEndPanelLength;
-    public float currentStartPanelLength;
-    public float startPanelLength = 2f;
+    int dayCounter = 0;
+    public float currentTime;
+    public float startingTime = 7f; //180f for 3min
+    public float gameOverScrnLength = 2f;
+    public float currentGameOverScrnLength;
+    public float currentStartScrnLength;
+    public float startScrnLength = 2f;
     int monsterKilled;
     int animalKilled;
     float timeSurvived;
@@ -39,64 +39,62 @@ public class gameState : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Shift starts");
-        
-        InPanel.SetActive(false);
+        InPanel.SetActive(true);
         EndPanel.SetActive(false);
 
-        currentTime = startingTime;
-        currentStartPanelLength = startPanelLength;
-
-        if (currentStartPanelLength <= 0)
-        {
-            StartPanel.SetActive(true);
-        }
+        ShiftEvents();
     }
 
     private void Update()
     {
-        startPanelLength -= 1 * Time.deltaTime;
-        if (startPanelLength <= 0)
+        RealTimeDisplay();
+
+        currentStartScrnLength -= 1 * Time.deltaTime;
+        if (currentStartScrnLength <= 0)
         {
             StartPanel.SetActive(false);
         }
 
-        RealTimeDisplay();
-        currentTime -= 1 * Time.deltaTime; //shift timer : shift ends when 0
+        currentTime -= 1 * Time.deltaTime;
         if (currentTime <= 0)
         {
-            currentTime = startingTime;
-            //currentTime = timeSurvived;
-            night = false;
-
-            Debug.Log("Shift ends");
-            
-
-            DayCounter();
-
-            currentStartPanelLength = startPanelLength;
-
-            startPanelLength -= 1 * Time.deltaTime;
-            if (startPanelLength <= 0)
-            {
-                StartPanel.SetActive(false);
-            }
+            ShiftEnds();
+            ShiftEvents();
         }
         else if (Player.Instance.playerIsDead == true)
         {
-            Debug.Log("Player is dead");
-            night = false;
+            GameOver();
+        }
+    }
 
-            SetEndPanelStats(); 
+    public void ShiftEvents()
+    {
+        DayCounter();
 
-            endPanelLength -= 1 * Time.deltaTime;
-            if (endPanelLength <= 0)
-            {
-                EndPanel.SetActive(false);
-                SceneManager.LoadScene("MainMenu");
-            }
+        StartPanel.SetActive(true);
+        currentStartScrnLength = startScrnLength;
 
-            
+        currentTime = startingTime;
+        Debug.Log("Shift starts");
+    }
+    public void ShiftEnds()
+    {
+        Debug.Log("Shift ends");
+
+        currentTime = startingTime;
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+
+        EndPanel.SetActive(true);
+        currentGameOverScrnLength = gameOverScrnLength;
+        currentGameOverScrnLength -= 1 * Time.deltaTime;
+
+        if (gameOverScrnLength <= 0)
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -105,38 +103,17 @@ public class gameState : MonoBehaviour
         Debug.Log("Day " + dayCounter);
         dayCounter++;
         DayCountDisplay();
-
     }
 
     void DayCountDisplay()
-    {
-        DayDisplay.text = "Day " + dayCounter;
-    }
+        {
+            DayDisplay.text = "Day " + dayCounter;
+        }
 
     void RealTimeDisplay()
     {
         TimeDisplay.text = "Time left " + currentTime;
     }
 
-    void SetEndPanelStats()
-    {
-        EndPanel.SetActive(true);
-
-        MonsterKilledDisplay.text = "Monster killed:        " + monsterKilled;
-        AnimalKilledDisplay.text = "Animal killed:        " + animalKilled;
-        TimeSurvivedDisplay.text = "Time survived:        " + timeSurvived;
-
-    }
-
-
-
-    //public void Continue()
-    //{
-    //    SceneManager.LoadScene("Game1");
-    //}
-
-    //public void BackMenu()
-    //{
-    //    SceneManager.LoadScene("MainMenu");
-    //}
+    
 }

@@ -5,7 +5,7 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private int maxEnemiesOnScreen = 3;
+    [SerializeField] private int maxEnemiesOnScreen = 2;
     [SerializeField] private int activeEnemies = 0;
     [SerializeField] private int totalKills = 0;
 

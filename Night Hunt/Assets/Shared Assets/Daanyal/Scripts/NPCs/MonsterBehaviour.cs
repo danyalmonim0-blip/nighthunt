@@ -3,7 +3,6 @@ using UnityEngine;
 public class MonsterBehaviour : MonoBehaviour
 {
     
-
     void Start()
     {
         
@@ -18,4 +17,6 @@ public class MonsterBehaviour : MonoBehaviour
     {
 
     }
+
+
 }

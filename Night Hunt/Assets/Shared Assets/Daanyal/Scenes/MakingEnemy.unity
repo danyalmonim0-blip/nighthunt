@@ -383,8 +383,8 @@ MonoBehaviour:
   - {fileID: 253151146}
   - {fileID: 835772614}
   - {fileID: 456688631}
-  spawnInterval: 4
-  maxEnemiesOnScreem: 6
+  spawnInterval: 2
+  maxEnemiesOnScreen: 3
   activeEnemies: 0
   totalKills: 0
 --- !u!4 &2080792383
