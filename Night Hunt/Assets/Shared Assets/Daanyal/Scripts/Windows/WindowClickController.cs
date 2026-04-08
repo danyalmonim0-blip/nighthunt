@@ -110,10 +110,12 @@ public class WindowClickController : MonoBehaviour
 
     public void isBPressed()
     {
+
         HutMator.SetBool("isRZ", false);
         HutMator.SetBool("isMZ", false);
         HutMator.SetBool("isLZ", false);
         isZoomed = false;
+        BBtn.SetActive(false);
         Invoke("SetCorrectButtons", 0.45f);
 
     }
@@ -123,20 +125,17 @@ public class WindowClickController : MonoBehaviour
         if (HutPos == 0 && !isZoomed)
         {
             RBtn.SetActive(true);
-            BBtn.SetActive(false);
             LWBtn.SetActive(true);
         }
         else if (HutPos == 1 && !isZoomed)
         {
             LBtn.SetActive(true);
             RBtn.SetActive(true);
-            BBtn.SetActive(false);
             MWBtn.SetActive(true);
         }
         else if (HutPos == 2 && !isZoomed)
         {
             LBtn.SetActive(true);
-            BBtn.SetActive(false);
             RWBtn.SetActive(true);
         }
         else if (isZoomed)
