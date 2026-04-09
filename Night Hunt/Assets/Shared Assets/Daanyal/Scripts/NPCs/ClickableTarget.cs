@@ -29,7 +29,7 @@ public class ClickableTarget : MonoBehaviour
 
         if (monsterSpawner != null)
         {
-            monsterSpawner.RegisterEnemyKilled();
+            monsterSpawner.MonsterKilledCnt();
         }
 
         if (animalSpawner != null)
@@ -38,5 +38,10 @@ public class ClickableTarget : MonoBehaviour
         }
 
         Destroy(gameObject);
+
+        if (gameState.Instance.currentTime == 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }

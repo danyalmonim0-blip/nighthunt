@@ -14,13 +14,11 @@ public class gameState : MonoBehaviour
     public int dayCounter = 0;
     public float currentTime;
     public float startingTime = 12f; //180f for 3min
-    public float gameOverScrnLength = 2f;
+    public float gameOverScrnLength = 5f;
     public float currentGameOverScrnLength;
     public float currentStartScrnLength;
     public float startScrnLength = 2f;
-    int monsterKilled;
-    int animalKilled;
-    float timeSurvived;
+
 
     public GameObject StartPanel;
     public GameObject EndPanel;
@@ -66,12 +64,7 @@ public class gameState : MonoBehaviour
         {
             StartPanel.SetActive(false);
         }
-
-        currentGameOverScrnLength -= 1 * Time.deltaTime;
-        if (gameOverScrnLength <= 0)
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
+        
 
 
         currentTime -= 1 * Time.deltaTime;
@@ -108,8 +101,10 @@ public class gameState : MonoBehaviour
         Debug.Log("Game Over");
 
         EndPanel.SetActive(true);
-        currentGameOverScrnLength = gameOverScrnLength;
-        
+
+        MonsterKilledCountDispay();
+        AnimalKilledCountDispay();
+        DaysSurvivedDisplay();
     }
 
     void DayCounter()
@@ -129,5 +124,23 @@ public class gameState : MonoBehaviour
         TimeDisplay.text = "Time left " + currentTime;
     }
 
-    
+    void MonsterKilledCountDispay()
+    {
+        MonsterKilledDisplay.text = "Monsters killed: " + MonsterSpawner.Instance.totalKills;
+    }
+
+    void AnimalKilledCountDispay()
+    {
+        AnimalKilledDisplay.text = "Animals killed: ";
+    }
+
+    void DaysSurvivedDisplay()
+    {
+        TimeSurvivedDisplay.text = "Days survived: " + dayCounter;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

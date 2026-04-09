@@ -373,7 +373,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080792381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2df2b0a826ae6b84580e2ce1d931178b, type: 3}
   m_Name: 
@@ -383,10 +383,12 @@ MonoBehaviour:
   - {fileID: 253151146}
   - {fileID: 835772614}
   - {fileID: 456688631}
-  spawnInterval: 2
   maxEnemiesOnScreen: 3
   activeEnemies: 0
   totalKills: 0
+  timerRand: 3
+  currentTimerRand: 0
+  randomNum: 0
 --- !u!4 &2080792383
 Transform:
   m_ObjectHideFlags: 0

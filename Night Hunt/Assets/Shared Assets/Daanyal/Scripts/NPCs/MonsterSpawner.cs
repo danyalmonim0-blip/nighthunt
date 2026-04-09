@@ -7,12 +7,12 @@ public class MonsterSpawner : MonoBehaviour
     //[SerializeField] private float spawnInterval;
     [SerializeField] private int maxEnemiesOnScreen = 2;
     [SerializeField] private int activeEnemies = 0;
-    [SerializeField] private int totalKills = 0;
+    [SerializeField] public int totalKills = 0;
     [SerializeField] private float timerRand = 3f;
     [SerializeField] private float currentTimerRand;
 
 
-    private float randomNum;
+    public float randomNum;
     
     private float timer = 0f;
 
@@ -31,24 +31,21 @@ public class MonsterSpawner : MonoBehaviour
     private void Start()
     {
         currentTimerRand = timerRand;
+    }
 
-        timerRand -= 1 * Time.deltaTime;
-        if (timerRand <= 0)
-        {
-            RandomNum();
-            currentTimerRand = timerRand;
-        }
+    public void RandomNum()
+    {
+        randomNum = Random.Range(1, 7);
+        Debug.Log(randomNum);
 
         if (gameState.Instance.dayCounter >= 0 && gameState.Instance.dayCounter <= 4)
         {
-            Debug.Log("lol");
-
             if (randomNum == 1)
             {
                 SpawnEnemy();
             }
         }
-        
+
         if (gameState.Instance.dayCounter >= 5 && gameState.Instance.dayCounter <= 9)
         {
             if (randomNum == 1 || randomNum == 2)
@@ -58,17 +55,15 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
-    public void RandomNum()
-    {
-        randomNum = Random.Range(1, 7);
-        Debug.Log(randomNum);
-    }
-
-    
-
     private void Update()
     {
+        currentTimerRand -= 1 * Time.deltaTime;
+        if (currentTimerRand <= 0)
+        {
+            RandomNum();
+            currentTimerRand = timerRand;
 
+        }
     }
 
     public void SpawnEnemy()
@@ -90,32 +85,30 @@ public class MonsterSpawner : MonoBehaviour
             clickableTarget.SetMonsterSpawner(this);
         }
 
+        //if (enemyPrefab == null)
+        //{
+        //    Debug.LogWarning("MonsterSpawner: Enemy prefab is missing.");
+        //    return;
+        //}
 
-        if (enemyPrefab == null)
-        {
-            Debug.LogWarning("MonsterSpawner: Enemy prefab is missing.");
-            return;
-        }
+        //if (spawnPoints == null || spawnPoints.Length == 0)
+        //{
+        //    Debug.LogWarning("MonsterSpawner: No spawn points assigned.");
+        //    return;
+        //}
 
-        if (spawnPoints == null || spawnPoints.Length == 0)
-        {
-            Debug.LogWarning("MonsterSpawner: No spawn points assigned.");
-            return;
-        }
-
-        if (chosenSpawnPoint == null)
-        {
-            Debug.LogWarning("MonsterSpawner: One of the spawn points is null.");
-            return;
-        }
-
-        else
-        {
-            Debug.LogWarning("MonsterSpawner: Spawned enemy does not have ClickableTarget script.");
-        }
+        //if (chosenSpawnPoint == null)
+        //{
+        //    Debug.LogWarning("MonsterSpawner: One of the spawn points is null.");
+        //    return;
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("MonsterSpawner: Spawned enemy does not have ClickableTarget script.");
+        //}
     }
 
-    public void RegisterEnemyKilled()
+    public void MonsterKilledCnt()
     {
         activeEnemies--;
 

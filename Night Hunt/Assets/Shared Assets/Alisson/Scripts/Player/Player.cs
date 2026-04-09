@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
         {
             playerIsDead = true;
         }
-
     }
 
         

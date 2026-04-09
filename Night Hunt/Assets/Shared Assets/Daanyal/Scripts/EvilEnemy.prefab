@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1453622114454820671}
   - component: {fileID: 5337116917699843851}
   - component: {fileID: 4795485594368952700}
-  - component: {fileID: 3821651247236538144}
+  - component: {fileID: -3457250605270229090}
   m_Layer: 0
   m_Name: EvilEnemy
   m_TagString: Untagged
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3821651247236538144
+--- !u!114 &-3457250605270229090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

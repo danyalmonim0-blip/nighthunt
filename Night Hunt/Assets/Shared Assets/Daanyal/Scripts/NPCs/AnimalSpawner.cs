@@ -74,6 +74,6 @@ public class AnimalSpawner : MonoBehaviour
         totalAnimalKills++;
         Debug.Log("Animal killed. Total animal kills: " + totalAnimalKills);
 
-        
+
     }
 }
