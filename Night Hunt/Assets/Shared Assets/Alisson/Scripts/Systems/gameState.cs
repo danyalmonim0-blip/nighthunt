@@ -13,17 +13,15 @@ public class gameState : MonoBehaviour
     string startingText;
     public int dayCounter = 0;
     public float currentTime;
-    public float startingTime = 12f; //180f for 3min
-    public float gameOverScrnLength = 5f;
-    public float currentGameOverScrnLength;
-    public float currentStartScrnLength;
+    public float startingTime = 120f; //180f for 3min
     public float startScrnLength = 2f;
+    public float currentStartScrnLength;
 
 
     public GameObject StartPanel;
     public GameObject EndPanel;
     public GameObject InPanel;
-
+    public GameObject StartingTxtPanel;
 
     public TextMeshProUGUI DayDisplay;
     public TextMeshProUGUI TimeDisplay;
@@ -49,10 +47,11 @@ public class gameState : MonoBehaviour
     }
     void Start()
     {
+        Time.timeScale = 0f;
+
         InPanel.SetActive(true);
         EndPanel.SetActive(false);
 
-        ShiftEvents();
     }
 
     private void Update()
@@ -64,9 +63,8 @@ public class gameState : MonoBehaviour
         {
             StartPanel.SetActive(false);
         }
-        
 
-
+        // GAME LOOP
         currentTime -= 1 * Time.deltaTime;
         if (currentTime <= 0)
         {
@@ -78,6 +76,7 @@ public class gameState : MonoBehaviour
             GameOver();
         }
     }
+
 
     public void ShiftEvents()
     {
@@ -142,5 +141,13 @@ public class gameState : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void BtnStartingText()
+    {
+        StartingTxtPanel.SetActive(false);
+        ShiftEvents();
+
+        Time.timeScale = 1f;
     }
 }
