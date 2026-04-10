@@ -14,8 +14,9 @@ public class gameState : MonoBehaviour
     public int dayCounter = 0;
     public float currentTime;
     public float startingTime = 120f; //180f for 3min
-    public float startScrnLength = 2f;
-    public float currentStartScrnLength;
+    public float dayDisplayTimer = 2f;
+    public float currentDayDisplayTimer;
+    
 
 
     public GameObject StartPanel;
@@ -47,33 +48,34 @@ public class gameState : MonoBehaviour
     }
     void Start()
     {
-        Time.timeScale = 0f;
-
         InPanel.SetActive(true);
         EndPanel.SetActive(false);
-
     }
 
     private void Update()
     {
         RealTimeDisplay();
 
-        currentStartScrnLength -= 1 * Time.deltaTime;
-        if (currentStartScrnLength <= 0)
-        {
-            StartPanel.SetActive(false);
-        }
-
         // GAME LOOP
-        currentTime -= 1 * Time.deltaTime;
-        if (currentTime <= 0)
+        if (StartingTxtPanel.activeSelf == false)
         {
-            ShiftEnds();
-            ShiftEvents();
-        }
-        else if (Player.Instance.playerIsDead == true)
-        {
-            GameOver();
+            currentDayDisplayTimer -= 1 * Time.deltaTime;
+            if (currentDayDisplayTimer <= 0)
+            {
+                StartPanel.SetActive(false);
+                currentDayDisplayTimer = 0;
+            }
+
+            currentTime -= 1 * Time.deltaTime;
+            if (currentTime <= 0)
+            {
+                ShiftEnds();
+                ShiftEvents();
+            }
+            else if (Player.Instance.playerIsDead == true)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -83,7 +85,7 @@ public class gameState : MonoBehaviour
         DayCounter();
 
         StartPanel.SetActive(true);
-        currentStartScrnLength = startScrnLength;
+        currentDayDisplayTimer = dayDisplayTimer;
 
         currentTime = startingTime;
         Debug.Log("Shift starts");
@@ -147,7 +149,5 @@ public class gameState : MonoBehaviour
     {
         StartingTxtPanel.SetActive(false);
         ShiftEvents();
-
-        Time.timeScale = 1f;
     }
 }

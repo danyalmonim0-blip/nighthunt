@@ -38,6 +38,8 @@ public class MonsterSpawner : MonoBehaviour
         randomNum = Random.Range(1, 7);
         Debug.Log(randomNum);
 
+        currentTimerRand = timerRand;
+
         if (gameState.Instance.dayCounter >= 0 && gameState.Instance.dayCounter <= 4)
         {
             if (randomNum == 1)
@@ -57,18 +59,18 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Update()
     {
-        currentTimerRand -= 1 * Time.deltaTime;
-        if (currentTimerRand <= 0)
+        if (gameState.Instance.StartingTxtPanel.activeSelf == false)
         {
-            RandomNum();
-            currentTimerRand = timerRand;
-
+            currentTimerRand -= 1 * Time.deltaTime;
+            if (currentTimerRand <= 0)
+            {
+                RandomNum();
+            }
         }
     }
 
     public void SpawnEnemy()
     {
-
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform chosenSpawnPoint = spawnPoints[randomIndex];
 
@@ -84,28 +86,6 @@ public class MonsterSpawner : MonoBehaviour
         {
             clickableTarget.SetMonsterSpawner(this);
         }
-
-        //if (enemyPrefab == null)
-        //{
-        //    Debug.LogWarning("MonsterSpawner: Enemy prefab is missing.");
-        //    return;
-        //}
-
-        //if (spawnPoints == null || spawnPoints.Length == 0)
-        //{
-        //    Debug.LogWarning("MonsterSpawner: No spawn points assigned.");
-        //    return;
-        //}
-
-        //if (chosenSpawnPoint == null)
-        //{
-        //    Debug.LogWarning("MonsterSpawner: One of the spawn points is null.");
-        //    return;
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("MonsterSpawner: Spawned enemy does not have ClickableTarget script.");
-        //}
     }
 
     public void MonsterKilledCnt()

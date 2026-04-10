@@ -6,6 +6,11 @@ public class Player : MonoBehaviour
     public int playerHealth;
     public int currentHealth;
     [SerializeField] public bool playerIsDead;
+    
+
+
+    public GameItems lightToggle;
+
 
     public static Player Instance;
     public void Awake()
@@ -24,6 +29,8 @@ public class Player : MonoBehaviour
     {
         playerIsDead = false;
         playerHealth = 1;
+
+        
     }
 
     void Update()
@@ -36,11 +43,9 @@ public class Player : MonoBehaviour
         {
             playerIsDead = true;
         }
-    }
+
+
 
         
-
-        //add damage mechanic
-
-
     }
+}
