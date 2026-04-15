@@ -54,6 +54,7 @@ public class gameState : MonoBehaviour
 
     private void Update()
     {
+
         RealTimeDisplay();
 
         // GAME LOOP
@@ -83,6 +84,9 @@ public class gameState : MonoBehaviour
     public void ShiftEvents()
     {
         DayCounter();
+        GameItems.Instance.currentSanity = 10f;
+        GameItems.Instance.sanityLayer = 0f;
+        GameItems.Instance.currentLightBattery = 10f;
 
         StartPanel.SetActive(true);
         currentDayDisplayTimer = dayDisplayTimer;
@@ -120,9 +124,40 @@ public class gameState : MonoBehaviour
             DayDisplay.text = "Day " + dayCounter;
         }
 
-    void RealTimeDisplay()
-    {
-        TimeDisplay.text = "Time left " + currentTime;
+    void RealTimeDisplay() 
+    { //doesnt work
+        if (currentTime == 120)
+        {
+            TimeDisplay.text = "10PM";
+        }
+        else if (currentTime == 105)
+        {
+            TimeDisplay.text = "11PM";
+        }
+        else if (currentTime == 90)
+        {
+            TimeDisplay.text = "12AM";
+        }
+        else if (currentTime == 75)
+        {
+            TimeDisplay.text = "1AM";
+        }
+        else if (currentTime == 60)
+        {
+            TimeDisplay.text = "2AM";
+        }
+        else if (currentTime == 45)
+        {
+            TimeDisplay.text = "3AM";
+        }
+        else if (currentTime == 30)
+        {
+            TimeDisplay.text = "4AM";
+        }
+        else if (currentTime == 15)
+        {
+            TimeDisplay.text = "5AM";
+        }
     }
 
     void MonsterKilledCountDispay()
