@@ -29,7 +29,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector3 targetScale;
     private bool isMoving = false;
     private bool scaryZone = false;
-    private float randomNum;
+    private int randomNum;
 
     void Start()
     {
@@ -68,15 +68,15 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void RandomNum()
     {
-        randomNum = Random.RandomRange(1, 7);
+        randomNum = Random.RandomRange(8, 14);
         Debug.Log(randomNum); 
 
-        if (randomNum == 1)
+        if (randomNum == 8)
         {
             MoveToNextStage();
         }
 
-        if (randomNum == 1)
+        if (randomNum == 8)
         {
             MoveEnemy();
         }
@@ -128,20 +128,20 @@ public class EnemyBehaviour : MonoBehaviour
         currentStage = nextStage;
         isMoving = true;
    
-        Debug.LogWarning("moving to stage " + nextStage + " spot is " + currentTargetSpot);
+        Debug.LogWarning("Moving to stage " + nextStage + " spot is " + currentTargetSpot.name);
     }
 
     Transform[] GetStageSpots(int stageNumber)             // Switch will be used
     {
         switch (stageNumber)
         {
-            case 0:
-                return stage1Spots;
             case 1:
-                return stage2Spots;
+                return stage1Spots;
             case 2:
-                return stage3Spots;
+                return stage2Spots;
             case 3:
+                return stage3Spots;
+            case 4:
                 return stage4Spots;
             default:
                 return null;
