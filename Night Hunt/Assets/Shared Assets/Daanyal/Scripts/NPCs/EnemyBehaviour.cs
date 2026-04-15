@@ -1,4 +1,3 @@
-// using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -9,14 +8,14 @@ public class EnemyBehaviour : MonoBehaviour
     public Transform[] stage1Spots;
     public Transform[] stage2Spots;
     public Transform[] stage3Spots;
-    public Transform[] stage4Spots;      // This is the Danger Stage
+   //public Transform[] stage4Spots;      // This is the Danger Stage
 
     // When the object moves from lower to higher stage the size will increase
     public Vector3 spawnScale = new Vector3(1f, 1f, 1f);
-    public Vector3 stage1Scale = new Vector3(1.2f, 1.2f, 1f);
-    public Vector3 stage2Scale = new Vector3(1.5f, 1.5f, 1f);
-    public Vector3 stage3Scale = new Vector3(1.8f, 1.8f, 1f);
-    public Vector3 stage4Scale = new Vector3(3f, 3f, 1f);
+    public Vector3 stage1Scale = new Vector3(1.5f, 1.5f, 1f);
+    public Vector3 stage2Scale = new Vector3(2f, 2f, 1f);
+    public Vector3 stage3Scale = new Vector3(2.7f, 2.7f, 1f);
+    //public Vector3 stage4Scale = new Vector3(3f, 3f, 1f);
 
     public float moveSpeed = 2f;
     public float scaleSpeed = 2f;     // lerp used for both
@@ -31,6 +30,8 @@ public class EnemyBehaviour : MonoBehaviour
     private bool scaryZone = false;
     private int randomNum;
 
+    private Animator enemymator;
+
     void Start()
     {
         if (spawnPoint != null)
@@ -42,6 +43,8 @@ public class EnemyBehaviour : MonoBehaviour
         targetScale = spawnScale;
 
         currentTimerRand = timerRand;
+
+        enemymator = GetComponent<Animator>();
     }
 
     void Update()
@@ -68,16 +71,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void RandomNum()
     {
-        randomNum = Random.RandomRange(8, 14);
+        randomNum = Random.Range(8, 14);
         Debug.Log(randomNum); 
 
         if (randomNum == 8)
         {
             MoveToNextStage();
-        }
-
-        if (randomNum == 8)
-        {
             MoveEnemy();
         }
     }
@@ -92,6 +91,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         bool reachedPostion = Vector3.Distance(transform.position, currentTargetSpot.position) < 0.01f;
         bool reachedScale = Vector3.Distance(transform.localScale, targetScale) < 0.01f;
+
        
         if (reachedPostion && reachedScale)
         {
@@ -100,8 +100,9 @@ public class EnemyBehaviour : MonoBehaviour
             isMoving = false;
 
             Debug.LogWarning("the object changed position now at stage " + currentStage);
+            enemymator.SetTrigger("Appear");
 
-            if (currentStage == 4)
+            if (currentStage == 3)
             {
                 scaryZone = true;
 
@@ -112,6 +113,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     void MoveToNextStage()              // only job is to move among diff stages (spots in those stages)
     {
+        enemymator.SetTrigger("Move");
+
         int nextStage = currentStage + 1;
         Transform[] nextStageSpots = GetStageSpots(nextStage);
 
@@ -141,8 +144,8 @@ public class EnemyBehaviour : MonoBehaviour
                 return stage2Spots;
             case 3:
                 return stage3Spots;
-            case 4:
-                return stage4Spots;
+            /*case 4:
+                return stage4Spots;*/
             default:
                 return null;
 
@@ -161,8 +164,8 @@ public class EnemyBehaviour : MonoBehaviour
                 return stage2Scale;
             case 3:
                 return stage3Scale;
-            case 4:
-                return stage4Scale;
+           /* case 4:
+                return stage4Scale;*/
             default:
                 return transform.localScale;
         }

@@ -5,6 +5,12 @@ public class ClickableTarget : MonoBehaviour
     private MonsterSpawner monsterSpawner;
     private AnimalSpawner animalSpawner;
     private bool isDead = false;
+    private Animator enemymator;
+
+    private void Start()
+    {
+        enemymator = GetComponent<Animator>();
+    }
 
     public void SetMonsterSpawner(MonsterSpawner newSpawner)
     {
@@ -37,11 +43,19 @@ public class ClickableTarget : MonoBehaviour
             animalSpawner.RegisterAnimalKilled();
         }
 
-        Destroy(gameObject);
+        enemymator.SetTrigger("Died");
+
+        Invoke("MakeItDestroyed", 2.5f);
 
         if (gameState.Instance.currentTime == 1)
         {
             Destroy(gameObject);
         }
+    }
+
+    void MakeItDestroyed()
+    {
+        Destroy(gameObject);
+
     }
 }
