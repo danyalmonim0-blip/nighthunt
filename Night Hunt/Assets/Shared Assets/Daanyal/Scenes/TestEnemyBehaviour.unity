@@ -801,35 +801,47 @@ PrefabInstance:
       objectReference: {fileID: 1655304333}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: spawnScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: spawnScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: stage1Scale.x
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: stage1Scale.y
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: stage2Scale.x
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: stage2Scale.y
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: stage3Scale.x
-      value: 1
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: stage3Scale.y
-      value: 1
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
+      propertyPath: stage1Spots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
+      propertyPath: stage2Spots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
+      propertyPath: stage3Spots.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5075902809043356981, guid: 7420902f2868f6e4787eec9d88643878, type: 3}
       propertyPath: 'stage1Spots.Array.data[0]'

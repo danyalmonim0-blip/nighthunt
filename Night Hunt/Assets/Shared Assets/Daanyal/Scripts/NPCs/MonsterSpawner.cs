@@ -11,7 +11,6 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] private float timerRand = 3f;
     [SerializeField] private float currentTimerRand;
 
-
     public float randomNum;
     
     private float timer = 0f;
@@ -36,7 +35,7 @@ public class MonsterSpawner : MonoBehaviour
     public void RandomNum()
     {
         randomNum = Random.Range(1, 7);
-        //Debug.Log(randomNum);
+        Debug.Log(randomNum);
 
         currentTimerRand = timerRand;
 
@@ -77,10 +76,14 @@ public class MonsterSpawner : MonoBehaviour
         GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity);
 
         ClickableTarget clickableTarget = newEnemy.GetComponent<ClickableTarget>();
+
+        EnemyBehaviour enemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
+
         
+
         activeEnemies++;
 
-        //Debug.Log("Enemy spawned. Active enemies: " + activeEnemies);
+        Debug.Log("Enemy spawned. Active enemies: " + activeEnemies);
 
         if (clickableTarget != null)
         {

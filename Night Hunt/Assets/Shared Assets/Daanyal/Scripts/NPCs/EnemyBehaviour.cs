@@ -72,7 +72,7 @@ public class EnemyBehaviour : MonoBehaviour
     public void RandomNum()
     {
         randomNum = Random.Range(8, 14);
-        //Debug.Log(randomNum); 
+        Debug.Log(randomNum); 
 
         if (randomNum == 8)
         {
@@ -106,7 +106,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 scaryZone = true;
 
-                //Debug.LogWarning("Game Over -- you suck as a ranger");
+                Debug.LogWarning("Game Over -- you suck as a ranger");
             }
         }
     }
