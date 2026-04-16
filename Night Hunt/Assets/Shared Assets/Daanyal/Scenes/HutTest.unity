@@ -9016,7 +9016,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199912577}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!1 &1296469620
 GameObject:
   m_ObjectHideFlags: 0
@@ -9046,7 +9045,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 879494604}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320918024
 GameObject:
@@ -9077,7 +9076,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 879494604}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327222239
 GameObject:
@@ -9117,8 +9116,6 @@ RectTransform:
   m_AnchoredPosition: {x: 484, y: 465}
   m_SizeDelta: {x: 148, y: 211.127}
   m_Pivot: {x: 0.5, y: 0.5}
-=======
->>>>>>> 0581549863016075899e7ff403ba72678253ec35
 --- !u!1 &1349519532
 GameObject:
   m_ObjectHideFlags: 0
@@ -10331,11 +10328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-<<<<<<< HEAD
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-=======
-  m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
->>>>>>> 0581549863016075899e7ff403ba72678253ec35
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10391,7 +10384,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &1917475301
 GameObject:
   m_ObjectHideFlags: 0
@@ -10558,10 +10550,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 879494604}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 0581549863016075899e7ff403ba72678253ec35
 --- !u!1 &2011311712
 GameObject:
   m_ObjectHideFlags: 0
@@ -11308,3 +11298,6 @@ SceneRoots:
   - {fileID: 1810497247}
   - {fileID: 740716418}
   - {fileID: 479355532}
+  - {fileID: 1296469621}
+  - {fileID: 1320918025}
+  - {fileID: 1979718837}
