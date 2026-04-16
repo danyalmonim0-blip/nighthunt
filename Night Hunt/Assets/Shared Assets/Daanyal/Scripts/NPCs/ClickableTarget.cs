@@ -43,7 +43,10 @@ public class ClickableTarget : MonoBehaviour
             animalSpawner.RegisterAnimalKilled();
         }
 
-        enemymator.SetTrigger("Died");
+        if (enemymator != null)
+        {
+            enemymator.SetTrigger("Died");
+        }
 
         Invoke("MakeItDestroyed", 2.5f);
 

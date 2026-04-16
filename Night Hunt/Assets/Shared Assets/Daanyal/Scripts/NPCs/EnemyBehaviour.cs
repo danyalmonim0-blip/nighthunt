@@ -20,7 +20,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float moveSpeed = 2f;
     public float scaleSpeed = 2f;     // lerp used for both
 
-    public float timerRand = 3f;
+    public float timerRand = 5f;
     public float currentTimerRand;
 
     private int currentStage = 0;
@@ -71,13 +71,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void RandomNum()
     {
-        randomNum = Random.Range(8, 14);
-        Debug.Log(randomNum); 
+        randomNum = Random.Range(8, 15);
+        //Debug.Log(randomNum); 
 
         if (randomNum == 8)
         {
             MoveToNextStage();
-            MoveEnemy();
+            //MoveEnemy();
         }
     }
 
@@ -100,14 +100,32 @@ public class EnemyBehaviour : MonoBehaviour
             isMoving = false;
 
             Debug.LogWarning("the object changed position now at stage " + currentStage);
-            enemymator.SetTrigger("Appear");
+
+            if (enemymator != null)
+            {
+                enemymator.SetTrigger("Appear");
+            }
 
             if (currentStage == 3)
             {
                 scaryZone = true;
 
-                Debug.LogWarning("Game Over -- you suck as a ranger");
+                Debug.LogWarning("Enemy reached stage 3. Player will die in 3 seconds.");
+
+                Invoke(nameof(KillPlayer), 3f);
             }
+        }
+    }
+
+    void KillPlayer()
+    {
+        if (Player.Instance != null)
+        {
+            Player.Instance.Die();
+        }
+        else
+        {
+            Debug.LogWarning("Player.Instance is null.");
         }
     }
 

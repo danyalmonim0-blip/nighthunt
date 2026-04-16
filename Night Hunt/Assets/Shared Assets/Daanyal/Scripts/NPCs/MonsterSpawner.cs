@@ -11,6 +11,10 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] private float timerRand = 3f;
     [SerializeField] private float currentTimerRand;
 
+    public Transform[] stage1Spots;
+    public Transform[] stage2Spots;
+    public Transform[] stage3Spots;
+
     public float randomNum;
     
     private float timer = 0f;
@@ -34,8 +38,8 @@ public class MonsterSpawner : MonoBehaviour
 
     public void RandomNum()
     {
-        randomNum = Random.Range(1, 7);
-        Debug.Log(randomNum);
+        randomNum = Random.Range(1, 13);
+        //Debug.Log(randomNum);
 
         currentTimerRand = timerRand;
 
@@ -77,7 +81,7 @@ public class MonsterSpawner : MonoBehaviour
 
         ClickableTarget clickableTarget = newEnemy.GetComponent<ClickableTarget>();
 
-        EnemyBehaviour enemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
+        //EnemyBehaviour enemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
 
         
 
@@ -88,6 +92,14 @@ public class MonsterSpawner : MonoBehaviour
         if (clickableTarget != null)
         {
             clickableTarget.SetMonsterSpawner(this);
+        }
+        EnemyBehaviour enemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
+        if (enemyBehaviour != null)
+        {
+            enemyBehaviour.spawnPoint = chosenSpawnPoint;
+            enemyBehaviour.stage1Spots = stage1Spots;
+            enemyBehaviour.stage2Spots = stage2Spots;
+            enemyBehaviour.stage3Spots = stage3Spots;
         }
     }
 

@@ -6,12 +6,9 @@ public class Player : MonoBehaviour
     public int playerHealth;
     public int currentHealth;
     [SerializeField] public bool playerIsDead;
-    
-
-
-
 
     public static Player Instance;
+
     public void Awake()
     {
         if (Instance == null)
@@ -28,23 +25,29 @@ public class Player : MonoBehaviour
     {
         playerIsDead = false;
         playerHealth = 1;
-
-        
+        currentHealth = playerHealth;
     }
 
     void Update()
     {
+        // lets keep it for testing purposes
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerHealth = 0;
+            Die();
         }
-        else if (playerHealth == 0)
+    }
+
+    public void Die()
+    {
+        if (playerIsDead)
         {
-            playerIsDead = true;
+            return;
         }
 
+        playerHealth = 0;
+        currentHealth = 0;
+        playerIsDead = true;
 
-
-        
+        Debug.Log("Player died.");
     }
 }
