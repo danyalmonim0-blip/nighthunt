@@ -36,7 +36,7 @@ public class MonsterSpawner : MonoBehaviour
     public void RandomNum()
     {
         randomNum = Random.Range(1, 7);
-        Debug.Log(randomNum);
+        //Debug.Log(randomNum);
 
         currentTimerRand = timerRand;
 
@@ -80,7 +80,7 @@ public class MonsterSpawner : MonoBehaviour
         
         activeEnemies++;
 
-        Debug.Log("Enemy spawned. Active enemies: " + activeEnemies);
+        //Debug.Log("Enemy spawned. Active enemies: " + activeEnemies);
 
         if (clickableTarget != null)
         {

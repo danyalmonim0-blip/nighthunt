@@ -9,7 +9,7 @@ public class GameItems : MonoBehaviour
     public float startingSanity = 20f;
     public float currentSanity;
     bool lightToggle;
-    public float startingLightBattery = 60f;
+    public float startingLightBattery = 100f;
     public float currentLightBattery;
     public float sanityLayer = 0f;
 
@@ -41,11 +41,11 @@ public class GameItems : MonoBehaviour
     {
 
         Sanity.color = new Color(1, 1, 1, sanityLayer);
-        Debug.Log("Sanity layer" + sanityLayer);
+        //Debug.Log("Sanity layer" + sanityLayer);
 
 
-        Debug.Log("Sanity " + currentSanity);
-        Debug.Log("Light Battery " + currentLightBattery);
+        //Debug.Log("Sanity " + currentSanity);
+        //Debug.Log("Light Battery " + currentLightBattery);
 
         //SANITY
         if (!lightToggle)

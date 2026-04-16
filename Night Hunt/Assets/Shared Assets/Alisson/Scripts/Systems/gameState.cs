@@ -86,7 +86,7 @@ public class gameState : MonoBehaviour
         DayCounter();
         GameItems.Instance.currentSanity = 10f;
         GameItems.Instance.sanityLayer = 0f;
-        GameItems.Instance.currentLightBattery = 10f;
+        GameItems.Instance.currentLightBattery = 100f;
 
         StartPanel.SetActive(true);
         currentDayDisplayTimer = dayDisplayTimer;
@@ -103,7 +103,7 @@ public class gameState : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over");
+        //Debug.Log("Game Over");
 
         EndPanel.SetActive(true);
 

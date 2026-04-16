@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     
 
 
-    public GameItems lightToggle;
 
 
     public static Player Instance;
