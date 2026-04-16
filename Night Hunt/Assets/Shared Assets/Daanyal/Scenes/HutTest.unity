@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayCounter: 0
   currentTime: 0
-  startingTime: 10
+  startingTime: 120
   dayDisplayTimer: 2
   currentDayDisplayTimer: 0
   StartPanel: {fileID: 1004724506}
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingSanity: 10
   currentSanity: 0
-  startingLightBattery: 10
+  startingLightBattery: 100
   currentLightBattery: 0
   sanityLayer: 0
   Dark: {fileID: 664215632}
@@ -6886,7 +6886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &588871135
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8841,7 +8841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.49803922}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10971,7 +10971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2072154864
 RectTransform:
   m_ObjectHideFlags: 0

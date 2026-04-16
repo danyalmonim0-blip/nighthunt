@@ -55,7 +55,7 @@ public class gameState : MonoBehaviour
     private void Update()
     {
 
-        RealTimeDisplay();
+        //RealTimeDisplay();
 
         // GAME LOOP
         if (StartingTxtPanel.activeSelf == false)
@@ -124,41 +124,41 @@ public class gameState : MonoBehaviour
             DayDisplay.text = "Day " + dayCounter;
         }
 
-    void RealTimeDisplay() 
-    { //doesnt work
-        if (currentTime == 120)
-        {
-            TimeDisplay.text = "10PM";
-        }
-        else if (currentTime == 105)
-        {
-            TimeDisplay.text = "11PM";
-        }
-        else if (currentTime == 90)
-        {
-            TimeDisplay.text = "12AM";
-        }
-        else if (currentTime == 75)
-        {
-            TimeDisplay.text = "1AM";
-        }
-        else if (currentTime == 60)
-        {
-            TimeDisplay.text = "2AM";
-        }
-        else if (currentTime == 45)
-        {
-            TimeDisplay.text = "3AM";
-        }
-        else if (currentTime == 30)
-        {
-            TimeDisplay.text = "4AM";
-        }
-        else if (currentTime == 15)
-        {
-            TimeDisplay.text = "5AM";
-        }
-    }
+    //void RealTimeDisplay() 
+    //{ //doesnt work
+    //    if (currentTime == 120)
+    //    {
+    //        TimeDisplay.text = "10PM";
+    //    }
+    //    else if (currentTime == 105)
+    //    {
+    //        TimeDisplay.text = "11PM";
+    //    }
+    //    else if (currentTime == 90)
+    //    {
+    //        TimeDisplay.text = "12AM";
+    //    }
+    //    else if (currentTime == 75)
+    //    {
+    //        TimeDisplay.text = "1AM";
+    //    }
+    //    else if (currentTime == 60)
+    //    {
+    //        TimeDisplay.text = "2AM";
+    //    }
+    //    else if (currentTime == 45)
+    //    {
+    //        TimeDisplay.text = "3AM";
+    //    }
+    //    else if (currentTime == 30)
+    //    {
+    //        TimeDisplay.text = "4AM";
+    //    }
+    //    else if (currentTime == 15)
+    //    {
+    //        TimeDisplay.text = "5AM";
+    //    }
+    //}
 
     void MonsterKilledCountDispay()
     {
