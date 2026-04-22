@@ -30,6 +30,8 @@ public class EnemyBehaviour : MonoBehaviour
     private bool scaryZone = false;
     private int randomNum;
 
+    //public DayCounterManager dayCounter;
+
     private Animator enemymator;
 
     void Start()
@@ -74,28 +76,28 @@ public class EnemyBehaviour : MonoBehaviour
         randomNum = Random.Range(14, 20);
         //Debug.Log(randomNum); 
 
-        if (gameState.Instance.dayCounter >= 0 && gameState.Instance.dayCounter <= 4)
+        if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 0 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 4)
         {
             if (randomNum == 14)
             {
                 MoveToNextStage();
             }
         }
-        else if (gameState.Instance.dayCounter >= 5 && gameState.Instance.dayCounter <= 8)
+        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 5 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 8)
         {
             if (randomNum == 14 || randomNum == 15)
             {
                 MoveToNextStage();
             }
         }
-        else if (gameState.Instance.dayCounter >= 9 && gameState.Instance.dayCounter <= 13)
+        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 9 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 13)
         {
             if (randomNum == 14 || randomNum == 15 || randomNum == 16)
             {
                 MoveToNextStage();
             }
         }
-        else if (gameState.Instance.dayCounter >= 14)
+        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 14)
         {
             if (randomNum == 14 || randomNum == 15 || randomNum == 16 || randomNum == 17)
             {

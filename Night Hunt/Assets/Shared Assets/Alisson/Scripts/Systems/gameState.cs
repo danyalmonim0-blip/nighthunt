@@ -11,11 +11,13 @@ public class gameState : MonoBehaviour
 {
     //bool isPlayerAlive;
     string startingText;
-    public int dayCounter = 0;
-    public float currentTime;
-    public float startingTime = 120f; //180f for 3min
-    public float dayDisplayTimer = 2f;
-    public float currentDayDisplayTimer;
+    //public int dayCounter = 0;
+    //public float currentTime;
+    //public float startingTime = 120f; //180f for 3min
+    //public float dayDisplayTimer = 2f;
+    //public float currentDayDisplayTimer;
+
+    public bool isPlaying;
     
 
 
@@ -23,8 +25,9 @@ public class gameState : MonoBehaviour
     public GameObject EndPanel;
     public GameObject InPanel;
     public GameObject StartingTxtPanel;
+    //public GameObject GameState;
 
-    public TextMeshProUGUI DayDisplay;
+    //public TextMeshProUGUI DayDisplay;
     public TextMeshProUGUI TimeDisplay;
     public TextMeshProUGUI MonsterKilledDisplay;
     public TextMeshProUGUI AnimalKilledDisplay;
@@ -34,6 +37,8 @@ public class gameState : MonoBehaviour
     public Player playerHealth;
     public Player currentHealth;
     public Player playerIsDead;
+
+    //public DayCounterManager dayDisplay;
 
     public static gameState Instance;
     public void Awake()
@@ -49,6 +54,7 @@ public class gameState : MonoBehaviour
     }
     void Start()
     {
+
         InPanel.SetActive(true);
         EndPanel.SetActive(false);
     }
@@ -61,46 +67,57 @@ public class gameState : MonoBehaviour
         // GAME LOOP
         if (StartingTxtPanel.activeSelf == false)
         {
-            currentDayDisplayTimer -= 1 * Time.deltaTime;
-            if (currentDayDisplayTimer <= 0)
+            if (StartPanel.activeSelf == true)
             {
-                StartPanel.SetActive(false);
-                currentDayDisplayTimer = 0;
+                isPlaying = false;
             }
 
-            currentTime -= 1 * Time.deltaTime;
-            if (currentTime <= 0)
-            {
-                ShiftEnds();
-                ShiftEvents();
-            }
-            else if (Player.Instance.playerIsDead == true)
-            {
-                GameOver();
-            }
+            isPlaying = true;
         }
+
+        
+
+
+        //currentDayDisplayTimer -= 1 * Time.deltaTime;
+        //if (currentDayDisplayTimer <= 0)
+        //{
+        //    //StartPanel.SetActive(false);
+        //    currentDayDisplayTimer = 0;
+        //}
+
+        //currentTime -= 1 * Time.deltaTime;
+        //if (currentTime <= 0)
+        //{
+        //    ShiftEnds();
+        //    //ShiftEvents();
+        //}
+        //else if (Player.Instance.playerIsDead == true)
+        //{
+        //    GameOver();
+        //}
     }
 
 
     public void ShiftEvents()
     {
         GameItems.Instance.LightBatteryTxt.SetActive(false);
-        DayCounter();
         GameItems.Instance.currentSanity = 10f;
         GameItems.Instance.sanityLayer = 0f;
         GameItems.Instance.currentLightBattery = 100f;
 
-        StartPanel.SetActive(true);
-        currentDayDisplayTimer = dayDisplayTimer;
+        //GameState.GetComponent<DayCounterManager>().DisplayingDay();
 
-        currentTime = startingTime;
+        //StartPanel.SetActive(true);
+        //currentDayDisplayTimer = dayDisplayTimer;
+
+        //currentTime = startingTime;
         Debug.Log("Shift starts");
     }
     public void ShiftEnds()
     {
         Debug.Log("Shift ends");
 
-        currentTime = startingTime;
+        //currentTime = startingTime;
     }
 
     public void GameOver()
@@ -111,20 +128,13 @@ public class gameState : MonoBehaviour
 
         MonsterKilledCountDispay();
         AnimalKilledCountDispay();
-        DaysSurvivedDisplay();
+        //DaysSurvivedDisplay();
     }
 
-    void DayCounter()
-    {
-        Debug.Log("Day " + dayCounter);
-        dayCounter++;
-        DayCountDisplay();
-    }
-
-    void DayCountDisplay()
-        {
-            DayDisplay.text = "Day " + dayCounter;
-        }
+    //void DayCountDisplay()
+    //    {
+    //        DayDisplay.text = "Day " + dayCounter;
+    //    }
 
     void MonsterKilledCountDispay()
     {
@@ -136,10 +146,10 @@ public class gameState : MonoBehaviour
         AnimalKilledDisplay.text = "Animals killed: ";
     }
 
-    void DaysSurvivedDisplay()
-    {
-        TimeSurvivedDisplay.text = "Days survived: " + dayCounter;
-    }
+    //void DaysSurvivedDisplay()
+    //{
+    //    TimeSurvivedDisplay.text = "Days survived: " + dayCounter;
+    //}
 
     public void MainMenu()
     {
@@ -149,6 +159,6 @@ public class gameState : MonoBehaviour
     public void BtnStartingText()
     {
         StartingTxtPanel.SetActive(false);
-        ShiftEvents();
+        //ShiftEvents();
     }
 }

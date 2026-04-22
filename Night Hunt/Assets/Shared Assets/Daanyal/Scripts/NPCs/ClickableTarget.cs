@@ -61,10 +61,10 @@ public class ClickableTarget : MonoBehaviour
 
         Invoke("MakeItDestroyed", 2.5f);
 
-        if (gameState.Instance.currentTime == 1)
-        {
-            Destroy(gameObject);
-        }
+        //if (gameState.Instance.currentTime == 1)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     void MakeItDestroyed()

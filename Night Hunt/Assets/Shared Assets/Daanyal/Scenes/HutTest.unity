@@ -1718,6 +1718,8 @@ GameObject:
   - component: {fileID: 429169358}
   - component: {fileID: 429169361}
   - component: {fileID: 429169362}
+  - component: {fileID: 429169363}
+  - component: {fileID: 429169364}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -1770,16 +1772,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9308a56f16542e94ab052b1050b53581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayCounter: 0
-  currentTime: 0
-  startingTime: 120
-  dayDisplayTimer: 2
-  currentDayDisplayTimer: 0
+  isPlaying: 0
   StartPanel: {fileID: 1004724506}
   EndPanel: {fileID: 848401815}
   InPanel: {fileID: 112451995}
   StartingTxtPanel: {fileID: 116006212}
-  DayDisplay: {fileID: 2013032483}
   TimeDisplay: {fileID: 588871136}
   MonsterKilledDisplay: {fileID: 934434747}
   AnimalKilledDisplay: {fileID: 593907702}
@@ -1838,6 +1835,37 @@ MonoBehaviour:
   Sanity: {fileID: 1827231472}
   LightBatteryTxt: {fileID: 1431945476}
   LightSwitchS: {fileID: 1327222241}
+--- !u!114 &429169363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429169357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5989108fedcc634aa34a55d550e07b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayDisplay: {fileID: 2013032483}
+  dayCounterManagerValues: {fileID: 11400000, guid: dd4379fefd01f3243a5fa004941f3247, type: 2}
+  dayDisplayTimer: 2
+  currentDayDisplayTimer: 0
+  StartPanel: {fileID: 1004724506}
+--- !u!114 &429169364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429169357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7478f60d782783d4c9b08b89c83fedae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOfNight: 0
+  GameState: {fileID: 429169357}
 --- !u!1 &440652887
 GameObject:
   m_ObjectHideFlags: 0
@@ -11950,7 +11978,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SampsaBtnPref
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3566484472044114259, guid: 015c3c0ec7c52524a9e4f3f5edd093dd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
