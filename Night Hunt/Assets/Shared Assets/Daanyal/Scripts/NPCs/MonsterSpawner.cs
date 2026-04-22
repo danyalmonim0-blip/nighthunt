@@ -43,17 +43,30 @@ public class MonsterSpawner : MonoBehaviour
 
         currentTimerRand = timerRand;
 
-        if (gameState.Instance.dayCounter >= 0 && gameState.Instance.dayCounter <= 4)
+        if (gameState.Instance.dayCounter >= 0 && gameState.Instance.dayCounter <= 2)
         {
             if (randomNum == 1)
             {
                 SpawnEnemy();
             }
         }
-
-        if (gameState.Instance.dayCounter >= 5 && gameState.Instance.dayCounter <= 9)
+        else if (gameState.Instance.dayCounter >= 3 && gameState.Instance.dayCounter <= 6)
         {
             if (randomNum == 1 || randomNum == 2)
+            {
+                SpawnEnemy();
+            }
+        }
+        else if (gameState.Instance.dayCounter >= 7 && gameState.Instance.dayCounter <= 10)
+        {
+            if (randomNum == 1 || randomNum == 2 || randomNum == 3)
+            {
+                SpawnEnemy();
+            }
+        }
+        else if (gameState.Instance.dayCounter >= 11)
+        {
+            if (randomNum == 1 || randomNum == 2 || randomNum == 3 || randomNum == 4)
             {
                 SpawnEnemy();
             }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 
 public class GameItems : MonoBehaviour
@@ -15,8 +16,11 @@ public class GameItems : MonoBehaviour
 
     public GameObject Dark;
     public Image Sanity;
+    public GameObject LightBatteryTxt;
 
+    public AudioSource LightSwitchS;
 
+    
 
     public static GameItems Instance;
     public void Awake()
@@ -35,6 +39,8 @@ public class GameItems : MonoBehaviour
         lightToggle = false;
         currentSanity = startingSanity;
         currentLightBattery = startingLightBattery;
+        LightBatteryTxt.SetActive(false);
+
     }
 
     void Update()
@@ -101,6 +107,7 @@ public class GameItems : MonoBehaviour
     {
         Dark.SetActive(true);
         DecreasingSanity();
+        LightBatteryTxt.SetActive(true);
     }
 
     
@@ -120,12 +127,15 @@ public class GameItems : MonoBehaviour
     {
         lightToggle = true;
         Dark.SetActive(false);
+        LightSwitchS.Play();
+
     }
 
     public void LightOffBtn()
     {
         lightToggle = false;
         Dark.SetActive(true);
+        LightSwitchS.Play();
     }
 
     void DecreasingLightBattery()

@@ -7,9 +7,18 @@ public class ClickableTarget : MonoBehaviour
     private bool isDead = false;
     private Animator enemymator;
 
+    private AudioSource EnnemySource;
+
+    public AudioClip AppearS;
+    public AudioClip GunshotS;
+
     private void Start()
     {
         enemymator = GetComponent<Animator>();
+
+        EnnemySource = GetComponent<AudioSource>();
+
+        EnnemySource.PlayOneShot(AppearS);
     }
 
     public void SetMonsterSpawner(MonsterSpawner newSpawner)
@@ -26,6 +35,8 @@ public class ClickableTarget : MonoBehaviour
 
     private void OnMouseDown()
     {
+        EnnemySource.PlayOneShot(GunshotS);
+
         if (isDead)
         {
             return;

@@ -31,10 +31,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         // lets keep it for testing purposes
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Die();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Die();
+        //}
     }
 
     public void Die()

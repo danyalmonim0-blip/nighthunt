@@ -17,7 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
     public Vector3 stage3Scale = new Vector3(2.7f, 2.7f, 1f);
     //public Vector3 stage4Scale = new Vector3(3f, 3f, 1f);
 
-    public float moveSpeed = 2f;
+    public float moveSpeed = 5f;
     public float scaleSpeed = 2f;     // lerp used for both
 
     public float timerRand = 5f;
@@ -71,13 +71,36 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void RandomNum()
     {
-        randomNum = Random.Range(8, 15);
+        randomNum = Random.Range(14, 20);
         //Debug.Log(randomNum); 
 
-        if (randomNum == 8)
+        if (gameState.Instance.dayCounter >= 0 && gameState.Instance.dayCounter <= 4)
         {
-            MoveToNextStage();
-            //MoveEnemy();
+            if (randomNum == 14)
+            {
+                MoveToNextStage();
+            }
+        }
+        else if (gameState.Instance.dayCounter >= 5 && gameState.Instance.dayCounter <= 8)
+        {
+            if (randomNum == 14 || randomNum == 15)
+            {
+                MoveToNextStage();
+            }
+        }
+        else if (gameState.Instance.dayCounter >= 9 && gameState.Instance.dayCounter <= 13)
+        {
+            if (randomNum == 14 || randomNum == 15 || randomNum == 16)
+            {
+                MoveToNextStage();
+            }
+        }
+        else if (gameState.Instance.dayCounter >= 14)
+        {
+            if (randomNum == 14 || randomNum == 15 || randomNum == 16 || randomNum == 17)
+            {
+                MoveToNextStage();
+            }
         }
     }
 
@@ -110,9 +133,9 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 scaryZone = true;
 
-                Debug.LogWarning("Enemy reached stage 3. Player will die in 3 seconds.");
+                Debug.LogWarning("Enemy reached stage 5. Player will die in 5 seconds.");
 
-                Invoke(nameof(KillPlayer), 3f);
+                Invoke(nameof(KillPlayer), 5f);
             }
         }
     }
