@@ -3,7 +3,9 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private Transform[] spawnPoints;
+    //[SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform[] hutSpawn;
+
     //[SerializeField] private float spawnInterval;
     [SerializeField] private int maxEnemiesOnScreen = 2;
     [SerializeField] private int activeEnemies = 0;
@@ -14,6 +16,8 @@ public class MonsterSpawner : MonoBehaviour
     public Transform[] stage1Spots;
     public Transform[] stage2Spots;
     public Transform[] stage3Spots;
+
+    //public GameObject hutspawn;
 
     public float randomNum;
     
@@ -75,7 +79,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (gameState.Instance.StartingTxtPanel.activeSelf == false)
+        if (UIElements.Instance.StartingTxtPanel.activeSelf == false)
         {
             currentTimerRand -= 1 * Time.deltaTime;
             if (currentTimerRand <= 0)
@@ -87,10 +91,14 @@ public class MonsterSpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        int randomIndex = Random.Range(0, spawnPoints.Length);
-        Transform chosenSpawnPoint = spawnPoints[randomIndex];
+        int randomIndex = Random.Range(0, hutSpawn.Length);
+        Transform chosenSpawnPoint = hutSpawn[randomIndex];
 
-        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.parent.position, Quaternion.identity);
+        
+
+        //var enemyInstance = /*GameObject newEnemy =*/ Instantiate(enemyPrefab, chosenSpawnPoint.transform.position, Quaternion.identity);
+        //enemyInstance.transform.parent = transform;
 
         ClickableTarget clickableTarget = newEnemy.GetComponent<ClickableTarget>();
 

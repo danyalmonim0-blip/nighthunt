@@ -28,7 +28,7 @@ public class DayCounterManager : MonoBehaviour
 
     private void Start()
     {
-        gameState.Instance.StartPanel.SetActive(true);
+        UIElements.Instance.StartPanel.SetActive(true);
         NightTime.Instance.Invoke("SetSPFalse", 2f);
         currentDayDisplayTimer = dayDisplayTimer;
     }

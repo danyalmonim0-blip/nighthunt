@@ -6,21 +6,15 @@ using TMPro;
 
 public class GameItems : MonoBehaviour
 {
-
-    public float startingSanity = 20f;
-    public float currentSanity;
-    bool lightToggle;
+    public bool lightToggle;
     public float startingLightBattery = 100f;
     public float currentLightBattery;
-    public float sanityLayer = 0f;
+
 
     public GameObject Dark;
-    public Image Sanity;
     public GameObject LightBatteryTxt;
 
     public AudioSource LightSwitchS;
-
-    
 
     public static GameItems Instance;
     public void Awake()
@@ -37,68 +31,32 @@ public class GameItems : MonoBehaviour
     void Start()
     {
         lightToggle = false;
-        currentSanity = startingSanity;
         currentLightBattery = startingLightBattery;
         LightBatteryTxt.SetActive(false);
-
     }
 
     void Update()
     {
-
-        Sanity.color = new Color(1, 1, 1, sanityLayer);
-        //Debug.Log("Sanity layer" + sanityLayer);
-
-
-        //Debug.Log("Sanity " + currentSanity);
-        //Debug.Log("Light Battery " + currentLightBattery);
-
-        //SANITY
-        if (!lightToggle)
-        {
-            DecreasingSanity();
-            Dark.SetActive(true);
-
-            if (currentSanity <= 0)
-            {
-                currentSanity = 0;
-            }
-            else if (sanityLayer >= 1)
-            {
-                sanityLayer = 1;
-            }
-        }
-        else
-        {
-            if (currentSanity >= 10)
-            {
-                currentSanity = 10;
-            }
-            else if (sanityLayer <= 0)
-            {
-                sanityLayer = 0;
-            }
-        }
-
         //LIGHT BATTERY
         if (lightToggle)
         {
-            IncreasingSanity();
+        Player.Instance.GetComponent<Player>().IncreasingSanity();
+            
 
             DecreasingLightBattery();
             if (currentLightBattery <= 0)
             {
                 currentLightBattery = 0;
                 LightBatteryEmpty();
-                DecreasingSanity();
+                Player.Instance.GetComponent<Player>().DecreasingSanity();
             }
-            else if (currentSanity >= 10)
+            else if (Player.Instance.currentSanity >= 10)
                 {
-                    currentSanity = 10;
+                Player.Instance.currentSanity = 10;
                 }
-            else if (sanityLayer <= 0)
+            else if (Player.Instance.sanityLayer <= 0)
                 {
-                    sanityLayer = 0;
+                Player.Instance.sanityLayer = 0;
                 }
         }
     }
@@ -106,21 +64,8 @@ public class GameItems : MonoBehaviour
     void LightBatteryEmpty()
     {
         Dark.SetActive(true);
-        DecreasingSanity();
+        Player.Instance.GetComponent<Player>().DecreasingSanity();
         LightBatteryTxt.SetActive(true);
-    }
-
-    
-    void IncreasingSanity()
-    {
-        currentSanity += 1 * Time.deltaTime; //increasing sanity
-        sanityLayer -= 0.1275f * Time.deltaTime; //decreasing sanity alpha
-    }
-
-    void DecreasingSanity()
-    {
-        currentSanity -= 1 * Time.deltaTime; //decreasing sanity
-        sanityLayer += 0.1275f * Time.deltaTime; //increasing sanity alpha
     }
 
     public void LightOnBtn()
@@ -128,7 +73,6 @@ public class GameItems : MonoBehaviour
         lightToggle = true;
         Dark.SetActive(false);
         LightSwitchS.Play();
-
     }
 
     public void LightOffBtn()
@@ -141,5 +85,10 @@ public class GameItems : MonoBehaviour
     void DecreasingLightBattery()
     {
         currentLightBattery -= 1 * Time.deltaTime;
+    }
+
+    public void CoffeeBtn()
+    {
+
     }
 }

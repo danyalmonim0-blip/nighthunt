@@ -9,31 +9,11 @@ using Unity.VisualScripting;
 
 public class gameState : MonoBehaviour
 {
-    //bool isPlayerAlive;
     string startingText;
-    //public int dayCounter = 0;
-    //public float currentTime;
-    //public float startingTime = 120f; //180f for 3min
-    //public float dayDisplayTimer = 2f;
     //public float currentDayDisplayTimer;
 
     public bool isPlaying;
     
-
-
-    public GameObject StartPanel;
-    public GameObject EndPanel;
-    public GameObject InPanel;
-    public GameObject StartingTxtPanel;
-    //public GameObject GameState;
-
-    //public TextMeshProUGUI DayDisplay;
-    public TextMeshProUGUI TimeDisplay;
-    public TextMeshProUGUI MonsterKilledDisplay;
-    public TextMeshProUGUI AnimalKilledDisplay;
-    public TextMeshProUGUI TimeSurvivedDisplay;
-    
-
     public Player playerHealth;
     public Player currentHealth;
     public Player playerIsDead;
@@ -54,111 +34,48 @@ public class gameState : MonoBehaviour
     }
     void Start()
     {
-
-        InPanel.SetActive(true);
-        EndPanel.SetActive(false);
+        
     }
 
     private void Update()
     {
 
-        //RealTimeDisplay();
-
-        // GAME LOOP
-        if (StartingTxtPanel.activeSelf == false)
+        if (UIElements.Instance.StartingTxtPanel.activeSelf == false)
         {
-            if (StartPanel.activeSelf == true)
+            if (UIElements.Instance.StartPanel.activeSelf == true)
             {
                 isPlaying = false;
             }
-
             isPlaying = true;
         }
 
-        
-
-
-        //currentDayDisplayTimer -= 1 * Time.deltaTime;
-        //if (currentDayDisplayTimer <= 0)
-        //{
-        //    //StartPanel.SetActive(false);
-        //    currentDayDisplayTimer = 0;
-        //}
-
-        //currentTime -= 1 * Time.deltaTime;
-        //if (currentTime <= 0)
-        //{
-        //    ShiftEnds();
-        //    //ShiftEvents();
-        //}
-        //else if (Player.Instance.playerIsDead == true)
-        //{
-        //    GameOver();
-        //}
+        if (Player.Instance.playerIsDead == true)
+        {
+            GameOver();
+        }
     }
 
 
     public void ShiftEvents()
     {
         GameItems.Instance.LightBatteryTxt.SetActive(false);
-        GameItems.Instance.currentSanity = 10f;
-        GameItems.Instance.sanityLayer = 0f;
+        Player.Instance.currentSanity = 10f;
+        Player.Instance.sanityLayer = 0f;
         GameItems.Instance.currentLightBattery = 100f;
 
-        //GameState.GetComponent<DayCounterManager>().DisplayingDay();
-
-        //StartPanel.SetActive(true);
         //currentDayDisplayTimer = dayDisplayTimer;
-
-        //currentTime = startingTime;
-        Debug.Log("Shift starts");
     }
     public void ShiftEnds()
     {
-        Debug.Log("Shift ends");
 
-        //currentTime = startingTime;
     }
 
     public void GameOver()
     {
-        //Debug.Log("Game Over");
+        UIElements.Instance.EndPanel.SetActive(true);
 
-        EndPanel.SetActive(true);
-
-        MonsterKilledCountDispay();
-        AnimalKilledCountDispay();
-        //DaysSurvivedDisplay();
-    }
-
-    //void DayCountDisplay()
-    //    {
-    //        DayDisplay.text = "Day " + dayCounter;
-    //    }
-
-    void MonsterKilledCountDispay()
-    {
-        MonsterKilledDisplay.text = "Monsters killed: " + MonsterSpawner.Instance.totalKills;
-    }
-
-    void AnimalKilledCountDispay()
-    {
-        AnimalKilledDisplay.text = "Animals killed: ";
-    }
-
-    //void DaysSurvivedDisplay()
-    //{
-    //    TimeSurvivedDisplay.text = "Days survived: " + dayCounter;
-    //}
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    public void BtnStartingText()
-    {
-        StartingTxtPanel.SetActive(false);
-        //ShiftEvents();
+        UIElements.Instance.GetComponent<UIElements>().MonsterKilledCountDispay();
+        UIElements.Instance.GetComponent<UIElements>().AnimalKilledCountDispay();
+        UIElements.Instance.GetComponent<UIElements>().DaysSurvivedDisplay();
     }
 }
