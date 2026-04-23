@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7364784711270964216}
   - component: {fileID: 7952419994311051924}
   m_Layer: 0
-  m_Name: AnimalSpawner
+  m_Name: Animal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

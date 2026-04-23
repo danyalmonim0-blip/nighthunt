@@ -3,8 +3,8 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
-    //[SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private Transform[] hutSpawn;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform hutSpawn;
 
     //[SerializeField] private float spawnInterval;
     [SerializeField] private int maxEnemiesOnScreen = 2;
@@ -91,10 +91,10 @@ public class MonsterSpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        int randomIndex = Random.Range(0, hutSpawn.Length);
-        Transform chosenSpawnPoint = hutSpawn[randomIndex];
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        Transform chosenSpawnPoint = spawnPoints[randomIndex];
 
-        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.parent.position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity, hutSpawn);
         
 
         //var enemyInstance = /*GameObject newEnemy =*/ Instantiate(enemyPrefab, chosenSpawnPoint.transform.position, Quaternion.identity);
