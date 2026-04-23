@@ -10,11 +10,13 @@ public class Player : MonoBehaviour
     public float startingSanity = 20f;
     public float currentSanity;
     public float sanityLayer = 0f;
+    public float startingFatigue = 20f;
+    public float currentFatigue;
+
 
     [SerializeField] public bool playerIsDead;
 
     public Image Sanity;
-
 
     public static Player Instance;
 
