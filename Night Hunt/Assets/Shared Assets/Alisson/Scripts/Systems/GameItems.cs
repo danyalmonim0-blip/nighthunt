@@ -9,6 +9,8 @@ public class GameItems : MonoBehaviour
     public bool lightToggle;
     public float startingLightBattery = 100f;
     public float currentLightBattery;
+    public bool coffeeBtn = false;
+    
 
 
     public GameObject Dark;
@@ -30,41 +32,54 @@ public class GameItems : MonoBehaviour
     }
     void Start()
     {
-        lightToggle = false;
+        lightToggle = true;
         currentLightBattery = startingLightBattery;
         LightBatteryTxt.SetActive(false);
     }
 
     void Update()
     {
+
+        if (!coffeeBtn)
+        {
+            Player.Instance.GetComponent<Player>().DecreasingFatigueBar();
+        }
+        else
+        {
+            Invoke("SetCoffeeBtnFalse", 10f);
+            CoffeeBtn();
+            Player.Instance.GetComponent<Player>().IncreasingFatigueBar();
+        }
+
         //LIGHT BATTERY
         if (lightToggle)
         {
-        Player.Instance.GetComponent<Player>().IncreasingSanity();
-            
+            //Player.Instance.GetComponent<Player>().IncreasingFatigueBar();
+            Dark.SetActive(false);
 
             DecreasingLightBattery();
             if (currentLightBattery <= 0)
             {
                 currentLightBattery = 0;
                 LightBatteryEmpty();
-                Player.Instance.GetComponent<Player>().DecreasingSanity();
+                //Player.Instance.GetComponent<Player>().DecreasingFatigue();
             }
-            else if (Player.Instance.currentSanity >= 10)
-                {
-                Player.Instance.currentSanity = 10;
-                }
-            else if (Player.Instance.sanityLayer <= 0)
-                {
-                Player.Instance.sanityLayer = 0;
-                }
         }
+
+        //if (Player.Instance.currentFatigue >= 40)
+        //{
+        //    Player.Instance.currentFatigue = 40;
+        //}
+        //else if (Player.Instance.fatigueLayer <= 0)
+        //{
+        //    Player.Instance.fatigueLayer = 0;
+        //}
     }
 
     void LightBatteryEmpty()
     {
         Dark.SetActive(true);
-        Player.Instance.GetComponent<Player>().DecreasingSanity();
+        //Player.Instance.GetComponent<Player>().DecreasingFatigue();
         LightBatteryTxt.SetActive(true);
     }
 
@@ -89,6 +104,11 @@ public class GameItems : MonoBehaviour
 
     public void CoffeeBtn()
     {
+        coffeeBtn = true;
+    }
 
+    public void SetCoffeeBtnFalse()
+    {
+        coffeeBtn = false;
     }
 }

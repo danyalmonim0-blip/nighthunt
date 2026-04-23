@@ -7,12 +7,9 @@ public class Player : MonoBehaviour
 {
     public int playerHealth;
     public int currentHealth;
-    public float startingSanity = 20f;
-    public float currentSanity;
-    public float sanityLayer = 0f;
-    public float startingFatigue = 20f;
+    public float fatigue = 40f;
     public float currentFatigue;
-
+    public float fatigueLayer = 0f;
 
     [SerializeField] public bool playerIsDead;
 
@@ -37,42 +34,41 @@ public class Player : MonoBehaviour
         playerIsDead = false;
         playerHealth = 1;
         currentHealth = playerHealth;
-        currentSanity = startingSanity;
+        currentFatigue = fatigue;
+
     }
 
     void Update()
     {
-        Sanity.color = new Color(1, 1, 1, sanityLayer);
 
-        //SANITY
+        Sanity.color = new Color(1, 1, 1, fatigueLayer);
+
+        //FATIGUE
         if (!GameItems.Instance.lightToggle)
         {
-            DecreasingSanity();
-            GameItems.Instance.Dark.SetActive(true);
+            ////monster spawn more
+            //DecreasingFatigue();
 
-            if (currentSanity <= 0)
+            if (currentFatigue <= 0)
             {
-                currentSanity = 0;
+                currentFatigue = 0;
             }
-            else if (sanityLayer >= 1)
+            else if (fatigueLayer >= 1)
             {
-                sanityLayer = 1;
+                fatigueLayer = 1;
             }
         }
         else
         {
-            if (currentSanity >= 10)
+            if (currentFatigue >= 40)
             {
-                currentSanity = 10;
+                currentFatigue = 40;
             }
-            else if (sanityLayer <= 0)
+            else if (fatigueLayer <= 0)
             {
-                sanityLayer = 0;
+                fatigueLayer = 0;
             }
         }
-
-
-
         // lets keep it for testing purposes
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
@@ -94,15 +90,15 @@ public class Player : MonoBehaviour
         Debug.Log("Player died.");
     }
 
-    public void IncreasingSanity()
+    public void IncreasingFatigueBar()
     {
-        currentSanity += 1 * Time.deltaTime; //increasing sanity
-        sanityLayer -= 0.1275f * Time.deltaTime; //decreasing sanity alpha
+        currentFatigue += 1 * Time.deltaTime;
+        fatigueLayer -= 0.2f * Time.deltaTime; //decreasing sanity alpha
     }
 
-    public void DecreasingSanity()
+    public void DecreasingFatigueBar()
     {
-        currentSanity -= 1 * Time.deltaTime; //decreasing sanity
-        sanityLayer += 0.1275f * Time.deltaTime; //increasing sanity alpha
+        currentFatigue -= 1 * Time.deltaTime; //decreasing sanity
+        fatigueLayer += 0.025f * Time.deltaTime; //increasing sanity alpha
     }
 }

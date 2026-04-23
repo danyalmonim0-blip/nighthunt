@@ -14,6 +14,7 @@ public class UIElements : MonoBehaviour
     public GameObject EndPanel;
     public GameObject InPanel;
     public GameObject StartingTxtPanel;
+    public GameObject Coffee;
 
     public static UIElements Instance;
     public void Awake()

@@ -59,8 +59,8 @@ public class gameState : MonoBehaviour
     public void ShiftEvents()
     {
         GameItems.Instance.LightBatteryTxt.SetActive(false);
-        Player.Instance.currentSanity = 10f;
-        Player.Instance.sanityLayer = 0f;
+        Player.Instance.currentFatigue = 10f;
+        Player.Instance.fatigueLayer = 0f;
         GameItems.Instance.currentLightBattery = 100f;
 
         //currentDayDisplayTimer = dayDisplayTimer;
