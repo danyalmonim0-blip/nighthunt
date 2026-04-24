@@ -15,7 +15,7 @@ public class UIElements : MonoBehaviour
     public GameObject InPanel;
     public GameObject StartingTxtPanel;
     public GameObject Coffee;
-    public GameObject Light;
+    //public GameObject Light;
 
     public static UIElements Instance;
     public void Awake()
@@ -32,7 +32,7 @@ public class UIElements : MonoBehaviour
 
     void Start()
     {
-        Light.SetActive(true);
+        //Light.SetActive(true);
         InPanel.SetActive(true);
         EndPanel.SetActive(false);
     }

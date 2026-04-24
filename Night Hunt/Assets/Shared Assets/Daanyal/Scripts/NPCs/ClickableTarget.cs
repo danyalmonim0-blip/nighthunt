@@ -9,8 +9,8 @@ public class ClickableTarget : MonoBehaviour
 
     private AudioSource EnnemySource;
 
-    public AudioClip AppearS;
-    public AudioClip GunshotS;
+    //public AudioClip AppearS;
+    //public AudioClip GunshotS;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class ClickableTarget : MonoBehaviour
 
         EnnemySource = GetComponent<AudioSource>();
 
-        EnnemySource.PlayOneShot(AppearS);
+        //EnnemySource.PlayOneShot(AppearS);
     }
 
     public void SetMonsterSpawner(MonsterSpawner newSpawner)
@@ -35,7 +35,7 @@ public class ClickableTarget : MonoBehaviour
 
     private void OnMouseDown()
     {
-        EnnemySource.PlayOneShot(GunshotS);
+        //EnnemySource.PlayOneShot(GunshotS);
 
         if (isDead)
         {

@@ -6,7 +6,7 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private Transform hutMonsterSpawn;
 
-    [SerializeField] private int maxEnemiesOnScreen = 2;
+    //[SerializeField] private int maxEnemiesOnScreen = 2;
     [SerializeField] private int activeEnemies = 0;
     [SerializeField] public int totalKills = 0;
     [SerializeField] private float timerRand = 3f;

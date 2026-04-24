@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 791189183217078438}
   - component: {fileID: 7364784711270964216}
   - component: {fileID: 7952419994311051924}
+  - component: {fileID: -2246702793142010778}
+  - component: {fileID: -8482649876859058694}
   m_Layer: 0
   m_Name: Animal
   m_TagString: Untagged
@@ -134,3 +136,42 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2246702793142010778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052367718128332693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab09d5780890d847bcf1e6c791afa4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppearS: {fileID: 0}
+  GunshotS: {fileID: 0}
+--- !u!114 &-8482649876859058694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052367718128332693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb90f6340825a224aa0a5a438d395c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  stage1SpotsAn: []
+  stage2SpotsAn: []
+  stage3SpotsAn: []
+  spawnScale: {x: 1, y: 1, z: 1}
+  stage1Scale: {x: 1.5, y: 1.5, z: 1}
+  stage2Scale: {x: 2, y: 2, z: 1}
+  stage3Scale: {x: 2.7, y: 2.7, z: 1}
+  moveSpeed: 5
+  scaleSpeed: 2
+  timerRand: 5
+  currentTimerRand: 0
+  animalSpawner: {fileID: 0}
