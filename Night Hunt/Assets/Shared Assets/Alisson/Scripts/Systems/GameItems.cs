@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 
 
-public class GameItems : MonoBehaviour
+public class GameItems : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool lightToggle;
     public float startingLightBattery = 100f;
@@ -40,16 +40,18 @@ public class GameItems : MonoBehaviour
     void Update()
     {
 
-        if (!coffeeBtn)
-        {
-            Player.Instance.GetComponent<Player>().DecreasingFatigueBar();
-        }
-        else
-        {
-            Invoke("SetCoffeeBtnFalse", 10f);
-            CoffeeBtn();
-            Player.Instance.GetComponent<Player>().IncreasingFatigueBar();
-        }
+
+        
+        //if (!coffeeBtn)
+        //{
+        //    Player.Instance.GetComponent<Player>().DecreasingFatigueBar();
+        //}
+        //else
+        //{
+        //    CoffeeBtn();
+        //    Player.Instance.GetComponent<Player>().IncreasingFatigueBar();
+        //    Invoke("SetCoffeeBtnFalse", 10f);
+        //}
 
         //LIGHT BATTERY
         if (lightToggle)
@@ -105,9 +107,23 @@ public class GameItems : MonoBehaviour
     public void CoffeeBtn()
     {
         coffeeBtn = true;
+        Debug.Log("Button On");
     }
 
     public void SetCoffeeBtnFalse()
+    {
+        coffeeBtn = false;
+        Debug.Log("Button Off");
+    }
+
+    public bool buttonPressed;
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        coffeeBtn = true;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
     {
         coffeeBtn = false;
     }
