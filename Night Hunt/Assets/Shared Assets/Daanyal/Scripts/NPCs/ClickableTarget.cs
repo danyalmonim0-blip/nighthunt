@@ -52,6 +52,13 @@ public class ClickableTarget : MonoBehaviour
         if (animalSpawner != null)
         {
             animalSpawner.RegisterAnimalKilled();
+
+            AnimalBehaviour animalBehaviour = GetComponent<AnimalBehaviour>();
+            if (animalBehaviour != null)
+            {
+                animalBehaviour.MarkAsRemoved();
+            }
+
         }
 
         if (enemymator != null)
@@ -61,10 +68,10 @@ public class ClickableTarget : MonoBehaviour
 
         Invoke("MakeItDestroyed", 2.5f);
 
-        //if (gameState.Instance.currentTime == 1)
-        //{
-        //    Destroy(gameObject);
-        //}
+        /*if (gameState.Instance.currentTime == 1)
+        {
+            Destroy(gameObject);
+        }*/
     }
 
     void MakeItDestroyed()

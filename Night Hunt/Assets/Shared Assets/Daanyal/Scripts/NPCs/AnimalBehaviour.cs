@@ -3,31 +3,28 @@ using UnityEngine;
 public class AnimalBehaviour : MonoBehaviour
 {
     public Transform spawnPoint;
-
-    // Empty objects where enemy can move randomly when the die lands on 1
     public Transform[] stage1SpotsAn;
     public Transform[] stage2SpotsAn;
     public Transform[] stage3SpotsAn;
-    //public Transform[] stage4Spots;      // This is the Danger Stage
 
-    // When the object moves from lower to higher stage the size will increase
     public Vector3 spawnScale = new Vector3(1f, 1f, 1f);
     public Vector3 stage1Scale = new Vector3(1.5f, 1.5f, 1f);
     public Vector3 stage2Scale = new Vector3(2f, 2f, 1f);
     public Vector3 stage3Scale = new Vector3(2.7f, 2.7f, 1f);
-    //public Vector3 stage4Scale = new Vector3(3f, 3f, 1f);
 
     public float moveSpeed = 5f;
-    public float scaleSpeed = 2f;     // lerp used for both
+    public float scaleSpeed = 2f; 
 
     public float timerRand = 5f;
     public float currentTimerRand;
+
+    public AnimalSpawner animalSpawner;
 
     private int currentStage = 0;
     private Transform currentTargetSpot;
     private Vector3 targetScale;
     private bool isMoving = false;
-    //private bool scaryZone = false;
+    private bool hasBeenRemoved = false;
     private int randomNum;
 
     //public DayCounterManager dayCounter;
@@ -43,19 +40,18 @@ public class AnimalBehaviour : MonoBehaviour
 
         transform.localScale = spawnScale;
         targetScale = spawnScale;
-
         currentTimerRand = timerRand;
+        Invoke(nameof(DisappearAfterTime), 30f);
 
        // enemymator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        //if (scaryZone)                                                // if (Input.GetKeyDown(KeyCode.M) && !isMoving && !scaryZone)
-        //{
-        //    //{ MoveToNextStage(); }
-        //    return;
-        //}
+        if (hasBeenRemoved)
+        {
+            return;
+        }
 
         if (isMoving)
         {
@@ -64,7 +60,7 @@ public class AnimalBehaviour : MonoBehaviour
         }
 
         currentTimerRand -= Time.deltaTime;
-        if (currentTimerRand <= 0)
+        if (currentTimerRand <= 0f)
         {
             RandomNum();
             currentTimerRand = timerRand;
@@ -73,42 +69,40 @@ public class AnimalBehaviour : MonoBehaviour
 
     public void RandomNum()
     {
-        randomNum = Random.Range(14, 20);
+        randomNum = Random.Range(21, 27);
         //Debug.Log(randomNum); 
 
         if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 0 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 4)
         {
-            if (randomNum == 14)
+            if (randomNum == 21)
             {
                 MoveToNextStageAnimal();
             }
         }
         else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 5 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 8)
         {
-            if (randomNum == 14 || randomNum == 15)
+            if (randomNum == 21 || randomNum == 22)
             {
                 MoveToNextStageAnimal();
             }
         }
         else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 9 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 13)
         {
-            if (randomNum == 14 || randomNum == 15 || randomNum == 16)
+            if (randomNum == 21 || randomNum == 22 || randomNum == 23)
             {
                 MoveToNextStageAnimal();
             }
         }
         else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 14)
         {
-            if (randomNum == 14 || randomNum == 15 || randomNum == 16 || randomNum == 17)
+            if (randomNum == 21 || randomNum == 22 || randomNum == 23 || randomNum == 24)
             {
                 MoveToNextStageAnimal();
             }
         }
     }
 
-
-
-    void MoveAnimal()            // only job is to move enem in the SAME STAGE using the scale and speed, will be replaced by lerp later on over here
+    void MoveAnimal()
     {
         transform.position = Vector3.MoveTowards(transform.position, currentTargetSpot.position, moveSpeed * Time.deltaTime);
 
@@ -130,54 +124,37 @@ public class AnimalBehaviour : MonoBehaviour
             //{
             //    enemymator.SetTrigger("Appear");
             //}
-
-            //if (currentStage == 3)
-            //{
-            //    scaryZone = true;
-
-            //    Debug.LogWarning("Enemy reached stage 5. Player will die in 5 seconds.");
-
-            //    Invoke(nameof(KillPlayer), 5f);
-            //}
         }
     }
 
-    //void KillPlayer()
-    //{
-    //    if (Player.Instance != null)
-    //    {
-    //        Player.Instance.Die();
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("Player.Instance is null.");
-    //    }
-    //}
-
-    void MoveToNextStageAnimal()              // only job is to move among diff stages (spots in those stages)
+    void MoveToNextStageAnimal()
     {
         //enemymator.SetTrigger("Move");
 
-        int nextStage = currentStage + 1;
-        Transform[] nextStageSpots = GetStageSpotsAnimal(nextStage);
+        int chosenStage = Random.Range(1, 4);
+        Transform[] chosenStageSpots = GetStageSpotsAnimal(chosenStage);
 
-        if (nextStageSpots == null || nextStageSpots.Length == 0)
+        //if (chosenStageSpots == null || chosenStageSpots.Length == 0)
+        //{
+        //    Debug.LogWarning("No Spot left " + chosenStage);
+        //    return;
+        //}
+
+        Transform chosenSpot = chosenStageSpots[Random.Range(0, chosenStageSpots.Length)];
+
+        if (currentTargetSpot != null && chosenSpot == currentTargetSpot && chosenStageSpots.Length > 1)
         {
-            Debug.LogWarning("No Spot left " + nextStage);
-            return;
+            int randomIndex = Random.Range(0, chosenStageSpots.Length);
+            chosenSpot = chosenStageSpots[randomIndex];
         }
 
-        int randomIndex = Random.Range(0, nextStageSpots.Length);
-        currentTargetSpot = nextStageSpots[randomIndex];
-
-        targetScale = GetStageScale(nextStage);
-        currentStage = nextStage;
-        isMoving = true;
-
-        Debug.LogWarning("Moving to stage " + nextStage + " spot is " + currentTargetSpot.name);
+        currentTargetSpot = chosenSpot;
+        targetScale = GetStageScale(chosenStage);
+        currentStage = chosenStage;
+        isMoving = true;  
     }
 
-    Transform[] GetStageSpotsAnimal(int stageNumber)             // Switch will be used
+    Transform[] GetStageSpotsAnimal(int stageNumber)  
     {
         switch (stageNumber)
         {
@@ -187,8 +164,6 @@ public class AnimalBehaviour : MonoBehaviour
                 return stage2SpotsAn;
             case 3:
                 return stage3SpotsAn;
-            /*case 4:
-                return stage4Spots;*/
             default:
                 return stage1SpotsAn;
 
@@ -207,31 +182,30 @@ public class AnimalBehaviour : MonoBehaviour
                 return stage2Scale;
             case 3:
                 return stage3Scale;
-            /* case 4:
-                 return stage4Scale;*/
             default:
                 return transform.localScale;
         }
     }
 
+    void DisappearAfterTime()
+    {
+        if (hasBeenRemoved)
+        {
+            return;
+        }
 
+        hasBeenRemoved = true;
+        
+        if (animalSpawner != null)
+        {
+            animalSpawner.RegisterAnimalDespawn();
+        }
+        Destroy(gameObject);
+    }
+
+    public void MarkAsRemoved()
+    {
+        hasBeenRemoved = true;
+        CancelInvoke(nameof(DisappearAfterTime));
+    }
 }
-
-
-
-
-
-
-
-// This goes in enemy behaviour
-/* private Vector3 endPosition = new Vector3 (5, -2, 0);
-   private Vector3 startPosition;
-   private float desiredDuration = 3f;
-   private float elapsedTime;
-   [SerializeField] private AnimationCurve curve; */
-// This goes in void start
-/*startPosition = transform.position; */
-// This goes in void update
-/* elapsedTime += Time.deltaTime;
-        float percentageComplete = elapsedTime / desiredDuration;
-        transform.position = Vector3.Lerp(startPosition, endPosition, curve.Evaluate (percentageComplete)); */

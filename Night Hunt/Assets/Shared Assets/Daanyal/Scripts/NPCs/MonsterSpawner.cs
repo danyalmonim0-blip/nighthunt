@@ -4,9 +4,8 @@ public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private Transform hutSpawn;
+    [SerializeField] private Transform hutMonsterSpawn;
 
-    //[SerializeField] private float spawnInterval;
     [SerializeField] private int maxEnemiesOnScreen = 2;
     [SerializeField] private int activeEnemies = 0;
     [SerializeField] public int totalKills = 0;
@@ -17,7 +16,6 @@ public class MonsterSpawner : MonoBehaviour
     public Transform[] stage2Spots;
     public Transform[] stage3Spots;
 
-    //public GameObject hutspawn;
 
     public float randomNum;
     
@@ -94,20 +92,10 @@ public class MonsterSpawner : MonoBehaviour
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform chosenSpawnPoint = spawnPoints[randomIndex];
 
-        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity, hutSpawn);
-        
-
-        //var enemyInstance = /*GameObject newEnemy =*/ Instantiate(enemyPrefab, chosenSpawnPoint.transform.position, Quaternion.identity);
-        //enemyInstance.transform.parent = transform;
-
+        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity, hutMonsterSpawn);
         ClickableTarget clickableTarget = newEnemy.GetComponent<ClickableTarget>();
 
-        //EnemyBehaviour enemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
-
-        
-
         activeEnemies++;
-
         Debug.Log("Enemy spawned. Active enemies: " + activeEnemies);
 
         if (clickableTarget != null)
