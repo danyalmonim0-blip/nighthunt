@@ -135,7 +135,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 scaryZone = true;
 
-                Debug.LogWarning("Enemy reached stage 5. Player will die in 5 seconds.");
+                Debug.LogWarning("Enemy reached stage 3. Player will die in 5 seconds.");
 
                 Invoke(nameof(KillPlayer), 5f);
             }

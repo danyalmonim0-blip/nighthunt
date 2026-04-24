@@ -19,6 +19,7 @@ public class NightTime : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void Start()
     {
         
@@ -40,6 +41,8 @@ public class NightTime : MonoBehaviour
                 timeOfNight = 0;
             }
         }
+
+        
     }
 
     void SetSPFalse()
