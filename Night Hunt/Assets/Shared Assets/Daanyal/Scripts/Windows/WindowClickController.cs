@@ -12,6 +12,9 @@ public class WindowClickController : MonoBehaviour
     public GameObject MWBtn;
     public GameObject RWBtn;
 
+    public GameObject gameItems;
+    public GameObject nightVision;
+
     private bool isZoomed;
 
     private int HutPos = 1; // 0 = left, 1 = mid, 2 = right;
@@ -22,6 +25,9 @@ public class WindowClickController : MonoBehaviour
         MWBtn.SetActive(true);
         RWBtn.SetActive(false);
         BBtn.SetActive(false);
+        nightVision.SetActive(false);
+        gameItems.SetActive(true);
+
     }
 
 
@@ -85,6 +91,8 @@ public class WindowClickController : MonoBehaviour
         HutMator.SetBool("isRZ", true);
         Invoke("SetCorrectButtons", 0.8f);
         isZoomed = true;
+        gameItems.SetActive(false);
+        nightVision.SetActive(true);
     }
 
     public void isMWPressed()
@@ -96,6 +104,8 @@ public class WindowClickController : MonoBehaviour
         HutMator.SetBool("isMZ", true);
         Invoke("SetCorrectButtons", 0.7f);
         isZoomed = true;
+        gameItems.SetActive(false);
+        nightVision.SetActive(true);
     }
 
     public void isLWPressed()
@@ -106,6 +116,8 @@ public class WindowClickController : MonoBehaviour
         HutMator.SetBool("isLZ", true);
         Invoke("SetCorrectButtons", 0.8f);
         isZoomed = true;
+        gameItems.SetActive(false);
+        nightVision.SetActive(true);
     }
 
     public void isBPressed()
@@ -117,6 +129,8 @@ public class WindowClickController : MonoBehaviour
         isZoomed = false;
         BBtn.SetActive(false);
         Invoke("SetCorrectButtons", 0.45f);
+        gameItems.SetActive(true);
+        nightVision.SetActive(false);
 
     }
 

@@ -1,0 +1,1339 @@
+fileFormatVersion: 2
+guid: a1d58e9db44046f48935f58f41e6dad5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6521685508557896363
+    second: Fatiguelayer1_0
+  - first:
+      213: 2252023488076033648
+    second: Fatiguelayer1_1
+  - first:
+      213: 8860187728456782400
+    second: Fatiguelayer1_2
+  - first:
+      213: -6730832838726416095
+    second: Fatiguelayer1_3
+  - first:
+      213: 6923936980489765920
+    second: Fatiguelayer1_4
+  - first:
+      213: 6863800621150261774
+    second: Fatiguelayer1_5
+  - first:
+      213: 6371276033939056369
+    second: Fatiguelayer1_6
+  - first:
+      213: -9107668296592985525
+    second: Fatiguelayer1_7
+  - first:
+      213: -9132638090305197982
+    second: Fatiguelayer1_8
+  - first:
+      213: 4924764806438575795
+    second: Fatiguelayer1_9
+  - first:
+      213: -6223548109004401267
+    second: Fatiguelayer1_10
+  - first:
+      213: 849365350578354977
+    second: Fatiguelayer1_11
+  - first:
+      213: -4743030862935092444
+    second: Fatiguelayer1_12
+  - first:
+      213: 2573688141755644451
+    second: Fatiguelayer1_13
+  - first:
+      213: -2962295857227496172
+    second: Fatiguelayer1_14
+  - first:
+      213: 4657001477623461230
+    second: Fatiguelayer1_15
+  - first:
+      213: -8287614661624970938
+    second: Fatiguelayer1_16
+  - first:
+      213: -440585061372500347
+    second: Fatiguelayer1_17
+  - first:
+      213: -5804665636673446675
+    second: Fatiguelayer1_18
+  - first:
+      213: 2184070811593799022
+    second: Fatiguelayer1_19
+  - first:
+      213: 8432401095503400090
+    second: Fatiguelayer1_20
+  - first:
+      213: -3718855681055817039
+    second: Fatiguelayer1_21
+  - first:
+      213: 5338793313787655680
+    second: Fatiguelayer1_22
+  - first:
+      213: -26826731134871809
+    second: Fatiguelayer1_23
+  - first:
+      213: -615914323550886505
+    second: Fatiguelayer1_24
+  - first:
+      213: 8142896297901363780
+    second: Fatiguelayer1_25
+  - first:
+      213: -1551892104828470720
+    second: Fatiguelayer1_26
+  - first:
+      213: -8567194687420486372
+    second: Fatiguelayer1_27
+  - first:
+      213: -720526054396374389
+    second: Fatiguelayer1_28
+  - first:
+      213: -5418078076056837565
+    second: Fatiguelayer1_29
+  - first:
+      213: -919668179545965063
+    second: Fatiguelayer1_30
+  - first:
+      213: 4832396615425476037
+    second: Fatiguelayer1_31
+  - first:
+      213: -1286638424208080720
+    second: Fatiguelayer1_32
+  - first:
+      213: -8436513830669295295
+    second: Fatiguelayer1_33
+  - first:
+      213: -4120951112457300461
+    second: Fatiguelayer1_34
+  - first:
+      213: 5012045652180118686
+    second: Fatiguelayer1_35
+  - first:
+      213: 7648201862882035605
+    second: Fatiguelayer1_36
+  - first:
+      213: 4407846200195317318
+    second: Fatiguelayer1_37
+  - first:
+      213: 9061882843253662250
+    second: Fatiguelayer1_38
+  - first:
+      213: 5097532941159905237
+    second: Fatiguelayer1_39
+  - first:
+      213: -5655433154829611648
+    second: Fatiguelayer1_40
+  - first:
+      213: 8745594764639302751
+    second: Fatiguelayer1_41
+  - first:
+      213: -4352155215480236100
+    second: Fatiguelayer1_42
+  - first:
+      213: -4940445788725917998
+    second: Fatiguelayer1_43
+  - first:
+      213: 6283049693725865502
+    second: Fatiguelayer1_44
+  - first:
+      213: -5831086295161689408
+    second: Fatiguelayer1_45
+  - first:
+      213: 6748792087124991981
+    second: Fatiguelayer1_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fatiguelayer1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 902
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baaf76aaa6ea18a50800000000000000
+      internalID: 6521685508557896363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_1
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1008
+        width: 83
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07eab904e6bc04f10800000000000000
+      internalID: 2252023488076033648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_2
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 1060
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04211f5bbc5b5fa70800000000000000
+      internalID: 8860187728456782400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_3
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 1064
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1298d25d1374792a0800000000000000
+      internalID: -6730832838726416095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_4
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 1046
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0248849cff3c61060800000000000000
+      internalID: 6923936980489765920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_5
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 0
+        width: 802
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0254c88c4e114f50800000000000000
+      internalID: 6863800621150261774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_6
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1052
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f6a5e0ebc15b6850800000000000000
+      internalID: 6371276033939056369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_7
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 1069
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b42fc7150ff0b9180800000000000000
+      internalID: -9107668296592985525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_8
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1043
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268282d2b0a524180800000000000000
+      internalID: -9132638090305197982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_9
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 1049
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bedd1abf77485440800000000000000
+      internalID: 4924764806438575795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_10
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 1058
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d851d38f7f381a9a0800000000000000
+      internalID: -6223548109004401267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_11
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 1028
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12b7fb5494d89cb00800000000000000
+      internalID: 849365350578354977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_12
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 1043
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4231a005f8e5d2eb0800000000000000
+      internalID: -4743030862935092444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_13
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 1010
+        width: 17
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32afafb9ab397b320800000000000000
+      internalID: 2573688141755644451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_14
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 1038
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 415085edc9fc3e6d0800000000000000
+      internalID: -2962295857227496172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_15
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 1045
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6537388b2ef0a040800000000000000
+      internalID: 4657001477623461230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_16
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 1040
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 641468aff5a7cfc80800000000000000
+      internalID: -8287614661624970938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_17
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 989
+        width: 17
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5866c83983ab2e9f0800000000000000
+      internalID: -440585061372500347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_18
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 1032
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec992e9b5fa17fa0800000000000000
+      internalID: -5804665636673446675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_19
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 1028
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65f859d4d06f4e10800000000000000
+      internalID: 2184070811593799022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_20
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 1030
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9c481d9e18e50570800000000000000
+      internalID: 8432401095503400090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_21
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1013
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b289bf1678f36cc0800000000000000
+      internalID: -3718855681055817039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_22
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 1003
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0063b859b34371a40800000000000000
+      internalID: 5338793313787655680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_23
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1013
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6983cea31b0aff0800000000000000
+      internalID: -26826731134871809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_24
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 1010
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 795acac9f25d377f0800000000000000
+      internalID: -615914323550886505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_25
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 65
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 442114f3a01610170800000000000000
+      internalID: 8142896297901363780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_26
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 51
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a37f95a52967ae0800000000000000
+      internalID: -1551892104828470720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_27
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 50
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d20be92d53b1980800000000000000
+      internalID: -8567194687420486372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_28
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 55
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b825a4cfe5d2006f0800000000000000
+      internalID: -720526054396374389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_29
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 342ec4f22be1fc4b0800000000000000
+      internalID: -5418078076056837565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_30
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 51
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fdbeeec9aeac33f0800000000000000
+      internalID: -919668179545965063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_31
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 50
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c54c3c5e1f101340800000000000000
+      internalID: 4832396615425476037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_32
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 25
+        width: 46
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b085ba8b21f42ee0800000000000000
+      internalID: -1286638424208080720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_33
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 45
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 141694c9e5b7bea80800000000000000
+      internalID: -8436513830669295295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_34
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 44
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3165b350cc07fc6c0800000000000000
+      internalID: -4120951112457300461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_35
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 35
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9cac3837fc5e8540800000000000000
+      internalID: 5012045652180118686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_36
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 43
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5978097821fd32a60800000000000000
+      internalID: 7648201862882035605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_37
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 42
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64e723be3c0db2d30800000000000000
+      internalID: 4407846200195317318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_38
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 36
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a22675c1f6642cd70800000000000000
+      internalID: 9061882843253662250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_39
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 26
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d730bcb3331eb640800000000000000
+      internalID: 5097532941159905237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_40
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 33
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d0a6b628dd381b0800000000000000
+      internalID: -5655433154829611648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_41
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 26
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5477df2a189e5970800000000000000
+      internalID: 8745594764639302751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_42
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 25
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb7dfe5e3e90a93c0800000000000000
+      internalID: -4352155215480236100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_43
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 4
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6cae21bb2007bb0800000000000000
+      internalID: -4940445788725917998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_44
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 19
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1638ac4860e13750800000000000000
+      internalID: 6283049693725865502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_45
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 11
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca2d32b8e1d31fa0800000000000000
+      internalID: -5831086295161689408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fatiguelayer1_46
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 3
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: def5d0885a688ad50800000000000000
+      internalID: 6748792087124991981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fatiguelayer1_0: 6521685508557896363
+      Fatiguelayer1_1: 2252023488076033648
+      Fatiguelayer1_10: -6223548109004401267
+      Fatiguelayer1_11: 849365350578354977
+      Fatiguelayer1_12: -4743030862935092444
+      Fatiguelayer1_13: 2573688141755644451
+      Fatiguelayer1_14: -2962295857227496172
+      Fatiguelayer1_15: 4657001477623461230
+      Fatiguelayer1_16: -8287614661624970938
+      Fatiguelayer1_17: -440585061372500347
+      Fatiguelayer1_18: -5804665636673446675
+      Fatiguelayer1_19: 2184070811593799022
+      Fatiguelayer1_2: 8860187728456782400
+      Fatiguelayer1_20: 8432401095503400090
+      Fatiguelayer1_21: -3718855681055817039
+      Fatiguelayer1_22: 5338793313787655680
+      Fatiguelayer1_23: -26826731134871809
+      Fatiguelayer1_24: -615914323550886505
+      Fatiguelayer1_25: 8142896297901363780
+      Fatiguelayer1_26: -1551892104828470720
+      Fatiguelayer1_27: -8567194687420486372
+      Fatiguelayer1_28: -720526054396374389
+      Fatiguelayer1_29: -5418078076056837565
+      Fatiguelayer1_3: -6730832838726416095
+      Fatiguelayer1_30: -919668179545965063
+      Fatiguelayer1_31: 4832396615425476037
+      Fatiguelayer1_32: -1286638424208080720
+      Fatiguelayer1_33: -8436513830669295295
+      Fatiguelayer1_34: -4120951112457300461
+      Fatiguelayer1_35: 5012045652180118686
+      Fatiguelayer1_36: 7648201862882035605
+      Fatiguelayer1_37: 4407846200195317318
+      Fatiguelayer1_38: 9061882843253662250
+      Fatiguelayer1_39: 5097532941159905237
+      Fatiguelayer1_4: 6923936980489765920
+      Fatiguelayer1_40: -5655433154829611648
+      Fatiguelayer1_41: 8745594764639302751
+      Fatiguelayer1_42: -4352155215480236100
+      Fatiguelayer1_43: -4940445788725917998
+      Fatiguelayer1_44: 6283049693725865502
+      Fatiguelayer1_45: -5831086295161689408
+      Fatiguelayer1_46: 6748792087124991981
+      Fatiguelayer1_5: 6863800621150261774
+      Fatiguelayer1_6: 6371276033939056369
+      Fatiguelayer1_7: -9107668296592985525
+      Fatiguelayer1_8: -9132638090305197982
+      Fatiguelayer1_9: 4924764806438575795
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

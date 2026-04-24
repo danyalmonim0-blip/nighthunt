@@ -4,17 +4,20 @@ using UnityEngine.EventSystems;
 using TMPro;
 
 
-public class GameItems : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class GameItems : MonoBehaviour
 {
     public bool lightToggle;
     public float startingLightBattery = 100f;
     public float currentLightBattery;
-    public bool coffeeBtn = false;
-    
-
+    //public bool coffeeBtn = false;
+    public bool nightVision;
+    public float startingNVBattery = 50f;
+    public float currentNVBattery;
 
     public GameObject Dark;
     public GameObject LightBatteryTxt;
+    public GameObject NightVisionVignette;
+   
 
     public AudioSource LightSwitchS;
 
@@ -32,26 +35,26 @@ public class GameItems : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
     void Start()
     {
-        lightToggle = true;
+        lightToggle = false;
         currentLightBattery = startingLightBattery;
         LightBatteryTxt.SetActive(false);
+        currentNVBattery = startingNVBattery;
+
     }
 
     void Update()
     {
 
-
-        
-        //if (!coffeeBtn)
-        //{
-        //    Player.Instance.GetComponent<Player>().DecreasingFatigueBar();
-        //}
-        //else
-        //{
-        //    CoffeeBtn();
-        //    Player.Instance.GetComponent<Player>().IncreasingFatigueBar();
-        //    Invoke("SetCoffeeBtnFalse", 10f);
-        //}
+        if (NVBtn.Instance.buttonPressed == true)
+        {
+            NightVisionVignette.SetActive(true);
+            DecreasingNVBattery();
+            MonsterColor.Instance.GetComponent<MonsterColor>().MonsterClr();
+        }
+        else
+        {
+            NightVisionVignette.SetActive(false);
+        }
 
         //LIGHT BATTERY
         if (lightToggle)
@@ -68,14 +71,21 @@ public class GameItems : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
 
-        //if (Player.Instance.currentFatigue >= 40)
-        //{
-        //    Player.Instance.currentFatigue = 40;
-        //}
-        //else if (Player.Instance.fatigueLayer <= 0)
-        //{
-        //    Player.Instance.fatigueLayer = 0;
-        //}
+        if (currentNVBattery <= 0)
+        {
+            currentNVBattery = 0;
+            //LightBatteryEmpty();
+            //Player.Instance.GetComponent<Player>().DecreasingFatigue();
+        }
+
+        if (Player.Instance.currentFatigue >= 40)
+        {
+            Player.Instance.currentFatigue = 40;
+        }
+        else if (Player.Instance.fatigueLayer <= 0)
+        {
+            Player.Instance.fatigueLayer = 0;
+        }
     }
 
     void LightBatteryEmpty()
@@ -106,25 +116,14 @@ public class GameItems : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void CoffeeBtn()
     {
-        coffeeBtn = true;
-        Debug.Log("Button On");
+        Player.Instance.currentFatigue = Player.Instance.currentFatigue + 20f;
+        Player.Instance.fatigueLayer = Player.Instance.fatigueLayer - 0.5f;
+        Debug.Log(Player.Instance.currentFatigue);
+        Debug.Log("Button Pressed");
     }
 
-    public void SetCoffeeBtnFalse()
+    void DecreasingNVBattery()
     {
-        coffeeBtn = false;
-        Debug.Log("Button Off");
-    }
-
-    public bool buttonPressed;
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        coffeeBtn = true;
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        coffeeBtn = false;
+        currentNVBattery -= 1 * Time.deltaTime;
     }
 }

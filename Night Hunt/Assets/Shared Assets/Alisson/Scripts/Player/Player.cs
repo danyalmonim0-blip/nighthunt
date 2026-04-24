@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] public bool playerIsDead;
 
-    public Image Sanity;
+    public Image Fatigue;
 
     public static Player Instance;
 
@@ -40,8 +40,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        DecreasingFatigueBar();
 
-        Sanity.color = new Color(1, 1, 1, fatigueLayer);
+        Fatigue.color = new Color(1, 1, 1, fatigueLayer);
 
         //FATIGUE
         if (!GameItems.Instance.lightToggle)
