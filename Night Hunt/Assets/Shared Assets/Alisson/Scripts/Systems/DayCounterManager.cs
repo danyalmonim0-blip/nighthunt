@@ -6,7 +6,8 @@ public class DayCounterManager : MonoBehaviour
 {
 
     public TextMeshProUGUI dayDisplay;
-    public DayCounter dayCounterManagerValues;
+    //public DayCounter dayCounterManagerValues;
+    public int dayCounter = 0;
     public float dayDisplayTimer = 2f;
     public float currentDayDisplayTimer;
 
@@ -31,6 +32,7 @@ public class DayCounterManager : MonoBehaviour
         UIElements.Instance.StartPanel.SetActive(true);
         NightTime.Instance.Invoke("SetSPFalse", 2f);
         currentDayDisplayTimer = dayDisplayTimer;
+        dayCounter = 0;
     }
     private void Update()
     {
@@ -41,6 +43,6 @@ public class DayCounterManager : MonoBehaviour
     {
         //currentDayDisplayTimer = dayDisplayTimer;
 
-        dayDisplay.text = "Day " + dayCounterManagerValues.dayCounter.ToString();
+        dayDisplay.text = "Day " + dayCounter.ToString();
     }
 }

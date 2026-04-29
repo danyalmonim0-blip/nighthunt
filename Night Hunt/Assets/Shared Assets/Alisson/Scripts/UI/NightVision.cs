@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NightVision : MonoBehaviour
 {
-    public GameObject ForestBG;
+    //public GameObject ForestBG;
 
     public void Start()
     {
@@ -14,7 +14,7 @@ public class NightVision : MonoBehaviour
     {
         //ForestBG.color = new Color(1, 1, 1, 1);
 
-        ForestBG.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+        //ForestBG.GetComponent<Sprite>().color = new Color32(255, 0, 0, 255);
 
     }
 }

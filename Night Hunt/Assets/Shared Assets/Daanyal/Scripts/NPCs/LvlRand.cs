@@ -20,7 +20,7 @@ public class LvlRand : MonoBehaviour
 
     void Update()
     {
-        if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter > 5)
+        if (DayCounterManager.Instance.dayCounter > 5)
         {
             lvlRandNum++;
         }

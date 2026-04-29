@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class NightTime : MonoBehaviour
 {
-    [SerializeField, Range(0, 11)] public float timeOfNight; //Range(0, 121)
+    [SerializeField, Range(0, 121)] public float timeOfNight; //Range(0, 121)
     private gameState isPlaying;
 
     public GameObject GameState;
@@ -31,11 +31,11 @@ public class NightTime : MonoBehaviour
         {
             GameState.GetComponent<DayCounterManager>().DisplayingDay();
             timeOfNight += 1 * Time.deltaTime;
-            timeOfNight %= 11;
+            timeOfNight %= 121;
             
-            if (timeOfNight >= 10)
+            if (timeOfNight >= 120)
             {
-                DayCounterManager.Instance.dayCounterManagerValues.dayCounter++;
+                DayCounterManager.Instance.dayCounter++;
                 UIElements.Instance.StartPanel.SetActive(true);
                 Invoke("SetSPFalse", 2f);
                 timeOfNight = 0;

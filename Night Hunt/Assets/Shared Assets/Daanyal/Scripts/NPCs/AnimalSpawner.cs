@@ -45,28 +45,28 @@ public class AnimalSpawner : MonoBehaviour
 
         currentTimerRand = timerRand;
 
-        if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 0 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 2)
+        if (DayCounterManager.Instance.dayCounter >= 0 && DayCounterManager.Instance.dayCounter <= 2)
         {
             if (randomNum == 1)
             {
                 SpawnAnimal();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 3 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 6)
+        else if (DayCounterManager.Instance.dayCounter >= 3 && DayCounterManager.Instance.dayCounter <= 6)
         {
             if (randomNum == 1 || randomNum == 2)
             {
                 SpawnAnimal();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 7 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 10)
+        else if (DayCounterManager.Instance.dayCounter >= 7 && DayCounterManager.Instance.dayCounter <= 10)
         {
             if (randomNum == 1 || randomNum == 2 || randomNum == 3)
             {
                 SpawnAnimal();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 11)
+        else if (DayCounterManager.Instance.dayCounter >= 11)
         {
             if (randomNum == 1 || randomNum == 2 || randomNum == 3 || randomNum == 4)
             {

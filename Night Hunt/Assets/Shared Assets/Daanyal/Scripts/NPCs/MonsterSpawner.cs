@@ -11,10 +11,13 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] public int totalKills = 0;
     [SerializeField] private float timerRand = 3f;
     [SerializeField] private float currentTimerRand;
+    private GameObject newEnemy;
 
     public Transform[] stage1Spots;
     public Transform[] stage2Spots;
     public Transform[] stage3Spots;
+
+    private Sprite enemyColor;
 
 
     public float randomNum;
@@ -45,28 +48,28 @@ public class MonsterSpawner : MonoBehaviour
 
         currentTimerRand = timerRand;
 
-        if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 0 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 2)
+        if (DayCounterManager.Instance.dayCounter >= 0 && DayCounterManager.Instance.dayCounter <= 2)
         {
             if (randomNum == 1)
             {
                 SpawnEnemy();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 3 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 6)
+        else if (DayCounterManager.Instance.dayCounter >= 3 && DayCounterManager.Instance.dayCounter <= 6)
         {
             if (randomNum == 1 || randomNum == 2)
             {
                 SpawnEnemy();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 7 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 10)
+        else if (DayCounterManager.Instance.dayCounter >= 7 && DayCounterManager.Instance.dayCounter <= 10)
         {
             if (randomNum == 1 || randomNum == 2 || randomNum == 3)
             {
                 SpawnEnemy();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 11)
+        else if (DayCounterManager.Instance.dayCounter >= 11)
         {
             if (randomNum == 1 || randomNum == 2 || randomNum == 3 || randomNum == 4)
             {
@@ -92,8 +95,12 @@ public class MonsterSpawner : MonoBehaviour
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform chosenSpawnPoint = spawnPoints[randomIndex];
 
-        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity, hutMonsterSpawn);
+        newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity, hutMonsterSpawn);
         ClickableTarget clickableTarget = newEnemy.GetComponent<ClickableTarget>();
+
+        //newEnemy.GetComponent<GameObject>();
+
+        
 
         activeEnemies++;
         Debug.Log("Enemy spawned. Active enemies: " + activeEnemies);
@@ -109,6 +116,24 @@ public class MonsterSpawner : MonoBehaviour
             enemyBehaviour.stage1Spots = stage1Spots;
             enemyBehaviour.stage2Spots = stage2Spots;
             enemyBehaviour.stage3Spots = stage3Spots;
+        }
+    }
+
+    public void ChangeNPCColorGre()
+    {
+        if (activeEnemies > 0)
+        {
+            SpriteRenderer EnemyCol = newEnemy.GetComponent<SpriteRenderer>();
+            EnemyCol.color = Color.green;
+        }
+    }
+
+    public void ChangeNPCColorBla()
+    {
+        if (activeEnemies > 0)
+        {
+            SpriteRenderer EnemyCol = newEnemy.GetComponent<SpriteRenderer>();
+            EnemyCol.color = Color.black;
         }
     }
 

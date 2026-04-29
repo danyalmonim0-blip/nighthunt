@@ -106,10 +106,10 @@ MonoBehaviour:
   stage1SpotsAn: []
   stage2SpotsAn: []
   stage3SpotsAn: []
-  spawnScale: {x: 1, y: 1, z: 1}
-  stage1Scale: {x: 1.5, y: 1.5, z: 1}
-  stage2Scale: {x: 2, y: 2, z: 1}
-  stage3Scale: {x: 2.7, y: 2.7, z: 1}
+  spawnScale: {x: 0.2, y: 0.2, z: 1}
+  stage1Scale: {x: 0.2, y: 0.2, z: 1}
+  stage2Scale: {x: 0.35, y: 0.35, z: 1}
+  stage3Scale: {x: 0.5, y: 0.5, z: 1}
   moveSpeed: 5
   scaleSpeed: 2
   timerRand: 5
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab09d5780890d847bcf1e6c791afa4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
 --- !u!61 &3553726810219188860
 BoxCollider2D:
   m_ObjectHideFlags: 0

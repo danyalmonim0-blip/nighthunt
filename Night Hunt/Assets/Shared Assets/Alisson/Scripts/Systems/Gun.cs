@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
     public int startingBullets = 2;
     public int currentBullets;
     public bool isGunEmpty = false;
+
+    public GameObject reloadingTxt;
+
+    public Image gun;
 
     public static Gun Instance;
     public void Awake()
@@ -21,6 +26,8 @@ public class Gun : MonoBehaviour
     void Start()
     {
         currentBullets = startingBullets;
+        reloadingTxt.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -31,17 +38,22 @@ public class Gun : MonoBehaviour
             currentBullets = 0;
             //display text "reloading"
             Debug.Log("No bullets");
-            isGunEmpty = true;
+            GunEmpty();
         }
     }
 
-    public void Reloading()
+    public void GunEmpty()
     {
-        currentBullets = startingBullets;
+        isGunEmpty = true;
+        gun.color = Color.red;
+
     }
 
     public void ReloadBtn()
     {
-
+        currentBullets = startingBullets;
+        gun.color = Color.white;
+        Debug.Log(currentBullets);
+        reloadingTxt.SetActive(true);
     }
 }

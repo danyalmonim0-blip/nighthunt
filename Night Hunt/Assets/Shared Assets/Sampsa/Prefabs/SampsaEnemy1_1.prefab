@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: -6648986957413647568}
   m_Layer: 0
   m_Name: SampsaEnemy1_1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,10 +430,10 @@ MonoBehaviour:
   stage1Spots: []
   stage2Spots: []
   stage3Spots: []
-  spawnScale: {x: 0.5, y: 0.5, z: 1}
-  stage1Scale: {x: 0.5, y: 0.5, z: 1}
-  stage2Scale: {x: 0.7, y: 0.7, z: 1}
-  stage3Scale: {x: 1, y: 1, z: 1}
+  spawnScale: {x: 0.2, y: 0.2, z: 1}
+  stage1Scale: {x: 0.2, y: 0.2, z: 1}
+  stage2Scale: {x: 0.35, y: 0.35, z: 1}
+  stage3Scale: {x: 0.5, y: 0.5, z: 1}
   moveSpeed: 5
   scaleSpeed: 2
   timerRand: 3
@@ -450,8 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab09d5780890d847bcf1e6c791afa4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AppearS: {fileID: 8300000, guid: 3b2ef5b1a5c68bc41988e85e2f188160, type: 3}
-  GunshotS: {fileID: 8300000, guid: 3108461161aaf4d478ec3b547cd76ca3, type: 3}
+  isDead: 0
 --- !u!61 &8018525536718300400
 BoxCollider2D:
   m_ObjectHideFlags: 0

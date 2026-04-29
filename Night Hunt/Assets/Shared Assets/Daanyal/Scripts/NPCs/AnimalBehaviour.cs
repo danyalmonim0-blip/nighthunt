@@ -7,10 +7,10 @@ public class AnimalBehaviour : MonoBehaviour
     public Transform[] stage2SpotsAn;
     public Transform[] stage3SpotsAn;
 
-    public Vector3 spawnScale = new Vector3(1f, 1f, 1f);
-    public Vector3 stage1Scale = new Vector3(1.5f, 1.5f, 1f);
-    public Vector3 stage2Scale = new Vector3(2f, 2f, 1f);
-    public Vector3 stage3Scale = new Vector3(2.7f, 2.7f, 1f);
+    public Vector3 spawnScale = new Vector3(0.2f, 0.2f, 1f);
+    public Vector3 stage1Scale = new Vector3(0.2f, 0.2f, 1f);
+    public Vector3 stage2Scale = new Vector3(0.35f, 0.35f, 1f);
+    public Vector3 stage3Scale = new Vector3(0.5f, 0.5f, 1f);
 
     public float moveSpeed = 5f;
     public float scaleSpeed = 2f; 
@@ -27,6 +27,8 @@ public class AnimalBehaviour : MonoBehaviour
     private bool hasBeenRemoved = false;
     private int randomNum;
 
+    private Sprite enemyColor;
+
     //public DayCounterManager dayCounter;
 
    // private Animator enemymator;
@@ -42,6 +44,8 @@ public class AnimalBehaviour : MonoBehaviour
         targetScale = spawnScale;
         currentTimerRand = timerRand;
         Invoke(nameof(DisappearAfterTime), 30f);
+
+        enemyColor = GetComponent<Sprite>();
 
        // enemymator = GetComponent<Animator>();
     }
@@ -72,28 +76,28 @@ public class AnimalBehaviour : MonoBehaviour
         randomNum = Random.Range(21, 27);
         //Debug.Log(randomNum); 
 
-        if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 0 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 4)
+        if (DayCounterManager.Instance.dayCounter >= 0 && DayCounterManager.Instance.dayCounter <= 4)
         {
             if (randomNum == 21)
             {
                 MoveToNextStageAnimal();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 5 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 8)
+        else if (DayCounterManager.Instance.dayCounter >= 5 && DayCounterManager.Instance.dayCounter <= 8)
         {
             if (randomNum == 21 || randomNum == 22)
             {
                 MoveToNextStageAnimal();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 9 && DayCounterManager.Instance.dayCounterManagerValues.dayCounter <= 13)
+        else if (DayCounterManager.Instance.dayCounter >= 9 && DayCounterManager.Instance.dayCounter <= 13)
         {
             if (randomNum == 21 || randomNum == 22 || randomNum == 23)
             {
                 MoveToNextStageAnimal();
             }
         }
-        else if (DayCounterManager.Instance.dayCounterManagerValues.dayCounter >= 14)
+        else if (DayCounterManager.Instance.dayCounter >= 14)
         {
             if (randomNum == 21 || randomNum == 22 || randomNum == 23 || randomNum == 24)
             {

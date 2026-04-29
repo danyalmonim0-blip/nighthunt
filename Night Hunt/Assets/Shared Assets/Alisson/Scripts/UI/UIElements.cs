@@ -58,7 +58,7 @@ public class UIElements : MonoBehaviour
 
     public void DaysSurvivedDisplay()
     {
-        TimeSurvivedDisplay.text = "Days survived: " + DayCounterManager.Instance.dayCounterManagerValues.dayCounter;
+        TimeSurvivedDisplay.text = "Days survived: " + DayCounterManager.Instance.dayCounter;
     }
 
     public void MainMenu()
