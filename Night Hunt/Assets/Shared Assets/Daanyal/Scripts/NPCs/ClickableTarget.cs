@@ -4,7 +4,7 @@ public class ClickableTarget : MonoBehaviour
 {
     private MonsterSpawner monsterSpawner;
     private AnimalSpawner animalSpawner;
-    private bool isDead = false;
+    public bool isDead = false;
     private Animator enemymator;
 
     private AudioSource EnnemySource;
@@ -12,6 +12,18 @@ public class ClickableTarget : MonoBehaviour
     //public AudioClip AppearS;
     //public AudioClip GunshotS;
 
+    public static ClickableTarget Instance;
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         enemymator = GetComponent<Animator>();
@@ -33,40 +45,45 @@ public class ClickableTarget : MonoBehaviour
         monsterSpawner = null;
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         //EnnemySource.PlayOneShot(GunshotS);
-
-        if (isDead)
+        if (Gun.Instance.isGunEmpty == false)
         {
-            return;
-        }
-
-        isDead = true;
-
-        if (monsterSpawner != null)
-        {
-            monsterSpawner.MonsterKilledCnt();
-        }
-
-        if (animalSpawner != null)
-        {
-            animalSpawner.RegisterAnimalKilled();
-
-            AnimalBehaviour animalBehaviour = GetComponent<AnimalBehaviour>();
-            if (animalBehaviour != null)
+            if (isDead)
             {
-                animalBehaviour.MarkAsRemoved();
+
+                return;
             }
 
-        }
+            isDead = true;
 
-        if (enemymator != null)
-        {
-            enemymator.SetTrigger("Died");
-        }
+            if (monsterSpawner != null)
+            {
+                monsterSpawner.MonsterKilledCnt();
+            }
 
-        Invoke("MakeItDestroyed", 2.5f);
+            if (animalSpawner != null)
+            {
+                animalSpawner.RegisterAnimalKilled();
+
+                AnimalBehaviour animalBehaviour = GetComponent<AnimalBehaviour>();
+                if (animalBehaviour != null)
+                {
+                    animalBehaviour.MarkAsRemoved();
+                }
+            }
+
+            if (enemymator != null)
+            {
+                enemymator.SetTrigger("Died");
+            }
+
+            Invoke("MakeItDestroyed", 2.5f);
+
+            Gun.Instance.currentBullets--;
+            Debug.Log(Gun.Instance.currentBullets);
+        }
 
         /*if (gameState.Instance.currentTime == 1)
         {

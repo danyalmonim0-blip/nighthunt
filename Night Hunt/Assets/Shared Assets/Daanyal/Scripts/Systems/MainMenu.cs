@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public DayCounter dayCounterNewGame;
+
     public AudioSource MenuSource;
 
     public AudioClip ButtonS;
@@ -20,7 +22,12 @@ public class MainMenu : MonoBehaviour
         MenuSource.PlayOneShot(ButtonS);
     }
 
-
+    public void NewGame()
+    {
+        SceneManager.LoadScene("HutTest");
+        //DayCounterManager.Instance.dayCounterNewGame.dayCounter = 0;
+        MenuSource.PlayOneShot(ButtonS);
+    }
     /*public void Settings()
    {
        SceneManager.LoadScene("Settings");

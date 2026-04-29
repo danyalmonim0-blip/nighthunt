@@ -13,10 +13,15 @@ public class GameItems : MonoBehaviour
     public bool nightVision;
     public float startingNVBattery = 50f;
     public float currentNVBattery;
+    public int startingCoffeeCups = 4;
+    public int currentCoffeeCups;
+    public bool coffeeIsEmpty;
+
 
     public GameObject Dark;
     public GameObject LightBatteryTxt;
     public GameObject NightVisionVignette;
+    public GameObject Coffee;
    
 
     public AudioSource LightSwitchS;
@@ -35,15 +40,25 @@ public class GameItems : MonoBehaviour
     }
     void Start()
     {
-        lightToggle = false;
+        //lightToggle = true;
+        LightOffBtn();
         currentLightBattery = startingLightBattery;
         LightBatteryTxt.SetActive(false);
         currentNVBattery = startingNVBattery;
+        currentCoffeeCups = startingCoffeeCups;
+        coffeeIsEmpty = false;
 
     }
 
     void Update()
     {
+        if (NightTime.Instance.timeOfNight <= 0)
+        {
+            currentLightBattery = startingLightBattery;
+            currentNVBattery = startingNVBattery;
+            currentCoffeeCups = startingCoffeeCups;
+            LightOffBtn();
+        }
 
         if (NVBtn.Instance.buttonPressed == true)
         {
@@ -59,23 +74,17 @@ public class GameItems : MonoBehaviour
         //LIGHT BATTERY
         if (lightToggle)
         {
-            //Player.Instance.GetComponent<Player>().IncreasingFatigueBar();
-            Dark.SetActive(false);
-
             DecreasingLightBattery();
             if (currentLightBattery <= 0)
             {
                 currentLightBattery = 0;
                 LightBatteryEmpty();
-                //Player.Instance.GetComponent<Player>().DecreasingFatigue();
             }
         }
 
         if (currentNVBattery <= 0)
         {
             currentNVBattery = 0;
-            //LightBatteryEmpty();
-            //Player.Instance.GetComponent<Player>().DecreasingFatigue();
         }
 
         if (Player.Instance.currentFatigue >= 40)
@@ -86,12 +95,23 @@ public class GameItems : MonoBehaviour
         {
             Player.Instance.fatigueLayer = 0;
         }
+
+        if (currentCoffeeCups <= 0)
+        {
+            coffeeIsEmpty = true;
+        }
+
+        if (coffeeIsEmpty == true)
+        {
+            Coffee.GetComponent<Button>().enabled = false;
+            Debug.Log("Coffee is empty");
+        }
+
     }
 
     void LightBatteryEmpty()
     {
         Dark.SetActive(true);
-        //Player.Instance.GetComponent<Player>().DecreasingFatigue();
         LightBatteryTxt.SetActive(true);
     }
 
@@ -116,10 +136,11 @@ public class GameItems : MonoBehaviour
 
     public void CoffeeBtn()
     {
+        currentCoffeeCups--;
         Player.Instance.currentFatigue = Player.Instance.currentFatigue + 20f;
         Player.Instance.fatigueLayer = Player.Instance.fatigueLayer - 0.5f;
         Debug.Log(Player.Instance.currentFatigue);
-        Debug.Log("Button Pressed");
+        Debug.Log("Coffee Drank");
     }
 
     void DecreasingNVBattery()
