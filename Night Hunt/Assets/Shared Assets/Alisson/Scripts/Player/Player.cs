@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public int playerHealth;
     public int currentHealth;
-    public float fatigue = 40f;
+    public float startingFatigue = 40f;
     public float currentFatigue;
     public float fatigueLayer = 0f;
 
@@ -34,13 +34,19 @@ public class Player : MonoBehaviour
         playerIsDead = false;
         playerHealth = 1;
         currentHealth = playerHealth;
-        currentFatigue = fatigue;
+        currentFatigue = startingFatigue;
 
     }
 
     void Update()
     {
         DecreasingFatigueBar();
+
+        if (NightTime.Instance.timeOfNight <= 0)
+        {
+            currentFatigue = startingFatigue;
+            fatigueLayer = 0f;
+        }
 
         Fatigue.color = new Color(1, 1, 1, fatigueLayer);
 

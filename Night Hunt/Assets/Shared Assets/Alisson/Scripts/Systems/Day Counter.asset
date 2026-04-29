@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9ceb770bd61434b8045368f7ea6fbc, type: 3}
   m_Name: Day Counter
   m_EditorClassIdentifier: 
-  dayCounter: 1
+  dayCounter: 15

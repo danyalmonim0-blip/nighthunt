@@ -1876,6 +1876,7 @@ GameObject:
   - component: {fileID: 429169363}
   - component: {fileID: 429169364}
   - component: {fileID: 429169366}
+  - component: {fileID: 429169368}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -1961,7 +1962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 0
   currentHealth: 0
-  fatigue: 40
+  startingFatigue: 40
   currentFatigue: 0
   fatigueLayer: 0
   playerIsDead: 0
@@ -1984,9 +1985,13 @@ MonoBehaviour:
   nightVision: 0
   startingNVBattery: 50
   currentNVBattery: 0
+  startingCoffeeCups: 4
+  currentCoffeeCups: 0
+  coffeeIsEmpty: 0
   Dark: {fileID: 664215632}
   LightBatteryTxt: {fileID: 1431945476}
   NightVisionVignette: {fileID: 1978143721}
+  Coffee: {fileID: 1084841897}
   LightSwitchS: {fileID: 1327222241}
 --- !u!114 &429169363
 MonoBehaviour:
@@ -2086,6 +2091,21 @@ MonoBehaviour:
   - {fileID: 1139573433}
   - {fileID: 62150701}
   randomNum: 0
+--- !u!114 &429169368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429169357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b8d06eef3071646b439a223d96b702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingBullets: 2
+  currentBullets: 0
+  isGunEmpty: 0
 --- !u!1 &440652887
 GameObject:
   m_ObjectHideFlags: 0
