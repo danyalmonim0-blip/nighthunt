@@ -40,10 +40,10 @@ public class UIElements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NightTime.Instance.timeOfNight == 15)
-        {
-            TimeDisplay.text = NightTime.Instance.timeOfNight;
-        }
+        //if (NightTime.Instance.timeOfNight == 15)
+        //{
+        //    TimeDisplay.text = NightTime.Instance.timeOfNight;
+        //}
     }
 
     public void MonsterKilledCountDispay()
