@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Shared Assets/Daanyal/Scenes/HutTest.unity
     guid: 53c72135239f16543b77c5bf226a6f86
+  - enabled: 0
+    path: Assets/Shared Assets/Daanyal/Scenes/Settings.unity
+    guid: 54a770f8b9c0faa4cb0e108dde064c83
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
