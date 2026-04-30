@@ -50,6 +50,8 @@ public class MonsterSpawner : MonoBehaviour
 
         if (DayCounterManager.Instance.dayCounter >= 0 && DayCounterManager.Instance.dayCounter <= 2)
         {
+            Debug.Log("spawn ratio 1");
+
             if (randomNum == 1)
             {
                 SpawnEnemy();
@@ -57,21 +59,27 @@ public class MonsterSpawner : MonoBehaviour
         }
         else if (DayCounterManager.Instance.dayCounter >= 3 && DayCounterManager.Instance.dayCounter <= 6)
         {
-            if (randomNum == 1 || randomNum == 2)
+            Debug.Log("spawn ratio 1 and 2");
+
+            if (randomNum >= 1 && randomNum <= 2)
             {
                 SpawnEnemy();
             }
         }
         else if (DayCounterManager.Instance.dayCounter >= 7 && DayCounterManager.Instance.dayCounter <= 10)
         {
-            if (randomNum == 1 || randomNum == 2 || randomNum == 3)
+            Debug.Log("spawn ratio 1 to 3");
+
+            if (randomNum >= 1 && randomNum <= 3)
             {
                 SpawnEnemy();
             }
         }
         else if (DayCounterManager.Instance.dayCounter >= 11)
         {
-            if (randomNum == 1 || randomNum == 2 || randomNum == 3 || randomNum == 4)
+            Debug.Log("spawn ratio 1 to 4");
+
+            if (randomNum >= 1 && randomNum <= 4)
             {
                 SpawnEnemy();
             }
@@ -87,6 +95,19 @@ public class MonsterSpawner : MonoBehaviour
             {
                 RandomNum();
             }
+        }
+
+        if (NightTime.Instance.timeOfNight <= 90)
+        {
+            currentTimerRand = 2.5f;
+        }
+        else if (NightTime.Instance.timeOfNight <= 60)
+        {
+            currentTimerRand = 2f;
+        }
+        else if (NightTime.Instance.timeOfNight <= 30)
+        {
+            currentTimerRand = 1.5f;
         }
     }
 

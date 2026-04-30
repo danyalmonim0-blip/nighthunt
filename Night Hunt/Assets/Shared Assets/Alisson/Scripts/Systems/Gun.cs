@@ -27,7 +27,6 @@ public class Gun : MonoBehaviour
     {
         currentBullets = startingBullets;
         reloadingTxt.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -53,5 +52,7 @@ public class Gun : MonoBehaviour
         currentBullets = startingBullets;
         gun.color = Color.white;
         Debug.Log(currentBullets);
+        isGunEmpty = false;
+        reloadingTxt.SetActive(false);
     }
 }

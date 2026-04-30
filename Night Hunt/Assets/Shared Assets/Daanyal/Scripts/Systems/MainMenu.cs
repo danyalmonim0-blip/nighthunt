@@ -10,16 +10,16 @@ public class MainMenu : MonoBehaviour
 
     public AudioClip ButtonS;
 
-    public GameObject settingspanel;
+    public GameObject settingsPanel;
     public Slider volumeSlider;
 
     private const string VolumeKey = "MasterVolume";
 
     private void Start()
     {
-        if (settingspanel != null)
+        if (settingsPanel != null)
         {
-            settingspanel.SetActive(false);
+            settingsPanel.SetActive(false);
         }
 
         float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
         MenuSource.PlayOneShot(ButtonS);
    
    
-        settingspanel.SetActive(true);
+        settingsPanel.SetActive(true);
         
     }
     public void ExitSettings()
@@ -59,7 +59,7 @@ public class MainMenu : MonoBehaviour
         MenuSource.PlayOneShot(ButtonS);
 
 
-        settingspanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }
     public void ChangeVolume(float value)
     {

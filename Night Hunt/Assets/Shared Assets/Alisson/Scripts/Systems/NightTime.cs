@@ -41,8 +41,6 @@ public class NightTime : MonoBehaviour
                 timeOfNight = 0;
             }
         }
-
-        
     }
 
     void SetSPFalse()

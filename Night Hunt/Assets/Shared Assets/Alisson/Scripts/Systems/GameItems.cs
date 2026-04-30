@@ -174,7 +174,7 @@ public class GameItems : MonoBehaviour
         Dark.SetActive(false);
         LightSwitchOff.SetActive(true);
         LightSwitchS.Play();
-        Debug.Log("light ON");
+        //Debug.Log("light ON");
 
     }
 
@@ -184,7 +184,7 @@ public class GameItems : MonoBehaviour
         Dark.SetActive(true);
         LightSwitchOff.SetActive(false);
         LightSwitchS.Play();
-        Debug.Log("light OFF");
+        //Debug.Log("light OFF");
 
     }
 
@@ -199,7 +199,7 @@ public class GameItems : MonoBehaviour
         Player.Instance.currentFatigue = Player.Instance.currentFatigue + 20f;
         Player.Instance.fatigueLayer = Player.Instance.fatigueLayer - 0.5f;
         Debug.Log(Player.Instance.currentFatigue);
-        Debug.Log("Coffee Drank");
+        //Debug.Log("Coffee Drank");
     }
 
     void DecreasingNVBattery()

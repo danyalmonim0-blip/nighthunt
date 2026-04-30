@@ -11,10 +11,10 @@ public class EnemyBehaviour : MonoBehaviour
    //public Transform[] stage4Spots;      // This is the Danger Stage
 
     // When the object moves from lower to higher stage the size will increase
-    public Vector3 spawnScale = new Vector3(0.2f, 0.2f, 1f);
-    public Vector3 stage1Scale = new Vector3(0.2f, 0.2f, 1f);
-    public Vector3 stage2Scale = new Vector3(0.35f, 0.35f, 1f);
-    public Vector3 stage3Scale = new Vector3(0.5f, 0.5f, 1f);
+    public Vector3 spawnScale = new Vector3(0.35f, 0.35f, 1f);
+    public Vector3 stage1Scale = new Vector3(0.35f, 0.35f, 1f);
+    public Vector3 stage2Scale = new Vector3(0.5f, 0.5f, 1f);
+    public Vector3 stage3Scale = new Vector3(0.8f, 0.8f, 1f);
     //public Vector3 stage4Scale = new Vector3(3f, 3f, 1f);
 
     public float moveSpeed = 5f;
@@ -75,6 +75,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         randomNum = Random.Range(14, 20);
         //Debug.Log(randomNum); 
+        
 
         if (DayCounterManager.Instance.dayCounter >= 0 && DayCounterManager.Instance.dayCounter <= 4)
         {
@@ -85,21 +86,21 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else if (DayCounterManager.Instance.dayCounter >= 5 && DayCounterManager.Instance.dayCounter <= 8)
         {
-            if (randomNum == 14 || randomNum == 15)
+            if (randomNum >= 14 && randomNum <= 15)
             {
                 MoveToNextStage();
             }
         }
         else if (DayCounterManager.Instance.dayCounter >= 9 && DayCounterManager.Instance.dayCounter <= 13)
         {
-            if (randomNum == 14 || randomNum == 15 || randomNum == 16)
+            if (randomNum >= 14 && randomNum <= 16)
             {
                 MoveToNextStage();
             }
         }
         else if (DayCounterManager.Instance.dayCounter >= 14)
         {
-            if (randomNum == 14 || randomNum == 15 || randomNum == 16 || randomNum == 17)
+            if (randomNum >= 14 && randomNum <= 17)
             {
                 MoveToNextStage();
             }

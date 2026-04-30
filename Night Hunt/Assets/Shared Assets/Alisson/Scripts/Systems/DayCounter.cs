@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class DayCounter : ScriptableObject
 {
-    public int dayCounter = 0;
+    public int dayCounter = 1;
 }

@@ -38,7 +38,7 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         buttonPressed = true;
         //MonsterSpawner.Instance.ChangeNPCColorGre();
-        Debug.Log("Color Green");
+        //Debug.Log("Color Green");
 
         ForestCol.color = new Color32(0, 0, 0, 67);
     }
@@ -47,7 +47,7 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         buttonPressed = false;
         //MonsterSpawner.Instance.ChangeNPCColorBla();
-        Debug.Log("Color Black");
+        //Debug.Log("Color Black");
 
         ForestCol.color = new Color32(0, 0, 0, 255);
     }
