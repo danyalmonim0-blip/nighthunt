@@ -44,7 +44,7 @@ public class GameItems : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != null)
+        else
         {
             Destroy(gameObject);
         }
@@ -200,6 +200,9 @@ public class GameItems : MonoBehaviour
         Player.Instance.fatigueLayer = Player.Instance.fatigueLayer - 0.5f;
         Debug.Log(Player.Instance.currentFatigue);
         //Debug.Log("Coffee Drank");
+        Crosshair.Instance.swayAmplitude = Crosshair.Instance.swayAmplitude + 0.5f;
+        Crosshair.Instance.swayFrequency = Crosshair.Instance.swayFrequency + 0.5f;
+
     }
 
     void DecreasingNVBattery()

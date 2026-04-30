@@ -5,6 +5,11 @@ using UnityEngine.EventSystems;
 public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public SpriteRenderer ForestCol;
+    public AudioSource NVSource;
+    private bool isSoundOnPlayed;
+
+    public AudioClip NVSoundOn;
+    public AudioClip NVSoundOff;
 
     public static NVBtn Instance;
     public void Awake()
@@ -41,6 +46,12 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         //Debug.Log("Color Green");
 
         ForestCol.color = new Color32(0, 0, 0, 67);
+        
+        if (!isSoundOnPlayed)
+        {
+            NVSource.PlayOneShot(NVSoundOn);
+            isSoundOnPlayed = true;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -50,5 +61,9 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         //Debug.Log("Color Black");
 
         ForestCol.color = new Color32(0, 0, 0, 255);
+
+        NVSource.PlayOneShot(NVSoundOff);
+
+        isSoundOnPlayed = false;
     }
 }
