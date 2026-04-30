@@ -10,7 +10,7 @@ public class AnimalBehaviour : MonoBehaviour
     public Vector3 spawnScale = new Vector3(0.2f, 0.2f, 1f);
     public Vector3 stage1Scale = new Vector3(0.2f, 0.2f, 1f);
     public Vector3 stage2Scale = new Vector3(0.35f, 0.35f, 1f);
-    public Vector3 stage3Scale = new Vector3(0.5f, 0.5f, 1f);
+    public Vector3 stage3Scale = new Vector3(0.4f, 0.4f, 1f);
 
     public float moveSpeed = 5f;
     public float scaleSpeed = 2f; 

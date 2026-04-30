@@ -119,6 +119,7 @@ public class GameItems : MonoBehaviour
             Debug.Log("Coffee is empty");
         }
 
+        //Night Vision Battery events
         if (currentNVBattery <= 15)
         {
             NVBattery4.SetActive(false);
@@ -139,7 +140,7 @@ public class GameItems : MonoBehaviour
             NVBattery1.SetActive(false);
         }
 
-
+        //Coffee Cups Quantity events
         if (currentCoffeeCups <= 3)
         {
             CoffeeCup4.SetActive(false);

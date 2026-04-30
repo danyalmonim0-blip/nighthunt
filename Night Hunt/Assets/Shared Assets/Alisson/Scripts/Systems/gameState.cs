@@ -62,6 +62,7 @@ public class gameState : MonoBehaviour
         Player.Instance.currentFatigue = Player.Instance.startingFatigue;
         GameItems.Instance.currentLightBattery = GameItems.Instance.startingLightBattery;
         GameItems.Instance.currentNVBattery = GameItems.Instance.startingNVBattery;
+        GameItems.Instance.currentCoffeeCups = GameItems.Instance.startingCoffeeCups;
         Player.Instance.fatigueLayer = 0f;
 
 

@@ -13,7 +13,7 @@ public class WindowClickController : MonoBehaviour
     public GameObject RWBtn;
 
     public GameObject gameItems;
-    //public GameObject nightVision;
+    public GameObject gunHeld;
     public GameObject windowUI;
 
     private bool isZoomed;
@@ -26,7 +26,7 @@ public class WindowClickController : MonoBehaviour
         MWBtn.SetActive(true);
         RWBtn.SetActive(false);
         BBtn.SetActive(false);
-        //nightVision.SetActive(false);
+        gunHeld.SetActive(false);
         gameItems.SetActive(true);
         windowUI.SetActive(false);
     }
@@ -93,7 +93,7 @@ public class WindowClickController : MonoBehaviour
         Invoke("SetCorrectButtons", 0.8f);
         isZoomed = true;
         gameItems.SetActive(false);
-        //nightVision.SetActive(true);
+        gunHeld.SetActive(true);
         windowUI.SetActive(true);
 
     }
@@ -108,7 +108,7 @@ public class WindowClickController : MonoBehaviour
         Invoke("SetCorrectButtons", 0.7f);
         isZoomed = true;
         gameItems.SetActive(false);
-        //nightVision.SetActive(true);
+        gunHeld.SetActive(true);
         windowUI.SetActive(true);
 
     }
@@ -122,7 +122,7 @@ public class WindowClickController : MonoBehaviour
         Invoke("SetCorrectButtons", 0.8f);
         isZoomed = true;
         gameItems.SetActive(false);
-        //nightVision.SetActive(true);
+        gunHeld.SetActive(true);
         windowUI.SetActive(true);
 
     }
@@ -137,7 +137,7 @@ public class WindowClickController : MonoBehaviour
         BBtn.SetActive(false);
         Invoke("SetCorrectButtons", 0.45f);
         gameItems.SetActive(true);
-        //nightVision.SetActive(false);
+        gunHeld.SetActive(false);
         windowUI.SetActive(false);
 
 

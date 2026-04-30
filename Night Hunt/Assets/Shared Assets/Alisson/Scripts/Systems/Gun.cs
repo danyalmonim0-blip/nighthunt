@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour
         if (currentBullets <= 0)
         {
             currentBullets = 0;
-            //display text "reloading"
+            reloadingTxt.SetActive(true);
             Debug.Log("No bullets");
             GunEmpty();
         }
@@ -46,7 +46,6 @@ public class Gun : MonoBehaviour
     {
         isGunEmpty = true;
         gun.color = Color.red;
-
     }
 
     public void ReloadBtn()
@@ -54,6 +53,5 @@ public class Gun : MonoBehaviour
         currentBullets = startingBullets;
         gun.color = Color.white;
         Debug.Log(currentBullets);
-        reloadingTxt.SetActive(true);
     }
 }

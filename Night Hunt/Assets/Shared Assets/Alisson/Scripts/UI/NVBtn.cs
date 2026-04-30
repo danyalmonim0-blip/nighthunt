@@ -23,13 +23,21 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Start()
     {
-        ForestCol = GetComponent<SpriteRenderer>();
+        ForestCol = ForestCol.GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
+        if (GameItems.Instance.currentNVBattery <= 0)
+        {
+            ForestCol.color = new Color32(0, 0, 0, 255);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         buttonPressed = true;
-        MonsterSpawner.Instance.ChangeNPCColorGre();
+        //MonsterSpawner.Instance.ChangeNPCColorGre();
         Debug.Log("Color Green");
 
         ForestCol.color = new Color32(0, 0, 0, 67);
@@ -38,7 +46,7 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         buttonPressed = false;
-        MonsterSpawner.Instance.ChangeNPCColorBla();
+        //MonsterSpawner.Instance.ChangeNPCColorBla();
         Debug.Log("Color Black");
 
         ForestCol.color = new Color32(0, 0, 0, 255);

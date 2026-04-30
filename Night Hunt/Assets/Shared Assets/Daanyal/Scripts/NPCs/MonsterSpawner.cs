@@ -4,7 +4,7 @@ public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private Transform hutMonsterSpawn;
+    [SerializeField] private Transform forestMonsterSpawn;
 
     //[SerializeField] private int maxEnemiesOnScreen = 2;
     [SerializeField] private int activeEnemies = 0;
@@ -95,7 +95,7 @@ public class MonsterSpawner : MonoBehaviour
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform chosenSpawnPoint = spawnPoints[randomIndex];
 
-        newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity, hutMonsterSpawn);
+        newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity, forestMonsterSpawn);
         ClickableTarget clickableTarget = newEnemy.GetComponent<ClickableTarget>();
 
         //newEnemy.GetComponent<GameObject>();
