@@ -116,7 +116,7 @@ public class GameItems : MonoBehaviour
         if (coffeeIsEmpty == true)
         {
             Coffee.GetComponent<Button>().enabled = false;
-            Debug.Log("Coffee is empty");
+            //Debug.Log("Coffee is empty");
         }
 
         //Night Vision Battery events
@@ -200,8 +200,9 @@ public class GameItems : MonoBehaviour
         Player.Instance.fatigueLayer = Player.Instance.fatigueLayer - 0.5f;
         Debug.Log(Player.Instance.currentFatigue);
         //Debug.Log("Coffee Drank");
-        Crosshair.Instance.swayAmplitude = Crosshair.Instance.swayAmplitude + 0.5f;
-        Crosshair.Instance.swayFrequency = Crosshair.Instance.swayFrequency + 0.5f;
+        
+        //Crosshair.Instance.swayAmplitude = Crosshair.Instance.swayAmplitude + 0.5f;
+        //Crosshair.Instance.swayFrequency = Crosshair.Instance.swayFrequency + 0.5f;
 
     }
 

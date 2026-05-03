@@ -12,18 +12,6 @@ public class ClickableTarget : MonoBehaviour
     //public AudioClip AppearS;
     //public AudioClip GunshotS;
 
-    public static ClickableTarget Instance;
-    public void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-    }
     private void Start()
     {
         enemymator = GetComponent<Animator>();
@@ -45,7 +33,7 @@ public class ClickableTarget : MonoBehaviour
         monsterSpawner = null;
     }
 
-    public void OnMouseDown()
+    public void GetShot()
     {
         //EnnemySource.PlayOneShot(GunshotS);
         if (Gun.Instance.isGunEmpty == false)
@@ -71,6 +59,11 @@ public class ClickableTarget : MonoBehaviour
                 if (animalBehaviour != null)
                 {
                     animalBehaviour.MarkAsRemoved();
+                }
+
+                if (MonsterSpawner.Instance != null)
+                {
+                    MonsterSpawner.Instance.SpawnPenaltyMonster();
                 }
             }
 

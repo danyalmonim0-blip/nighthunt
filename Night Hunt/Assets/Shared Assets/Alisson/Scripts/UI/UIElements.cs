@@ -53,7 +53,7 @@ public class UIElements : MonoBehaviour
 
     public void AnimalKilledCountDispay()
     {
-        AnimalKilledDisplay.text = "Animals killed: ";
+        AnimalKilledDisplay.text = "Animals killed: " + AnimalSpawner.Instance.totalAnimalKills;
     }
 
     public void DaysSurvivedDisplay()

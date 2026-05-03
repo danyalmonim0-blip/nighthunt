@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour
         {
             currentBullets = 0;
             reloadingTxt.SetActive(true);
-            Debug.Log("No bullets");
+            //Debug.Log("No bullets");
             GunEmpty();
         }
     }

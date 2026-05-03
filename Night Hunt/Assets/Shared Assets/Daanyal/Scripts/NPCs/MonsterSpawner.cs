@@ -6,7 +6,6 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private Transform forestMonsterSpawn;
 
-    //[SerializeField] private int maxEnemiesOnScreen = 2;
     [SerializeField] private int activeEnemies = 0;
     [SerializeField] public int totalKills = 0;
     [SerializeField] private float timerRand = 3f;
@@ -22,7 +21,7 @@ public class MonsterSpawner : MonoBehaviour
 
     public float randomNum;
     
-    private float timer = 0f;
+    //private float timer = 0f;
 
     public static MonsterSpawner Instance;
     public void Awake()
@@ -38,7 +37,46 @@ public class MonsterSpawner : MonoBehaviour
     }
     private void Start()
     {
-        currentTimerRand = timerRand;
+        currentTimerRand = GetCurrentSpawnInterval();
+    }
+
+    private void Update()
+    {
+        if (gameState.Instance == null || gameState.Instance.isPlaying == false)
+        {
+            return;
+        }
+
+        if (UIElements.Instance.StartingTxtPanel.activeSelf == false)
+        {
+            currentTimerRand -= 1 * Time.deltaTime;
+            if (currentTimerRand <= 0)
+            {
+                RandomNum();
+                currentTimerRand = GetCurrentSpawnInterval();
+            }
+        }
+    }
+
+    public float GetCurrentSpawnInterval()
+    {
+        // Later in the night = faster spawn checks
+        if (NightTime.Instance.timeOfNight >= 90f)
+        {
+            return 1.5f;
+        }
+        else if (NightTime.Instance.timeOfNight >= 60f)
+        {
+            return 2f;
+        }
+        else if (NightTime.Instance.timeOfNight >= 30f)
+        {
+            return 2.5f;
+        }
+        else
+        {
+            return 3f;
+        }
     }
 
     public void RandomNum()
@@ -50,7 +88,7 @@ public class MonsterSpawner : MonoBehaviour
 
         if (DayCounterManager.Instance.dayCounter >= 0 && DayCounterManager.Instance.dayCounter <= 2)
         {
-            Debug.Log("spawn ratio 1");
+            //Debug.Log("spawn ratio 1");
 
             if (randomNum == 1)
             {
@@ -59,7 +97,7 @@ public class MonsterSpawner : MonoBehaviour
         }
         else if (DayCounterManager.Instance.dayCounter >= 3 && DayCounterManager.Instance.dayCounter <= 6)
         {
-            Debug.Log("spawn ratio 1 and 2");
+            //Debug.Log("spawn ratio 1 and 2");
 
             if (randomNum >= 1 && randomNum <= 2)
             {
@@ -68,7 +106,7 @@ public class MonsterSpawner : MonoBehaviour
         }
         else if (DayCounterManager.Instance.dayCounter >= 7 && DayCounterManager.Instance.dayCounter <= 10)
         {
-            Debug.Log("spawn ratio 1 to 3");
+            //Debug.Log("spawn ratio 1 to 3");
 
             if (randomNum >= 1 && randomNum <= 3)
             {
@@ -77,39 +115,16 @@ public class MonsterSpawner : MonoBehaviour
         }
         else if (DayCounterManager.Instance.dayCounter >= 11)
         {
-            Debug.Log("spawn ratio 1 to 4");
+            //Debug.Log("spawn ratio 1 to 4");
 
             if (randomNum >= 1 && randomNum <= 4)
             {
                 SpawnEnemy();
             }
         }
+        //Debug.Log("Night time: " + NightTime.Instance.timeOfNight + " | Spawn interval: " + GetCurrentSpawnInterval() + " | Roll: " + randomNum);
     }
 
-    private void Update()
-    {
-        if (UIElements.Instance.StartingTxtPanel.activeSelf == false)
-        {
-            currentTimerRand -= 1 * Time.deltaTime;
-            if (currentTimerRand <= 0)
-            {
-                RandomNum();
-            }
-        }
-
-        if (NightTime.Instance.timeOfNight <= 90)
-        {
-            currentTimerRand = 2.5f;
-        }
-        else if (NightTime.Instance.timeOfNight <= 60)
-        {
-            currentTimerRand = 2f;
-        }
-        else if (NightTime.Instance.timeOfNight <= 30)
-        {
-            currentTimerRand = 1.5f;
-        }
-    }
 
     public void SpawnEnemy()
     {
@@ -124,7 +139,7 @@ public class MonsterSpawner : MonoBehaviour
         
 
         activeEnemies++;
-        Debug.Log("Enemy spawned. Active enemies: " + activeEnemies);
+        Debug.Log("MONSTER spawned. Active MONSTERS: " + activeEnemies);
 
         if (clickableTarget != null)
         {
@@ -140,6 +155,11 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
+    public void SpawnPenaltyMonster()
+{
+    Debug.Log("PLAYER SHOT AN ANIMAL - penalty monster spawned.");
+    SpawnEnemy();
+}
     public void ChangeNPCColorGre()
     {
         if (activeEnemies > 0)
@@ -168,6 +188,27 @@ public class MonsterSpawner : MonoBehaviour
         }
 
         totalKills++;
-        Debug.Log("Enemy killed. Total kills: " + totalKills);
+        Debug.Log("MONSTER killed. Total kills: " + totalKills);
+    }
+
+    public void ClearAllMonsters()
+    {
+        if (forestMonsterSpawn == null)
+        {
+            return;
+        }
+        for (int i = forestMonsterSpawn.childCount - 1; i >= 0; i--)
+        {
+            Destroy(forestMonsterSpawn.GetChild(i).gameObject);
+        }
+
+        activeEnemies = 0;
+        currentTimerRand = GetCurrentSpawnInterval();
+        Debug.Log("All monsters cleared.");
+    }
+
+    public void ResetMonsterTimer()
+    {
+        currentTimerRand = GetCurrentSpawnInterval();
     }
 }

@@ -26,8 +26,11 @@ public class AnimalBehaviour : MonoBehaviour
     private bool isMoving = false;
     private bool hasBeenRemoved = false;
     private int randomNum;
+    private float spawnTime;
 
-    private Sprite enemyColor;
+    private bool despawnTimerStarted = false;
+
+    //private Sprite enemyColor;
 
     //public DayCounterManager dayCounter;
 
@@ -43,15 +46,22 @@ public class AnimalBehaviour : MonoBehaviour
         transform.localScale = spawnScale;
         targetScale = spawnScale;
         currentTimerRand = timerRand;
-        Invoke(nameof(DisappearAfterTime), 30f);
+        /*spawnTime = Time.time;
+        Debug.Log("Animal spawned at time: " + spawnTime);
+        Invoke(nameof(DisappearAfterTime), 30f);*/
 
-        enemyColor = GetComponent<Sprite>();
+        //enemyColor = GetComponent<Sprite>();
 
        // enemymator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        if (gameState.Instance == null || gameState.Instance.isPlaying == false)
+        {
+            return;
+        }
+        
         if (hasBeenRemoved)
         {
             return;
@@ -123,6 +133,7 @@ public class AnimalBehaviour : MonoBehaviour
             isMoving = false;
 
             Debug.LogWarning("Animal changed position now at stage " + currentStage);
+            Debug.Log("Animal position: " + transform.position + " | Spot position: " + currentTargetSpot.position);
 
             //if (enemymator != null)
             //{
@@ -156,6 +167,16 @@ public class AnimalBehaviour : MonoBehaviour
         targetScale = GetStageScale(chosenStage);
         currentStage = chosenStage;
         isMoving = true;  
+        
+        if (!despawnTimerStarted)
+        {
+            despawnTimerStarted = true;
+            spawnTime = Time.time;
+            Debug.Log("Animal started despawn timer at time: " + spawnTime);
+            Invoke(nameof(DisappearAfterTime), 30f);
+        }
+
+        Debug.LogWarning("Animal moving to stage " + chosenStage + " spot: " + currentTargetSpot.name);
     }
 
     Transform[] GetStageSpotsAnimal(int stageNumber)  
@@ -169,8 +190,7 @@ public class AnimalBehaviour : MonoBehaviour
             case 3:
                 return stage3SpotsAn;
             default:
-                return stage1SpotsAn;
-
+                return null;
         }
     }
 
@@ -199,10 +219,17 @@ public class AnimalBehaviour : MonoBehaviour
         }
 
         hasBeenRemoved = true;
+
+        float livedFor = Time.time - spawnTime;
+        Debug.Log("Animal disappeared after timer. Lived for: " + livedFor + " seconds.");
         
         if (animalSpawner != null)
         {
             animalSpawner.RegisterAnimalDespawn();
+        }
+        else 
+        {
+            Debug.LogWarning("AnimalSpawner reference was null when animal despawned.");
         }
         Destroy(gameObject);
     }
@@ -211,5 +238,6 @@ public class AnimalBehaviour : MonoBehaviour
     {
         hasBeenRemoved = true;
         CancelInvoke(nameof(DisappearAfterTime));
+        Debug.Log("Animal timer cancelled because player removed it.");
     }
 }

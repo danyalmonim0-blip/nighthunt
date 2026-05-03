@@ -35,6 +35,8 @@ public class NightTime : MonoBehaviour
             
             if (timeOfNight >= 120)
             {
+                gameState.Instance.PrepareFreshDay();
+
                 DayCounterManager.Instance.dayCounter++;
                 UIElements.Instance.StartPanel.SetActive(true);
                 Invoke("SetSPFalse", 2f);
@@ -46,5 +48,15 @@ public class NightTime : MonoBehaviour
     void SetSPFalse()
     {
         UIElements.Instance.StartPanel.SetActive(false);
+
+        if (MonsterSpawner.Instance != null)
+        {
+            MonsterSpawner.Instance.ResetMonsterTimer();
+        }
+
+        if (AnimalSpawner.Instance != null)
+        {
+            AnimalSpawner.Instance.ResetAnimalTimer();
+        }
     }
 }
