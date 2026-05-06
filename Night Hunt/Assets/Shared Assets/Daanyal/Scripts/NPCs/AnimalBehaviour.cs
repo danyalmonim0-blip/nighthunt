@@ -34,7 +34,7 @@ public class AnimalBehaviour : MonoBehaviour
 
     //public DayCounterManager dayCounter;
 
-   // private Animator enemymator;
+     private Animator enemymator;
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class AnimalBehaviour : MonoBehaviour
 
         //enemyColor = GetComponent<Sprite>();
 
-       // enemymator = GetComponent<Animator>();
+        enemymator = GetComponent<Animator>();
     }
 
     void Update()
@@ -135,16 +135,16 @@ public class AnimalBehaviour : MonoBehaviour
             Debug.LogWarning("Animal changed position now at stage " + currentStage);
             Debug.Log("Animal position: " + transform.position + " | Spot position: " + currentTargetSpot.position);
 
-            //if (enemymator != null)
-            //{
-            //    enemymator.SetTrigger("Appear");
-            //}
+            if (enemymator != null)
+            {
+                enemymator.SetTrigger("Appear");
+            }
         }
     }
 
     void MoveToNextStageAnimal()
     {
-        //enemymator.SetTrigger("Move");
+        enemymator.SetTrigger("Move");
 
         int chosenStage = Random.Range(1, 4);
         Transform[] chosenStageSpots = GetStageSpotsAnimal(chosenStage);

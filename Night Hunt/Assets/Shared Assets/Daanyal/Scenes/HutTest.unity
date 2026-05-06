@@ -2807,7 +2807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3089bd75e9c404eabaf8a828bb9a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalPrefab: {fileID: 220495771438186849, guid: eece6c9d11561d9418f504a8920485d5, type: 3}
+  animalPrefab: {fileID: 971991135767359772, guid: cd64e205a6ac25c40a5fdde9c9bd9d03, type: 3}
   spawnPoints:
   - {fileID: 635673622}
   hutAnimalSpawn: {fileID: 2107970317}
