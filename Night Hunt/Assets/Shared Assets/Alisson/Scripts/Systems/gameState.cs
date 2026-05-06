@@ -37,6 +37,7 @@ public class gameState : MonoBehaviour
     void Start()
     {
         isPlaying = false;
+        ShiftEvents();
     }
 
     private void Update()
@@ -62,17 +63,17 @@ public class gameState : MonoBehaviour
             {
                 isPlaying = !UIElements.Instance.StartingTxtPanel.activeSelf && !UIElements.Instance.StartPanel.activeSelf && !UIElements.Instance.EndPanel.activeSelf;
             }
-            /*if (UIElements.Instance.StartPanel.activeSelf == true)
+            if (UIElements.Instance.StartPanel.activeSelf == true)
             {
-                isPlaying = false;             idk what is this doing  
+                isPlaying = false;             //idk what is this doing  
             }
-            isPlaying = true;*/
+            isPlaying = true;
         }
 
-        /*if (Player.Instance.playerIsDead == true)
+         if (Player.Instance.playerIsDead == true)
         {
             GameOver();
-        }*/
+        }
     }
 
 
@@ -84,13 +85,9 @@ public class gameState : MonoBehaviour
         GameItems.Instance.currentNVBattery = GameItems.Instance.startingNVBattery;
         GameItems.Instance.currentCoffeeCups = GameItems.Instance.startingCoffeeCups;
         Player.Instance.fatigueLayer = 0f;
+        DayCounterManager.Instance.DisplayingDay();
 
-
-        //currentDayDisplayTimer = dayDisplayTimer;
-    }
-    public void ShiftEnds()
-    {
-
+        //DayCounterManager.Instance.currentDayDisplay;
     }
 
     public void PrepareFreshDay()
@@ -107,7 +104,7 @@ public class gameState : MonoBehaviour
             }
 
             ShiftEvents();
-            Debug.Log("Fresh day prepared. All monsters and animals cleared.");
+            //Debug.Log("Fresh day prepared. All monsters and animals cleared.");
     }
 
     public void GameOver()
@@ -125,8 +122,8 @@ public class gameState : MonoBehaviour
 
         UIElements.Instance.EndPanel.SetActive(true);
 
-        UIElements.Instance.GetComponent<UIElements>().MonsterKilledCountDispay();
-        UIElements.Instance.GetComponent<UIElements>().AnimalKilledCountDispay();
-        UIElements.Instance.GetComponent<UIElements>().DaysSurvivedDisplay();
+        UIElements.Instance.MonsterKilledCountDispay();
+        UIElements.Instance.AnimalKilledCountDispay();
+        UIElements.Instance.DaysSurvivedDisplay();
     }
 }

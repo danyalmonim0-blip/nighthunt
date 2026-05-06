@@ -29,10 +29,10 @@ public class DayCounterManager : MonoBehaviour
 
     private void Start()
     {
+        dayCounter = 1;
         UIElements.Instance.StartPanel.SetActive(true);
         NightTime.Instance.Invoke("SetSPFalse", 2f);
         currentDayDisplayTimer = dayDisplayTimer;
-        dayCounter = 1;
     }
     private void Update()
     {
@@ -42,7 +42,7 @@ public class DayCounterManager : MonoBehaviour
     public void DisplayingDay()
     {
         //currentDayDisplayTimer = dayDisplayTimer;
-
+        //Debug.Log("day displayed");
         dayDisplay.text = "Day " + dayCounter.ToString();
     }
 }

@@ -221,7 +221,7 @@ public class AnimalBehaviour : MonoBehaviour
         hasBeenRemoved = true;
 
         float livedFor = Time.time - spawnTime;
-        Debug.Log("Animal disappeared after timer. Lived for: " + livedFor + " seconds.");
+        //Debug.Log("Animal disappeared after timer. Lived for: " + livedFor + " seconds.");
         
         if (animalSpawner != null)
         {
@@ -229,7 +229,7 @@ public class AnimalBehaviour : MonoBehaviour
         }
         else 
         {
-            Debug.LogWarning("AnimalSpawner reference was null when animal despawned.");
+           // Debug.LogWarning("AnimalSpawner reference was null when animal despawned.");
         }
         Destroy(gameObject);
     }
@@ -238,6 +238,6 @@ public class AnimalBehaviour : MonoBehaviour
     {
         hasBeenRemoved = true;
         CancelInvoke(nameof(DisappearAfterTime));
-        Debug.Log("Animal timer cancelled because player removed it.");
+        //Debug.Log("Animal timer cancelled because player removed it.");
     }
 }

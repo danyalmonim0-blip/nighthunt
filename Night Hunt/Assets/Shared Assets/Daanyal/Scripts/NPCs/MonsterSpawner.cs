@@ -204,7 +204,7 @@ public class MonsterSpawner : MonoBehaviour
 
         activeEnemies = 0;
         currentTimerRand = GetCurrentSpawnInterval();
-        Debug.Log("All monsters cleared.");
+        //Debug.Log("All monsters cleared.");
     }
 
     public void ResetMonsterTimer()
