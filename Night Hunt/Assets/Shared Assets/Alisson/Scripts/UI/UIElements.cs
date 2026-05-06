@@ -44,6 +44,15 @@ public class UIElements : MonoBehaviour
         //{
         //    TimeDisplay.text = NightTime.Instance.timeOfNight;
         //}
+
+        //if (StartingTxtPanel.activeSelf == true)
+        //{
+        //    Time.timeScale = 0f;
+        //}
+        //else
+        //{
+            
+        //}
     }
 
     public void MonsterKilledCountDispay()
@@ -64,13 +73,16 @@ public class UIElements : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Debug.Log("btn clicked");
     }
 
     public void BtnStartingText()
     {
-        StartingTxtPanel.SetActive(false);
+        //StartingTxtPanel.SetActive(false);
         StartPanel.SetActive(true);
         NightTime.Instance.Invoke("SetSPFalse", 2f);
+        Time.timeScale = 1f;
+        Time.timeScale = 1f;
 
         //ShiftEvents();
     }

@@ -108,4 +108,10 @@ public class Player : MonoBehaviour
         currentFatigue -= 1 * Time.deltaTime; //decreasing sanity
         fatigueLayer += 0.025f * Time.deltaTime; //increasing sanity alpha
     }
+
+    public void DrinksCoffee()
+    {
+        currentFatigue = currentFatigue + 20f;
+        fatigueLayer = fatigueLayer - 0.5f;
+    }
 }

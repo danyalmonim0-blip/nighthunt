@@ -90,6 +90,7 @@ public class GameItems : MonoBehaviour
             NightVisionVignette.SetActive(false);
         }
 
+
         //LIGHT BATTERY
         if (lightToggle)
         {
@@ -101,6 +102,7 @@ public class GameItems : MonoBehaviour
             }
         }
 
+
         if (currentNVBattery <= 0)
         {
             currentNVBattery = 0;
@@ -108,7 +110,7 @@ public class GameItems : MonoBehaviour
             NVBatteryIsEmpty = true;
             NVBatteryIsFull = false;
         }
-        else if (currentNVBattery >= 20)
+        else if (currentNVBattery >= 19)
         {
             NVBatteryIsEmpty = false;
             NVBatteryIsFull = true;
@@ -124,10 +126,8 @@ public class GameItems : MonoBehaviour
         {
             NVBatteryIsEmpty = false;
             NVBatteryIsFull = false;
-            Debug.Log("NV is being used"); 
+            //Debug.Log("NV is being used"); 
         }
-        
-
 
 
         if (currentNVBattery <= 15)
@@ -151,7 +151,6 @@ public class GameItems : MonoBehaviour
         }
 
 
-
         if (currentCoffeeCups <= 0)
         {
             coffeeIsEmpty = true;
@@ -169,6 +168,7 @@ public class GameItems : MonoBehaviour
             
             if (coffeeIsFull == true)
             {
+                Coffee.GetComponent<Button>().enabled = true;
                 CoffeeCup4.SetActive(true);
                 CoffeeCup3.SetActive(true);
                 CoffeeCup2.SetActive(true);
@@ -179,7 +179,7 @@ public class GameItems : MonoBehaviour
         {
             coffeeIsFull = false;
             coffeeIsEmpty = false;
-            Debug.Log("coffee is being drinked"); 
+            //Debug.Log("coffee is being drinked"); 
         }
 
 
@@ -251,9 +251,8 @@ public class GameItems : MonoBehaviour
     public void CoffeeBtn()
     {
         currentCoffeeCups--;
-        Player.Instance.currentFatigue = Player.Instance.currentFatigue + 20f;
-        Player.Instance.fatigueLayer = Player.Instance.fatigueLayer - 0.5f;
-        Debug.Log(Player.Instance.currentFatigue);
+        Player.Instance.DrinksCoffee();
+        //Debug.Log(Player.Instance.currentFatigue);
         //Debug.Log("Coffee Drank");
         
         //Crosshair.Instance.swayAmplitude = Crosshair.Instance.swayAmplitude + 0.5f;

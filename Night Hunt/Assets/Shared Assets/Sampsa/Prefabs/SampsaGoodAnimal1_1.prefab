@@ -310,7 +310,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5757828849660244171, guid: 3f26ed22df4f4454c980c68c9b8823f6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -383,6 +383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  AppearS: {fileID: 8300000, guid: 3b2ef5b1a5c68bc41988e85e2f188160, type: 3}
+  GunshotS: {fileID: 8300000, guid: 3108461161aaf4d478ec3b547cd76ca3, type: 3}
 --- !u!61 &1095841040400205912
 BoxCollider2D:
   m_ObjectHideFlags: 0

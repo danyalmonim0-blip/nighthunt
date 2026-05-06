@@ -63,19 +63,19 @@ public class AnimalSpawner : MonoBehaviour
         // Later in the night = faster spawn checks
         if (time >= 90f)
         {
-            return 1.5f;
+            return 3.5f;
         }
         else if (time >= 60f)
         {
-            return 2f;
+            return 4f;
         }
         else if (time >= 30f)
         {
-            return 2.5f;
+            return 4.5f;
         }
         else
         {
-            return 3f;
+            return 5f;
         }
     }
 
