@@ -84,6 +84,11 @@ public class gameState : MonoBehaviour
         GameItems.Instance.currentLightBattery = GameItems.Instance.startingLightBattery;
         GameItems.Instance.currentNVBattery = GameItems.Instance.startingNVBattery;
         GameItems.Instance.currentCoffeeCups = GameItems.Instance.startingCoffeeCups;
+        
+        GameItems.Instance.coffeeIsFull = true;
+        GameItems.Instance.NVBatteryIsFull = true;
+        Gun.Instance.isGunEmpty = false;
+
         Player.Instance.fatigueLayer = 0f;
         DayCounterManager.Instance.DisplayingDay();
 

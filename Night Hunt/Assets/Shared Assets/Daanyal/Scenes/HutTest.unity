@@ -2713,9 +2713,12 @@ MonoBehaviour:
   nightVision: 0
   startingNVBattery: 20
   currentNVBattery: 0
+  NVBatteryIsEmpty: 0
+  NVBatteryIsFull: 0
   startingCoffeeCups: 4
   currentCoffeeCups: 0
   coffeeIsEmpty: 0
+  coffeeIsFull: 0
   Dark: {fileID: 664215632}
   LightBatteryTxt: {fileID: 1431945476}
   NightVisionVignette: {fileID: 1978143721}

@@ -134,10 +134,6 @@ public class MonsterSpawner : MonoBehaviour
         newEnemy = Instantiate(enemyPrefab, chosenSpawnPoint.position, Quaternion.identity, forestMonsterSpawn);
         ClickableTarget clickableTarget = newEnemy.GetComponent<ClickableTarget>();
 
-        //newEnemy.GetComponent<GameObject>();
-
-        
-
         activeEnemies++;
         Debug.Log("MONSTER spawned. Active MONSTERS: " + activeEnemies);
 

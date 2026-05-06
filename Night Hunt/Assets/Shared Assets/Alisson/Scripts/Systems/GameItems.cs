@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using Unity.VisualScripting;
 
 
 public class GameItems : MonoBehaviour
@@ -13,9 +14,12 @@ public class GameItems : MonoBehaviour
     public bool nightVision;
     public float startingNVBattery = 20f;
     public float currentNVBattery;
+    public bool NVBatteryIsEmpty;
+    public bool NVBatteryIsFull;
     public int startingCoffeeCups = 4;
     public int currentCoffeeCups;
     public bool coffeeIsEmpty;
+    public bool coffeeIsFull;
 
     //public bool isNVOn = false;
 
@@ -58,6 +62,10 @@ public class GameItems : MonoBehaviour
         currentNVBattery = startingNVBattery;
         currentCoffeeCups = startingCoffeeCups;
         coffeeIsEmpty = false;
+        coffeeIsFull = true;
+        NVBatteryIsFull = false;
+        NVBatteryIsFull = true;
+
 
     }
 
@@ -97,29 +105,31 @@ public class GameItems : MonoBehaviour
         {
             currentNVBattery = 0;
             NightVisionVignette.SetActive(false);
+            NVBatteryIsEmpty = true;
+            NVBatteryIsFull = false;
         }
-
-        if (Player.Instance.currentFatigue >= 40)
+        else if (currentNVBattery >= 20)
         {
-            Player.Instance.currentFatigue = 40;
+            NVBatteryIsEmpty = false;
+            NVBatteryIsFull = true;
+            if (NVBatteryIsFull == true)
+            {
+                NVBattery4.SetActive(true);
+                NVBattery3.SetActive(true);
+                NVBattery2.SetActive(true);
+                NVBattery1.SetActive(true);
+            }
         }
-        else if (Player.Instance.fatigueLayer <= 0)
+        else
         {
-            Player.Instance.fatigueLayer = 0;
+            NVBatteryIsEmpty = false;
+            NVBatteryIsFull = false;
+            Debug.Log("NV is being used"); 
         }
+        
 
-        if (currentCoffeeCups <= 0)
-        {
-            coffeeIsEmpty = true;
-        }
 
-        if (coffeeIsEmpty == true)
-        {
-            Coffee.GetComponent<Button>().enabled = false;
-            //Debug.Log("Coffee is empty");
-        }
 
-        //Night Vision Battery events
         if (currentNVBattery <= 15)
         {
             NVBattery4.SetActive(false);
@@ -140,6 +150,42 @@ public class GameItems : MonoBehaviour
             NVBattery1.SetActive(false);
         }
 
+
+
+        if (currentCoffeeCups <= 0)
+        {
+            coffeeIsEmpty = true;
+            coffeeIsFull = false;
+
+            if (coffeeIsEmpty == true)
+            {
+                Coffee.GetComponent<Button>().enabled = false;
+            }
+        }
+        else if (currentCoffeeCups >= 4)
+        {
+            coffeeIsFull = true;
+            coffeeIsEmpty = false;
+            
+            if (coffeeIsFull == true)
+            {
+                CoffeeCup4.SetActive(true);
+                CoffeeCup3.SetActive(true);
+                CoffeeCup2.SetActive(true);
+                CoffeeCup1.SetActive(true);
+            }
+        }
+        else
+        {
+            coffeeIsFull = false;
+            coffeeIsEmpty = false;
+            Debug.Log("coffee is being drinked"); 
+        }
+
+
+        //Night Vision Battery events
+        
+
         //Coffee Cups Quantity events
         if (currentCoffeeCups <= 3)
         {
@@ -159,6 +205,15 @@ public class GameItems : MonoBehaviour
         if (currentCoffeeCups <= 0)
         {
             CoffeeCup1.SetActive(false);
+        }
+
+        if (Player.Instance.currentFatigue >= 40)
+        {
+            Player.Instance.currentFatigue = 40;
+        }
+        else if (Player.Instance.fatigueLayer <= 0)
+        {
+            Player.Instance.fatigueLayer = 0;
         }
     }
 
