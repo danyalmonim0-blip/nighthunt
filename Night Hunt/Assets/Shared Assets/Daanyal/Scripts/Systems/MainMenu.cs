@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        //This function is responsible for entering the main game scene.
         SceneManager.LoadScene("HutTest");
 
         MenuSource.PlayOneShot(ButtonS);
@@ -41,37 +42,30 @@ public class MainMenu : MonoBehaviour
 
     public void Quit()
     {
+        //This function is responsible for exiting the game.
         Application.Quit();
-        Debug.Log("the game quits");
         MenuSource.PlayOneShot(ButtonS);
     }
 
     public void OpenSettings()
     {
+        //This function is responsible for entering settings.
         MenuSource.PlayOneShot(ButtonS);
    
-   
-        settingsPanel.SetActive(true);
-        
+        settingsPanel.SetActive(true);   
     }
     public void ExitSettings()
     {
+        //This function is responsible for exiting settings.
         MenuSource.PlayOneShot(ButtonS);
-
 
         settingsPanel.SetActive(false);
     }
     public void ChangeVolume(float value)
     {
+        //This function is responsible for managing the master volume of the game.
         AudioListener.volume = value;
         PlayerPrefs.SetFloat(VolumeKey, value);
         PlayerPrefs.Save();
     }
-
-    /*public void NewGame()
-    {
-        SceneManager.LoadScene("HutTest");
-        //DayCounterManager.Instance.dayCounterNewGame.dayCounter = 0;
-        MenuSource.PlayOneShot(ButtonS);
-    }*/
 }

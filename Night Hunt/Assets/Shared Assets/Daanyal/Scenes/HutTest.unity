@@ -2616,6 +2616,7 @@ MonoBehaviour:
   pausePanel: {fileID: 537889589}
   settingsPanel: {fileID: 1743835506}
   volumeSlider: {fileID: 908658521}
+  isPaused: 0
 --- !u!4 &413404173
 Transform:
   m_ObjectHideFlags: 0
@@ -2864,6 +2865,7 @@ MonoBehaviour:
   activeAnimals: 0
   totalAnimalKills: 0
   currentTimerRand: 0
+  randomNum: 0
   stage1SpotsAn:
   - {fileID: 328640414}
   - {fileID: 798415555}
@@ -2876,7 +2878,6 @@ MonoBehaviour:
   - {fileID: 2016797164}
   - {fileID: 1139573433}
   - {fileID: 62150701}
-  randomNum: 0
 --- !u!114 &429169368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2964,6 +2965,7 @@ MonoBehaviour:
   pausePanel: {fileID: 537889589}
   settingsPanel: {fileID: 1743835506}
   volumeSlider: {fileID: 0}
+  isPaused: 0
 --- !u!1 &440652887
 GameObject:
   m_ObjectHideFlags: 0

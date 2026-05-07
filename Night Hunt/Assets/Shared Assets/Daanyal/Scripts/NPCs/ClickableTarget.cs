@@ -7,18 +7,18 @@ public class ClickableTarget : MonoBehaviour
     public bool isDead = false;
     private Animator enemymator;
 
-    private AudioSource EnnemySource;
+    private AudioSource enemySource;
 
-    public AudioClip AppearS;
-    public AudioClip GunshotS;
+    public AudioClip appearSound;
+    public AudioClip gunShotSound;
 
     private void Start()
     {
         enemymator = GetComponent<Animator>();
 
-        EnnemySource = GetComponent<AudioSource>();
+        enemySource = GetComponent<AudioSource>();
 
-        EnnemySource.PlayOneShot(AppearS);
+        enemySource.PlayOneShot(appearSound);
     }
 
     public void SetMonsterSpawner(MonsterSpawner newSpawner)
@@ -35,14 +35,16 @@ public class ClickableTarget : MonoBehaviour
 
     public void GetShot()
     {
-        EnnemySource.PlayOneShot(GunshotS);
+        enemySource.PlayOneShot(gunShotSound);
+
+        //This function is responsible for killing the Monsters and Animals.
         if (Gun.Instance.isGunEmpty == false)
         {
             if (isDead)
             {
-
                 return;
             }
+            else { }
 
             isDead = true;
 
@@ -50,6 +52,7 @@ public class ClickableTarget : MonoBehaviour
             {
                 monsterSpawner.MonsterKilledCnt();
             }
+            else { }
 
             if (animalSpawner != null)
             {
@@ -60,33 +63,30 @@ public class ClickableTarget : MonoBehaviour
                 {
                     animalBehaviour.MarkAsRemoved();
                 }
+                else { }
 
                 if (MonsterSpawner.Instance != null)
                 {
                     MonsterSpawner.Instance.SpawnPenaltyMonster();
                 }
+                else { }
             }
 
             if (enemymator != null)
             {
                 enemymator.SetTrigger("Died");
             }
+            else { }
 
             Invoke("MakeItDestroyed", 2.5f);
 
             Gun.Instance.currentBullets--;
-            Debug.Log(Gun.Instance.currentBullets);
+            //Debug.Log(Gun.Instance.currentBullets);
         }
-
-        /*if (gameState.Instance.currentTime == 1)
-        {
-            Destroy(gameObject);
-        }*/
     }
 
     void MakeItDestroyed()
     {
         Destroy(gameObject);
-
     }
 }
