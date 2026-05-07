@@ -5,22 +5,15 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 
-
-
 public class gameState : MonoBehaviour
 {
-    string startingText;
-    //public float currentDayDisplayTimer;
-
     public bool isPlaying;
     
     public Player playerHealth;
     public Player currentHealth;
-    public Player playerIsDead;
+    public Player isPlayerDead;
 
-    //public DayCounterManager dayDisplay;
     private bool gameOverHandled = false;
-
 
     public static gameState Instance;
     public void Awake()
@@ -29,34 +22,30 @@ public class gameState : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != null)
+        else
         {
             Destroy(gameObject);
         }
     }
-    void Start()
-    {
-        isPlaying = false;
-        ShiftEvents();
-    }
 
     private void Update()
     {
-        if (Player.Instance != null && Player.Instance.playerIsDead)
+        //Checking if player is alive
+        if (Player.Instance != null && Player.Instance.isPlayerDead)
         {
-            isPlaying = false;
-
             if (!gameOverHandled)
             {
                 GameOver();
                 gameOverHandled = true;
             }
-
-            return;
+        }
+        else
+        {
+            gameOverHandled = false;
         }
 
-        gameOverHandled = false;
 
+        //Welcoming text displaying before first day
         if (UIElements.Instance.StartingTxtPanel.activeSelf == false)
         {
             if (UIElements.Instance != null)
@@ -65,21 +54,22 @@ public class gameState : MonoBehaviour
             }
             if (UIElements.Instance.StartPanel.activeSelf == true)
             {
-                isPlaying = false;             //idk what is this doing  
+                isPlaying = false;             
             }
+            else { }
+
             isPlaying = true;
         }
-
-         if (Player.Instance.playerIsDead == true)
-        {
-            GameOver();
-        }
+        else { } //If Text is null = can make shift start normally here
     }
 
-
-    public void ShiftEvents()
+    //Defines what happened at each shifts
+    public void RunShiftEvents()
     {
+        isPlaying = true;
+
         GameItems.Instance.LightBatteryTxt.SetActive(false);
+
         Player.Instance.currentFatigue = Player.Instance.startingFatigue;
         GameItems.Instance.currentLightBattery = GameItems.Instance.startingLightBattery;
         GameItems.Instance.currentNVBattery = GameItems.Instance.startingNVBattery;
@@ -90,45 +80,49 @@ public class gameState : MonoBehaviour
         Gun.Instance.isGunEmpty = false;
 
         Player.Instance.fatigueLayer = 0f;
-        DayCounterManager.Instance.DisplayingDay();
 
-        //DayCounterManager.Instance.currentDayDisplay;
+        DayCounterManager.Instance.DisplayDay();
     }
 
+    //Clears all the monsters/animals at the end of the shift
     public void PrepareFreshDay()
     {
         isPlaying = false;
+
             if (MonsterSpawner.Instance != null)
             {
                 MonsterSpawner.Instance.ClearAllMonsters();
             }
+            else { }
 
             if (AnimalSpawner.Instance != null)
             {
                 AnimalSpawner.Instance.ClearAllAnimals();
             }
+            else { }
 
-            ShiftEvents();
-            //Debug.Log("Fresh day prepared. All monsters and animals cleared.");
+        RunShiftEvents();
     }
 
+    //Displays GameOver panel and stats
     public void GameOver()
     {
-        isPlaying = false;
-
         if (MonsterSpawner.Instance != null)
         {
             MonsterSpawner.Instance.ClearAllMonsters();
         }
+        else { }
+
         if (AnimalSpawner.Instance != null)
         {
             AnimalSpawner.Instance.ClearAllAnimals();
         }
+        else { }
 
         UIElements.Instance.EndPanel.SetActive(true);
 
-        UIElements.Instance.MonsterKilledCountDispay();
-        UIElements.Instance.AnimalKilledCountDispay();
-        UIElements.Instance.DaysSurvivedDisplay();
+        UIElements.Instance.DisplayMonsterKilledCount();
+        UIElements.Instance.DisplayAnimalKilledCount();
+        UIElements.Instance.DisplayDaysSurvived();
     }
 }

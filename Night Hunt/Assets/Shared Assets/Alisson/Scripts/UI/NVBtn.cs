@@ -12,20 +12,22 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public AudioClip NVSoundOff;
 
     public static NVBtn Instance;
+
     public void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
-        else if (Instance != null)
+        else
         {
             Destroy(gameObject);
         }
     }
 
-    public bool buttonPressed;
+    public bool isButtonPressed;
 
+    //Changes forest opacity
     void Start()
     {
         ForestCol = ForestCol.GetComponent<SpriteRenderer>();
@@ -33,18 +35,18 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Update()
     {
+        //Sets opacity to 255 (full) when nNight Vision battery is 0
         if (GameItems.Instance.currentNVBattery <= 0)
         {
             ForestCol.color = new Color32(0, 0, 0, 255);
         }
+        else { }
     }
 
+    //When clicking (holding) on Night Vision UI: change opacity of forest
     public void OnPointerDown(PointerEventData eventData)
     {
-        buttonPressed = true;
-        //MonsterSpawner.Instance.ChangeNPCColorGre();
-        //Debug.Log("Color Green");
-
+        isButtonPressed = true;
         ForestCol.color = new Color32(0, 0, 0, 67);
         
         if (!isSoundOnPlayed)
@@ -52,18 +54,15 @@ public class NVBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             NVSource.PlayOneShot(NVSoundOn);
             isSoundOnPlayed = true;
         }
+        else { }
     }
 
+    //When realising Night Vision UI: change opacity of forest (full)
     public void OnPointerUp(PointerEventData eventData)
     {
-        buttonPressed = false;
-        //MonsterSpawner.Instance.ChangeNPCColorBla();
-        //Debug.Log("Color Black");
-
+        isButtonPressed = false;
         ForestCol.color = new Color32(0, 0, 0, 255);
-
         NVSource.PlayOneShot(NVSoundOff);
-
         isSoundOnPlayed = false;
     }
 }

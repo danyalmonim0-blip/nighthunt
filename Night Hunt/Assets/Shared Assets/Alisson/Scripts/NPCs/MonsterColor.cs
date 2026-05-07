@@ -19,7 +19,5 @@ public class MonsterColor : MonoBehaviour
     public void MonsterClr()
     {
         GameObject monsterPref = GameObject.Find("SampsaEnemy1_1");
-        //monsterPref.GetComponent<Renderer>().material.color = new Color32(18, 255, 0, 255);
-        //monsterPref.GetComponent<Renderer>().material.color = Color.green;
     }
 }

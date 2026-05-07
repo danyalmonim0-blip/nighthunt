@@ -10,33 +10,34 @@ public class GameItems : MonoBehaviour
     public bool lightToggle;
     public float startingLightBattery = 100f;
     public float currentLightBattery;
-    //public bool coffeeBtn = false;
+    public bool isLightON;
+
     public bool nightVision;
     public float startingNVBattery = 20f;
     public float currentNVBattery;
     public bool NVBatteryIsEmpty;
     public bool NVBatteryIsFull;
+
     public int startingCoffeeCups = 4;
     public int currentCoffeeCups;
     public bool coffeeIsEmpty;
     public bool coffeeIsFull;
 
-    //public bool isNVOn = false;
-
-
     public GameObject Dark;
     public GameObject LightBatteryTxt;
+    public GameObject LightSwitchOff;
+
     public GameObject NightVisionVignette;
-    public GameObject Coffee;
     public GameObject NVBattery1;
     public GameObject NVBattery2;
     public GameObject NVBattery3;
     public GameObject NVBattery4;
+
+    public GameObject Coffee;
     public GameObject CoffeeCup1;
     public GameObject CoffeeCup2;
     public GameObject CoffeeCup3;
     public GameObject CoffeeCup4;
-    public GameObject LightSwitchOff;
 
 
     public AudioSource LightSwitchS;
@@ -55,22 +56,23 @@ public class GameItems : MonoBehaviour
     }
     void Start()
     {
-        //lightToggle = true;
-        LightOffBtn();
+        lightToggle = false;
         currentLightBattery = startingLightBattery;
         LightBatteryTxt.SetActive(false);
+
         currentNVBattery = startingNVBattery;
         currentCoffeeCups = startingCoffeeCups;
+
         coffeeIsEmpty = false;
         coffeeIsFull = true;
+
         NVBatteryIsFull = false;
         NVBatteryIsFull = true;
-
-
     }
 
     void Update()
     {
+        //When time of the night is reaching 0 all the item values are set to their starting value (default value)
         if (NightTime.Instance.timeOfNight <= 0)
         {
             currentLightBattery = startingLightBattery;
@@ -78,11 +80,13 @@ public class GameItems : MonoBehaviour
             currentCoffeeCups = startingCoffeeCups;
             LightOffBtn();
         }
+        else { }
 
-        if (NVBtn.Instance.buttonPressed == true)
+        //Night Vision button
+        if (NVBtn.Instance.isButtonPressed == true)
         {
             NightVisionVignette.SetActive(true);
-            DecreasingNVBattery();
+            DecreaseNVBattery();
             MonsterColor.Instance.GetComponent<MonsterColor>().MonsterClr();
         }
         else
@@ -90,19 +94,29 @@ public class GameItems : MonoBehaviour
             NightVisionVignette.SetActive(false);
         }
 
-
-        //LIGHT BATTERY
-        if (lightToggle)
+        //Light button
+        if (lightToggle == true)
         {
-            DecreasingLightBattery();
-            if (currentLightBattery <= 0)
-            {
-                currentLightBattery = 0;
-                LightBatteryEmpty();
-            }
+            isLightON = true;
+        }
+        else if (lightToggle == false)
+        {
+            isLightON = false;
         }
 
+        //Light battery
+        if (lightToggle)
+        {
+               DecreaseLightBattery();
+            if (currentLightBattery <= 0)
+            {
+               currentLightBattery = 0;
+               LightBatteryEmpty();
+            }
+        }
+            else { }
 
+        //Checks Night Vision battery
         if (currentNVBattery <= 0)
         {
             currentNVBattery = 0;
@@ -116,11 +130,13 @@ public class GameItems : MonoBehaviour
             NVBatteryIsFull = true;
             if (NVBatteryIsFull == true)
             {
+                //Sets back the battery UI when battery is full
                 NVBattery4.SetActive(true);
                 NVBattery3.SetActive(true);
                 NVBattery2.SetActive(true);
                 NVBattery1.SetActive(true);
             }
+            else { }
         }
         else
         {
@@ -129,28 +145,32 @@ public class GameItems : MonoBehaviour
             //Debug.Log("NV is being used"); 
         }
 
-
+        //Hides UI for visible battery state
         if (currentNVBattery <= 15)
         {
             NVBattery4.SetActive(false);
         }
+        else { }
 
         if (currentNVBattery <= 10)
         {
             NVBattery3.SetActive(false);
         }
+        else { }
 
         if (currentNVBattery <= 5)
         {
             NVBattery2.SetActive(false);
         }
+        else { }
 
         if (currentNVBattery <= 0)
         {
             NVBattery1.SetActive(false);
         }
+        else { }
 
-
+        //Checks the state of coffee
         if (currentCoffeeCups <= 0)
         {
             coffeeIsEmpty = true;
@@ -160,20 +180,24 @@ public class GameItems : MonoBehaviour
             {
                 Coffee.GetComponent<Button>().enabled = false;
             }
+            else { }
         }
         else if (currentCoffeeCups >= 4)
         {
             coffeeIsFull = true;
             coffeeIsEmpty = false;
-            
+
             if (coffeeIsFull == true)
             {
                 Coffee.GetComponent<Button>().enabled = true;
+
+                //Sets back the coffee cups UI when coffee is full
                 CoffeeCup4.SetActive(true);
                 CoffeeCup3.SetActive(true);
                 CoffeeCup2.SetActive(true);
                 CoffeeCup1.SetActive(true);
             }
+            else { }
         }
         else
         {
@@ -182,31 +206,32 @@ public class GameItems : MonoBehaviour
             //Debug.Log("coffee is being drinked"); 
         }
 
-
-        //Night Vision Battery events
-        
-
-        //Coffee Cups Quantity events
+        //Hides UI for visible coffee state
         if (currentCoffeeCups <= 3)
         {
             CoffeeCup4.SetActive(false);
         }
+        else { }
 
         if (currentCoffeeCups <= 2)
         {
             CoffeeCup3.SetActive(false);
         }
+        else { }
 
         if (currentCoffeeCups <= 1)
         {
             CoffeeCup2.SetActive(false);
         }
+        else { }
 
         if (currentCoffeeCups <= 0)
         {
             CoffeeCup1.SetActive(false);
         }
+        else { }
 
+        //Prevents fatigue value to go over or under the max or min value
         if (Player.Instance.currentFatigue >= 40)
         {
             Player.Instance.currentFatigue = 40;
@@ -230,7 +255,6 @@ public class GameItems : MonoBehaviour
         LightSwitchOff.SetActive(true);
         LightSwitchS.Play();
         //Debug.Log("light ON");
-
     }
 
     public void LightOffBtn()
@@ -240,10 +264,9 @@ public class GameItems : MonoBehaviour
         LightSwitchOff.SetActive(false);
         LightSwitchS.Play();
         //Debug.Log("light OFF");
-
     }
 
-    void DecreasingLightBattery()
+    void DecreaseLightBattery()
     {
         currentLightBattery -= 1 * Time.deltaTime;
     }
@@ -251,33 +274,13 @@ public class GameItems : MonoBehaviour
     public void CoffeeBtn()
     {
         currentCoffeeCups--;
-        Player.Instance.DrinksCoffee();
+        Player.Instance.DrinkCoffee();
         //Debug.Log(Player.Instance.currentFatigue);
-        //Debug.Log("Coffee Drank");
-        
-        //Crosshair.Instance.swayAmplitude = Crosshair.Instance.swayAmplitude + 0.5f;
-        //Crosshair.Instance.swayFrequency = Crosshair.Instance.swayFrequency + 0.5f;
-
+        //Debug.Log("Drinking Coffee");
     }
 
-    void DecreasingNVBattery()
+    void DecreaseNVBattery()
     {
         currentNVBattery -= 1 * Time.deltaTime;
     }
-
-
-
-    //public void NightVisionBtn()
-    //{
-    //    if (NVBtn.Instance.buttonPressed == false)
-    //    {
-    //        MonsterSpawner.Instance.ChangeNPCColorBla();
-    //        Debug.Log("Color Black");
-    //    }
-    //    else
-    //    {
-    //        MonsterSpawner.Instance.ChangeNPCColorGre();
-    //        Debug.Log("Color Green");
-    //    }
-    //}
 }

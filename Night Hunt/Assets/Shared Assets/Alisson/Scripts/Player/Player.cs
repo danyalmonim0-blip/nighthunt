@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float currentFatigue;
     public float fatigueLayer = 0f;
 
-    [SerializeField] public bool playerIsDead;
+    [SerializeField] public bool isPlayerDead;
 
     public Image Fatigue;
 
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != null)
+        else
         {
             Destroy(gameObject);
         }
@@ -31,85 +31,96 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        playerIsDead = false;
+        isPlayerDead = false;
         playerHealth = 1;
         currentHealth = playerHealth;
         currentFatigue = startingFatigue;
-
     }
 
     void Update()
     {
-        DecreasingFatigueBar();
+        //Defines the boolean isPlaying depending on isPlayerDead
+        if (!isPlayerDead)
+        {
+            gameState.Instance.isPlaying = true;
+        }
+        else
+        {
+            gameState.Instance.isPlaying = false;
+        }
 
+        //Decreases fatigue bar while player is alive
+        DecreaseFatigue();
+
+        //Sets back fatigue to default value when shift is ending & fatigue UI overlay to 0
         if (NightTime.Instance.timeOfNight <= 0)
         {
             currentFatigue = startingFatigue;
             fatigueLayer = 0f;
         }
-
-        Fatigue.color = new Color(1, 1, 1, fatigueLayer);
-
-        //FATIGUE
-        if (!GameItems.Instance.lightToggle)
-        {
-            ////monster spawn more
-            //DecreasingFatigue();
-
-            if (currentFatigue <= 0)
-            {
-                currentFatigue = 0;
-            }
-            else if (fatigueLayer >= 1)
-            {
-                fatigueLayer = 1;
-            }
-        }
         else
         {
-            if (currentFatigue >= 40)
-            {
-                currentFatigue = 40;
-            }
-            else if (fatigueLayer <= 0)
-            {
-                fatigueLayer = 0;
-            }
+            Fatigue.color = new Color(1, 1, 1, fatigueLayer);
         }
-        // lets keep it for testing purposes
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    Die();
-        //}
+
+        //Prevents fatigue from going over or under the max(40) or min(0) value
+        if (currentFatigue <= 0)
+        {
+            currentFatigue = 0;
+        }
+        else if (currentFatigue >= 40)
+        {
+            currentFatigue = 40;
+        }
+        else { }
+
+        //Prevents fatigue overlay from going over or under the max(1) or min(0) value
+        if (fatigueLayer >= 1)
+        {
+            fatigueLayer = 1;
+        }
+        else if (fatigueLayer <= 0)
+        {
+            fatigueLayer = 0;
+        }
+        else { }
     }
 
+    //When player dies, set health to 0
     public void Die()
     {
-        if (playerIsDead)
+        if (isPlayerDead)
         {
             return;
         }
+        else { }
 
         playerHealth = 0;
         currentHealth = 0;
-        playerIsDead = true;
+        isPlayerDead = true;
 
         Debug.Log("Player died.");
     }
 
-    public void IncreasingFatigueBar()
+    //Fatigue increases value starts with 40f (when fatigue decreases it decreases the value until 0)
+    //Fatigue value increases (player has drank coffee)
+    public void IncreaseFatigue()
     {
         currentFatigue += 1 * Time.deltaTime;
-        fatigueLayer -= 0.2f * Time.deltaTime; //decreasing sanity alpha
+        //decreases fatigue opacity
+        fatigueLayer -= 0.2f * Time.deltaTime; 
     }
 
-    public void DecreasingFatigueBar()
+    //Fatigue value decreases (player is getting tired)
+    public void DecreaseFatigue()
     {
-        currentFatigue -= 1 * Time.deltaTime; //decreasing sanity
-        fatigueLayer += 0.025f * Time.deltaTime; //increasing sanity alpha
+        currentFatigue -= 1 * Time.deltaTime;
+        //increases fatigue opacity
+        fatigueLayer += 0.025f * Time.deltaTime; 
     }
 
-    public void DrinksCoffee()
+    //Drinking coffee increases fatigue value and decreases fatigue overlay
+    public void DrinkCoffee()
     {
         currentFatigue = currentFatigue + 20f;
         fatigueLayer = fatigueLayer - 0.5f;

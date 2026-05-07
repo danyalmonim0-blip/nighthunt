@@ -18,7 +18,7 @@ public class Gun : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != null)
+        else
         {
             Destroy(gameObject);
         }
@@ -29,9 +29,9 @@ public class Gun : MonoBehaviour
         reloadingTxt.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Checks if gun is empty and show reloading UI
         if (currentBullets <= 0)
         {
             currentBullets = 0;
@@ -41,12 +41,14 @@ public class Gun : MonoBehaviour
         }
     }
 
+    //Shows empty gun UI
     public void GunEmpty()
     {
         isGunEmpty = true;
         gun.color = Color.red;
     }
 
+    //Reloading button
     public void ReloadBtn()
     {
         currentBullets = startingBullets;

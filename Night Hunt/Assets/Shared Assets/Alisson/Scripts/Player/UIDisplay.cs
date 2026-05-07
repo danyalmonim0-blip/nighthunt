@@ -9,6 +9,4 @@ public class UIDisplay : MonoBehaviour
     {
         dayCount.text = day.dayCount;
     }
-    
-    
 }

@@ -676,7 +676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &116006213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2616,6 +2616,7 @@ MonoBehaviour:
   pausePanel: {fileID: 537889589}
   settingsPanel: {fileID: 1743835506}
   volumeSlider: {fileID: 908658521}
+  isPaused: 0
 --- !u!4 &413404173
 Transform:
   m_ObjectHideFlags: 0
@@ -2707,7 +2708,7 @@ MonoBehaviour:
   isPlaying: 0
   playerHealth: {fileID: 0}
   currentHealth: {fileID: 0}
-  playerIsDead: {fileID: 0}
+  isPlayerDead: {fileID: 0}
 --- !u!4 &429169360
 Transform:
   m_ObjectHideFlags: 0
@@ -2757,6 +2758,7 @@ MonoBehaviour:
   lightToggle: 0
   startingLightBattery: 75
   currentLightBattery: 0
+  isLightON: 0
   nightVision: 0
   startingNVBattery: 20
   currentNVBattery: 0
@@ -2768,17 +2770,17 @@ MonoBehaviour:
   coffeeIsFull: 0
   Dark: {fileID: 664215632}
   LightBatteryTxt: {fileID: 1431945476}
+  LightSwitchOff: {fileID: 992695154}
   NightVisionVignette: {fileID: 1978143721}
-  Coffee: {fileID: 1084841897}
   NVBattery1: {fileID: 610236433}
   NVBattery2: {fileID: 1745560434}
   NVBattery3: {fileID: 1589352652}
   NVBattery4: {fileID: 1204426222}
+  Coffee: {fileID: 1084841897}
   CoffeeCup1: {fileID: 1272577351}
   CoffeeCup2: {fileID: 1037430440}
   CoffeeCup3: {fileID: 332762941}
   CoffeeCup4: {fileID: 1777202536}
-  LightSwitchOff: {fileID: 992695154}
   LightSwitchS: {fileID: 1327222241}
 --- !u!114 &429169363
 MonoBehaviour:
@@ -2964,6 +2966,7 @@ MonoBehaviour:
   pausePanel: {fileID: 537889589}
   settingsPanel: {fileID: 1743835506}
   volumeSlider: {fileID: 0}
+  isPaused: 0
 --- !u!1 &440652887
 GameObject:
   m_ObjectHideFlags: 0
@@ -15806,7 +15809,7 @@ MonoBehaviour:
   NVSource: {fileID: 1883090677}
   NVSoundOn: {fileID: 8300000, guid: 7de6a10ed9787954d9cec0b292a3e9b0, type: 3}
   NVSoundOff: {fileID: 8300000, guid: 09e0087bfb597bb4aab573b32109750f, type: 3}
-  buttonPressed: 0
+  isButtonPressed: 0
 --- !u!212 &1883090676
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class UIElements : MonoBehaviour
 {
-
     public TextMeshProUGUI TimeDisplay;
     public TextMeshProUGUI MonsterKilledDisplay;
     public TextMeshProUGUI AnimalKilledDisplay;
@@ -14,8 +13,7 @@ public class UIElements : MonoBehaviour
     public GameObject EndPanel;
     public GameObject InPanel;
     public GameObject StartingTxtPanel;
-    public GameObject Coffee;
-    //public GameObject Light;
+    //public GameObject Coffee;
 
     public static UIElements Instance;
     public void Awake()
@@ -24,48 +22,32 @@ public class UIElements : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != null)
+        else
         {
             Destroy(gameObject);
         }
     }
 
+    //Managing the UI panels to display or not
     void Start()
     {
-        //Light.SetActive(true);
+        StartPanel.SetActive(false);
+        StartingTxtPanel.SetActive(true);
         InPanel.SetActive(true);
         EndPanel.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //if (NightTime.Instance.timeOfNight == 15)
-        //{
-        //    TimeDisplay.text = NightTime.Instance.timeOfNight;
-        //}
-
-        //if (StartingTxtPanel.activeSelf == true)
-        //{
-        //    Time.timeScale = 0f;
-        //}
-        //else
-        //{
-            
-        //}
-    }
-
-    public void MonsterKilledCountDispay()
+    public void DisplayMonsterKilledCount()
     {
         MonsterKilledDisplay.text = "Monsters killed: " + MonsterSpawner.Instance.totalKills;
     }
 
-    public void AnimalKilledCountDispay()
+    public void DisplayAnimalKilledCount()
     {
         AnimalKilledDisplay.text = "Animals killed: " + AnimalSpawner.Instance.totalAnimalKills;
     }
 
-    public void DaysSurvivedDisplay()
+    public void DisplayDaysSurvived()
     {
         TimeSurvivedDisplay.text = "Days survived: " + DayCounterManager.Instance.dayCounter;
     }
@@ -76,16 +58,13 @@ public class UIElements : MonoBehaviour
         Debug.Log("btn clicked");
     }
 
+    //Hides panel and starts shift after clicking
     public void BtnStartingText()
     {
-        //StartingTxtPanel.SetActive(false);
+        gameState.Instance.RunShiftEvents();
         StartPanel.SetActive(true);
         NightTime.Instance.Invoke("SetSPFalse", 2f);
         Time.timeScale = 1f;
-        Time.timeScale = 1f;
-
-        //ShiftEvents();
+        StartingTxtPanel.SetActive(false);
     }
-
-    
 }

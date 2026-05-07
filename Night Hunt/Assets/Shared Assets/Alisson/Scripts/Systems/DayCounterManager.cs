@@ -4,15 +4,13 @@ using UnityEngine.UI;
 
 public class DayCounterManager : MonoBehaviour
 {
-
     public TextMeshProUGUI dayDisplay;
-    //public DayCounter dayCounterManagerValues;
-    public int dayCounter = 1;
+
+    public int dayCounter;
     public float dayDisplayTimer = 2f;
     public float currentDayDisplayTimer;
 
     public GameObject StartPanel;
-
 
     public static DayCounterManager Instance;
     public void Awake()
@@ -21,12 +19,13 @@ public class DayCounterManager : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != null)
+        else
         {
             Destroy(gameObject);
         }
     }
 
+    //Sets first day to 1 & shows day display panel and invokes SetSPFalse() to disable panel after 2 secs
     private void Start()
     {
         dayCounter = 1;
@@ -34,15 +33,10 @@ public class DayCounterManager : MonoBehaviour
         NightTime.Instance.Invoke("SetSPFalse", 2f);
         currentDayDisplayTimer = dayDisplayTimer;
     }
-    private void Update()
-    {
-        
-    }
 
-    public void DisplayingDay()
+    //Displays text of day
+    public void DisplayDay()
     {
-        //currentDayDisplayTimer = dayDisplayTimer;
-        //Debug.Log("day displayed");
         dayDisplay.text = "Day " + dayCounter.ToString();
     }
 }
