@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-    public int startingBullets = 2;
+    [SerializeField] private int startingBullets = 2;
     public int currentBullets;
     public bool isGunEmpty = false;
 

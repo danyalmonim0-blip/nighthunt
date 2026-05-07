@@ -7,10 +7,9 @@ using Unity.VisualScripting;
 
 public class GameItems : MonoBehaviour
 {
-    public bool lightToggle;
+    [SerializeField] private bool lightToggle;
     public float startingLightBattery = 100f;
     public float currentLightBattery;
-    public bool isLightON;
 
     public bool nightVision;
     public float startingNVBattery = 20f;
@@ -20,12 +19,12 @@ public class GameItems : MonoBehaviour
 
     public int startingCoffeeCups = 4;
     public int currentCoffeeCups;
-    public bool coffeeIsEmpty;
+    [SerializeField] private bool coffeeIsEmpty;
     public bool coffeeIsFull;
 
-    public GameObject Dark;
+    [SerializeField] private GameObject Dark;
     public GameObject LightBatteryTxt;
-    public GameObject LightSwitchOff;
+    [SerializeField] private GameObject LightSwitchOff;
 
     public GameObject NightVisionVignette;
     public GameObject NVBattery1;
@@ -91,16 +90,6 @@ public class GameItems : MonoBehaviour
         else
         {
             NightVisionVignette.SetActive(false);
-        }
-
-        //Light button
-        if (lightToggle == true)
-        {
-            isLightON = true;
-        }
-        else if (lightToggle == false)
-        {
-            isLightON = false;
         }
 
         //Light battery
@@ -239,6 +228,7 @@ public class GameItems : MonoBehaviour
         {
             Player.Instance.fatigueLayer = 0;
         }
+        else { }
     }
 
     void LightBatteryEmpty()

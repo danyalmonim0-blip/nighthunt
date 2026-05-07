@@ -9,9 +9,9 @@ public class gameState : MonoBehaviour
 {
     public bool isPlaying;
     
-    public Player playerHealth;
-    public Player currentHealth;
-    public Player isPlayerDead;
+    private Player playerHealth;
+    private Player currentHealth;
+    private Player isPlayerDead;
 
     private bool gameOverHandled = false;
 

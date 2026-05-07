@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public int playerHealth;
-    public int currentHealth;
+    private int playerHealth;
+    private int currentHealth;
     public float startingFatigue = 40f;
     public float currentFatigue;
     public float fatigueLayer = 0f;
