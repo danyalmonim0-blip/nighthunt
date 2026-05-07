@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class AnimalBehaviour : MonoBehaviour
 {
+    // These are the movement spots where Animal prefab can move.
     public Transform spawnPoint;
     public Transform[] stage1SpotsAn;
     public Transform[] stage2SpotsAn;
     public Transform[] stage3SpotsAn;
 
+    // These are the scales which Animal prefab will use while moving to different stages.
     public Vector3 spawnScale = new Vector3(0.35f, 0.35f, 1f);
     public Vector3 stage1Scale = new Vector3(0.35f, 0.35f, 1f);
     public Vector3 stage2Scale = new Vector3(0.5f, 0.5f, 1f);
@@ -30,10 +32,6 @@ public class AnimalBehaviour : MonoBehaviour
 
     private bool despawnTimerStarted = false;
 
-    //private Sprite enemyColor;
-
-    //public DayCounterManager dayCounter;
-
      private Animator enemymator;
 
     void Start()
@@ -42,16 +40,12 @@ public class AnimalBehaviour : MonoBehaviour
         {
             transform.position = spawnPoint.position;
         }
+        else { }
 
         transform.localScale = spawnScale;
         targetScale = spawnScale;
         currentTimerRand = timerRand;
-        /*spawnTime = Time.time;
-        Debug.Log("Animal spawned at time: " + spawnTime);
-        Invoke(nameof(DisappearAfterTime), 30f);*/
-
-        //enemyColor = GetComponent<Sprite>();
-
+ 
         enemymator = GetComponent<Animator>();
     }
 
@@ -76,15 +70,16 @@ public class AnimalBehaviour : MonoBehaviour
         currentTimerRand -= Time.deltaTime;
         if (currentTimerRand <= 0f)
         {
-            RandomNum();
+            ChooseRandomNum();
             currentTimerRand = timerRand;
         }
+        else { }
     }
 
-    public void RandomNum()
+    public void ChooseRandomNum()
     {
+        // This function enables the behaviour script to randomize the movement of the Animal prefabs and increase the movement ratio as days increase.
         randomNum = Random.Range(21, 27);
-        //Debug.Log(randomNum); 
 
         if (DayCounterManager.Instance.dayCounter >= 0 && DayCounterManager.Instance.dayCounter <= 4)
         {
@@ -92,6 +87,7 @@ public class AnimalBehaviour : MonoBehaviour
             {
                 MoveToNextStageAnimal();
             }
+            else { }
         }
         else if (DayCounterManager.Instance.dayCounter >= 5 && DayCounterManager.Instance.dayCounter <= 8)
         {
@@ -99,6 +95,7 @@ public class AnimalBehaviour : MonoBehaviour
             {
                 MoveToNextStageAnimal();
             }
+            else { }
         }
         else if (DayCounterManager.Instance.dayCounter >= 9 && DayCounterManager.Instance.dayCounter <= 13)
         {
@@ -106,6 +103,7 @@ public class AnimalBehaviour : MonoBehaviour
             {
                 MoveToNextStageAnimal();
             }
+            else { }
         }
         else if (DayCounterManager.Instance.dayCounter >= 14)
         {
@@ -113,11 +111,13 @@ public class AnimalBehaviour : MonoBehaviour
             {
                 MoveToNextStageAnimal();
             }
+            else { }
         }
     }
 
     void MoveAnimal()
     {
+        // This function is responsible for making the Animal prefab move to the designated places using the scales and spots.
         transform.position = Vector3.MoveTowards(transform.position, currentTargetSpot.position, moveSpeed * Time.deltaTime);
 
         transform.localScale = Vector3.MoveTowards(transform.localScale, targetScale, scaleSpeed * Time.deltaTime);
@@ -125,36 +125,31 @@ public class AnimalBehaviour : MonoBehaviour
         bool reachedPostion = Vector3.Distance(transform.position, currentTargetSpot.position) < 0.01f;
         bool reachedScale = Vector3.Distance(transform.localScale, targetScale) < 0.01f;
 
-
         if (reachedPostion && reachedScale)
         {
             transform.position = currentTargetSpot.position;
             transform.localScale = targetScale;
             isMoving = false;
 
-            Debug.LogWarning("Animal changed position now at stage " + currentStage);
-            Debug.Log("Animal position: " + transform.position + " | Spot position: " + currentTargetSpot.position);
+            //Debug.LogWarning("Animal changed position now at stage " + currentStage);
+            //Debug.Log("Animal position: " + transform.position + " | Spot position: " + currentTargetSpot.position);
 
             if (enemymator != null)
             {
                 enemymator.SetTrigger("Appear");
             }
+            else { }
         }
+        else { }
     }
 
     void MoveToNextStageAnimal()
     {
+        //This function is responsible for making the Animal prefab move along in different stages.
         enemymator.SetTrigger("Move");
 
         int chosenStage = Random.Range(1, 4);
         Transform[] chosenStageSpots = GetStageSpotsAnimal(chosenStage);
-
-        //if (chosenStageSpots == null || chosenStageSpots.Length == 0)
-        //{
-        //    Debug.LogWarning("No Spot left " + chosenStage);
-        //    return;
-        //}
-
         Transform chosenSpot = chosenStageSpots[Random.Range(0, chosenStageSpots.Length)];
 
         if (currentTargetSpot != null && chosenSpot == currentTargetSpot && chosenStageSpots.Length > 1)
@@ -162,6 +157,7 @@ public class AnimalBehaviour : MonoBehaviour
             int randomIndex = Random.Range(0, chosenStageSpots.Length);
             chosenSpot = chosenStageSpots[randomIndex];
         }
+        else { }
 
         currentTargetSpot = chosenSpot;
         targetScale = GetStageScale(chosenStage);
@@ -172,15 +168,15 @@ public class AnimalBehaviour : MonoBehaviour
         {
             despawnTimerStarted = true;
             spawnTime = Time.time;
-            Debug.Log("Animal started despawn timer at time: " + spawnTime);
-            Invoke(nameof(DisappearAfterTime), 30f);
+            Invoke(nameof(DisappearAfterTime), 30f);    
         }
-
-        Debug.LogWarning("Animal moving to stage " + chosenStage + " spot: " + currentTargetSpot.name);
+        else { }
+        //Debug.LogWarning("Animal moving to stage " + chosenStage + " spot: " + currentTargetSpot.name);
     }
 
     Transform[] GetStageSpotsAnimal(int stageNumber)  
     {
+        //This statement makes the Monster prefab move along the stages in a random way.
         switch (stageNumber)
         {
             case 1:
@@ -198,6 +194,7 @@ public class AnimalBehaviour : MonoBehaviour
     {
         switch (stageNumber)
         {
+            //This makes the Monster prefab to change the scales while moving to stages.
             case 0:
                 return spawnScale;
             case 1:
@@ -217,19 +214,20 @@ public class AnimalBehaviour : MonoBehaviour
         {
             return;
         }
+        else { }
 
-        hasBeenRemoved = true;
+            hasBeenRemoved = true;
 
         float livedFor = Time.time - spawnTime;
         //Debug.Log("Animal disappeared after timer. Lived for: " + livedFor + " seconds.");
-        
+
         if (animalSpawner != null)
         {
             animalSpawner.RegisterAnimalDespawn();
         }
         else 
         {
-           // Debug.LogWarning("AnimalSpawner reference was null when animal despawned.");
+           Debug.LogWarning("AnimalSpawner reference was null when animal despawned.");
         }
         Destroy(gameObject);
     }

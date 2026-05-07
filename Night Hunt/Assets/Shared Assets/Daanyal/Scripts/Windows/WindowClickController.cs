@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class WindowClickController : MonoBehaviour
 {
+    //This script is the main Point-N-Click function of the game and contains access to all the buttons inside the hut including windows
     public Animator HutMator;
 
     public GameObject LBtn;
@@ -18,7 +19,7 @@ public class WindowClickController : MonoBehaviour
 
     private bool isZoomed;
 
-    private int HutPos = 1; // 0 = left, 1 = mid, 2 = right;
+    private int HutPos = 1;
 
     void Start()
     {
@@ -30,7 +31,6 @@ public class WindowClickController : MonoBehaviour
         gameItems.SetActive(true);
         windowUI.SetActive(false);
     }
-
 
     void Update()
     {
@@ -50,7 +50,8 @@ public class WindowClickController : MonoBehaviour
             HutMator.SetBool("isRZ", false);
             HutMator.SetBool("isRight", true);
         }
-        LBtn.SetActive(false);
+        else { }
+            LBtn.SetActive(false);
         RBtn.SetActive(false);
         LWBtn.SetActive(false);
         MWBtn.SetActive(false);
@@ -74,7 +75,8 @@ public class WindowClickController : MonoBehaviour
             HutMator.SetBool("isLZ", false);
             HutMator.SetBool("isLeft", true);
         }
-        LBtn.SetActive(false);
+        else { }
+            LBtn.SetActive(false);
         RBtn.SetActive(false);
         LWBtn.SetActive(false);
         MWBtn.SetActive(false);
@@ -129,7 +131,6 @@ public class WindowClickController : MonoBehaviour
 
     public void isBPressed()
     {
-
         HutMator.SetBool("isRZ", false);
         HutMator.SetBool("isMZ", false);
         HutMator.SetBool("isLZ", false);
@@ -139,8 +140,6 @@ public class WindowClickController : MonoBehaviour
         gameItems.SetActive(true);
         gunHeld.SetActive(false);
         windowUI.SetActive(false);
-
-
     }
 
     void SetCorrectButtons()
@@ -164,7 +163,7 @@ public class WindowClickController : MonoBehaviour
         else if (isZoomed)
         {
             BBtn.SetActive(true);
-
         }
+        else { }
     }
 }

@@ -8,17 +8,14 @@ public class AnimalSpawner : MonoBehaviour
 
     [SerializeField] private int activeAnimals = 0;
     [SerializeField] public int totalAnimalKills = 0;
-    //[SerializeField] private float timerRand = 3f;
     [SerializeField] private float currentTimerRand;
 
+    public float randomNum;
 
-
+    // These are the movement spots where Animal prefab can move.
     public Transform[] stage1SpotsAn;
     public Transform[] stage2SpotsAn;
     public Transform[] stage3SpotsAn;
-
-    public float randomNum;
-    //private float timer = 0f;
 
     public static AnimalSpawner Instance;
 
@@ -44,23 +41,25 @@ public class AnimalSpawner : MonoBehaviour
         {
             return;
         }
+        else { }
 
         if (UIElements.Instance.StartingTxtPanel.activeSelf == false)
         {
             currentTimerRand -= 1 * Time.deltaTime;
             if (currentTimerRand <= 0)
             {
-                RandomNum();
+                ChooseRandomNum();
                 currentTimerRand = GetCurrentAnimalSpawnInterval();
             }
         }
+        else { }
     }
 
     public float GetCurrentAnimalSpawnInterval()
     {
+        //This function is responsible for increasing the spawn ratio within the day as night time increases.
         float time = NightTime.Instance.timeOfNight;
 
-        // Later in the night = faster spawn checks
         if (time >= 90f)
         {
             return 3.5f;
@@ -79,12 +78,10 @@ public class AnimalSpawner : MonoBehaviour
         }
     }
 
-    public void RandomNum()
+    public void ChooseRandomNum()
     {
+        //This function enables the spawner to randomize the spawn ratio of the Animal prefab as days increase.
         randomNum = Random.Range(1, 13);
-        //Debug.Log(randomNum);
-
-        //int day = DayCounterManager.Instance.dayCounter;
 
         if (DayCounterManager.Instance.dayCounter >= 0 && DayCounterManager.Instance.dayCounter <= 2)
         {
@@ -92,6 +89,7 @@ public class AnimalSpawner : MonoBehaviour
             {
                 SpawnAnimal();
             }
+            else { }
         }
         else if (DayCounterManager.Instance.dayCounter >= 3 && DayCounterManager.Instance.dayCounter <= 6)
         {
@@ -99,6 +97,7 @@ public class AnimalSpawner : MonoBehaviour
             {
                 SpawnAnimal();
             }
+            else { }
         }
         else if (DayCounterManager.Instance.dayCounter >= 7 && DayCounterManager.Instance.dayCounter <= 10)
         {
@@ -106,6 +105,7 @@ public class AnimalSpawner : MonoBehaviour
             {
                 SpawnAnimal();
             }
+            else { }
         }
         else if (DayCounterManager.Instance.dayCounter >= 11)
         {
@@ -113,6 +113,7 @@ public class AnimalSpawner : MonoBehaviour
             {
                 SpawnAnimal();
             }
+            else { }
         }
 
         //Debug.Log("Night time: " + NightTime.Instance.timeOfNight + " | Spawn interval: " + GetCurrentAnimalSpawnInterval() + " | Roll: " + randomNum);
@@ -120,21 +121,21 @@ public class AnimalSpawner : MonoBehaviour
 
     public void SpawnAnimal()
     {
-
+        //This function is resposnible for creating Animal prefab clones on dedicated spawn points.
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform chosenSpawnPoint = spawnPoints[randomIndex];
-
         GameObject newAnimal = Instantiate(animalPrefab, chosenSpawnPoint.position, Quaternion.identity, hutAnimalSpawn);
-
         activeAnimals++;
-        Debug.Log("Animal spawned. Active Animals: " + activeAnimals);
 
         ClickableTarget clickableTarget = newAnimal.GetComponent<ClickableTarget>();
         if (clickableTarget != null)
         {
             clickableTarget.SetAnimalSpawner(this);
         }
-        AnimalBehaviour animalBehaviour = newAnimal.GetComponent<AnimalBehaviour>();
+        else { }
+
+            //This statement imports movement stages from the Animal behaviour.
+            AnimalBehaviour animalBehaviour = newAnimal.GetComponent<AnimalBehaviour>();
         if (animalBehaviour != null)
         {
             animalBehaviour.spawnPoint = chosenSpawnPoint;
@@ -149,45 +150,39 @@ public class AnimalSpawner : MonoBehaviour
         }
     }
 
-    /*public void AnimalKilledCnt()
+    public void RegisterAnimalKilled()
     {
         activeAnimals--;
+
 
         if (activeAnimals < 0)
         {
             activeAnimals = 0;
+
+
         }
+        else { }
 
-        totalKills++;
-        Debug.Log("Enemy killed. Total kills: " + totalKills);
-    }*/
-
-    public void RegisterAnimalKilled()
-            {
-                activeAnimals--;
-
-                if (activeAnimals < 0)
-                {
-                    activeAnimals = 0;
-                }
-
-                totalAnimalKills++;
-                Debug.Log("Animal killed. Total animal kills: " + totalAnimalKills);
-            }
+        totalAnimalKills++;
+        //Debug.Log("Animal killed. Total animal kills: " + totalAnimalKills);
+    }
 
     public void RegisterAnimalDespawn()
     {
+        //This function is responsible for removing the Animal prefab from these scene after some time.
         activeAnimals--;
 
         if (activeAnimals < 0)
         {
             activeAnimals = 0;
         }
-        Debug.LogAssertion("Animal disappeard after 30 sec");
+        else { }
+        //Debug.Log("Animal disappeard after 30 sec");
     }
 
     public void ClearAllAnimals()
     {
+        //This function removes all Animal prefabs from the scene at a new day.
         if (hutAnimalSpawn == null)
         {
             return;
@@ -198,8 +193,6 @@ public class AnimalSpawner : MonoBehaviour
         }
         activeAnimals = 0;
         currentTimerRand = GetCurrentAnimalSpawnInterval();
-
-        Debug.Log("All animals cleared.");
     }
 
     public void ResetAnimalTimer()
